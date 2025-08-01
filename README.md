@@ -4,10 +4,10 @@ The paper and the code are coming soon ~~~
 
 # TODO List
 
-√ release the model structure
+x release the model structure
 
-√ release the training code
+x release the training code
 
-× release the pretrained weight
+x release the pretrained weight
 
-× release the dataset
+x release the dataset
