@@ -1,0 +1,1 @@
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)

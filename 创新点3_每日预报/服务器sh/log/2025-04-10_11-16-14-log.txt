@@ -1,0 +1,145 @@
+D:\Anaconda\envs\LLM\python.exe E:/conda_code_tf/LLM/LLM_VIT/创新点整理版本/创新点3_每日预报/服务器sh/00sh_daily_all.py
+2025-04-10 11:16:14.094268 十点到达，开始执行脚本
+=================================第一步先获取AR信息插入到数据库，并且标记是否够60以内=================================
+2025 04 10
+=================================第二步循环遍历当天活动区ID，获取10维特征=================================
+NOAAIDList: ['14059', '14058', '14054', '14057', '14048', '14056', '14055', '14046']
+WARNING:root:2025-04-09 00:00:00的14059活动区磁图数量为0,无法下载，下载返回数据为{'count': 0, 'runtime': 0.074, 'status': 0}。
+WARNING:root:2025-04-09 00:00:00的14059活动区磁图数量为0,无法下载，下载返回数据为{'count': 0, 'runtime': 0.076, 'status': 0}。
+响应结果 <Response [200]>
+14059 不足，插入特征完成 插入3条
+WARNING:root:2025-04-09 00:00:00的14058活动区磁图数量为0,无法下载，下载返回数据为{'count': 0, 'runtime': 0.056, 'status': 0}。
+WARNING:root:2025-04-09 00:00:00的14058活动区磁图数量为0,无法下载，下载返回数据为{'count': 0, 'runtime': 0.077, 'status': 0}。
+响应结果 <Response [200]>
+14058 不足，插入特征完成 插入3条
+响应结果 <Response [200]>
+14054 不足，插入特征完成 插入77条
+响应结果 <Response [200]>
+14057 不足，插入特征完成 插入77条
+响应结果 <Response [200]>
+14048 不足，插入特征完成 插入77条
+ERROR:root:发生错误，HTTPConnectionPool(host='jsoc.stanford.edu', port=80): Max retries exceeded with url: /cgi-bin/ajax/jsocextinfo?ds=hmi.sharp_cea_720s_nrt%5B%5D%5B2025.04.09%2F1d%5D%5B%3F+NOAA_ARS+~+%2214056%22++%3F%5D%7Bmagnetogram%7D&op=rs_list&key=T_REC%2CHARPNUM%2CNOAA_NUM%2CNOAA_ARS%2CTOTUSJH%2CTOTPOT%2CTOTUSJZ%2CABSNJZH%2CSAVNCPP%2CUSFLUX%2CAREA_ACR%2CMEANPOT%2CR_VALUE%2CSHRGT45&seg=magnetogram&link=%2A%2ANONE%2A%2A&R=1&userhandle=20230831_00004_1681003066593&dbhost=hmidb2 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000026543F29550>: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。'))，下载2025-04-09 00:00:00的14056活动区发生错误
+Traceback (most recent call last):
+  File "D:\Anaconda\envs\LLM\lib\site-packages\urllib3\connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+  File "D:\Anaconda\envs\LLM\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "D:\Anaconda\envs\LLM\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Anaconda\envs\LLM\lib\site-packages\urllib3\connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "D:\Anaconda\envs\LLM\lib\site-packages\urllib3\connectionpool.py", line 495, in _make_request
+    conn.request(
+  File "D:\Anaconda\envs\LLM\lib\site-packages\urllib3\connection.py", line 398, in request
+    self.endheaders()
+  File "D:\Anaconda\envs\LLM\lib\http\client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\Anaconda\envs\LLM\lib\http\client.py", line 1011, in _send_output
+    self.send(msg)
+  File "D:\Anaconda\envs\LLM\lib\http\client.py", line 951, in send
+    self.connect()
+  File "D:\Anaconda\envs\LLM\lib\site-packages\urllib3\connection.py", line 236, in connect
+    self.sock = self._new_conn()
+  File "D:\Anaconda\envs\LLM\lib\site-packages\urllib3\connection.py", line 211, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000026543F29550>: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Anaconda\envs\LLM\lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "D:\Anaconda\envs\LLM\lib\site-packages\urllib3\connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "D:\Anaconda\envs\LLM\lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='jsoc.stanford.edu', port=80): Max retries exceeded with url: /cgi-bin/ajax/jsocextinfo?ds=hmi.sharp_cea_720s_nrt%5B%5D%5B2025.04.09%2F1d%5D%5B%3F+NOAA_ARS+~+%2214056%22++%3F%5D%7Bmagnetogram%7D&op=rs_list&key=T_REC%2CHARPNUM%2CNOAA_NUM%2CNOAA_ARS%2CTOTUSJH%2CTOTPOT%2CTOTUSJZ%2CABSNJZH%2CSAVNCPP%2CUSFLUX%2CAREA_ACR%2CMEANPOT%2CR_VALUE%2CSHRGT45&seg=magnetogram&link=%2A%2ANONE%2A%2A&R=1&userhandle=20230831_00004_1681003066593&dbhost=hmidb2 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000026543F29550>: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\conda_code_tf\LLM\LLM_VIT\创新点整理版本\创新点3_每日预报\服务器sh\pymysql_util.py", line 575, in sharp_image_simple_download
+    res = requests.get(download_url, params=download_param, timeout=90)
+  File "D:\Anaconda\envs\LLM\lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "D:\Anaconda\envs\LLM\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\Anaconda\envs\LLM\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Anaconda\envs\LLM\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Anaconda\envs\LLM\lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='jsoc.stanford.edu', port=80): Max retries exceeded with url: /cgi-bin/ajax/jsocextinfo?ds=hmi.sharp_cea_720s_nrt%5B%5D%5B2025.04.09%2F1d%5D%5B%3F+NOAA_ARS+~+%2214056%22++%3F%5D%7Bmagnetogram%7D&op=rs_list&key=T_REC%2CHARPNUM%2CNOAA_NUM%2CNOAA_ARS%2CTOTUSJH%2CTOTPOT%2CTOTUSJZ%2CABSNJZH%2CSAVNCPP%2CUSFLUX%2CAREA_ACR%2CMEANPOT%2CR_VALUE%2CSHRGT45&seg=magnetogram&link=%2A%2ANONE%2A%2A&R=1&userhandle=20230831_00004_1681003066593&dbhost=hmidb2 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000026543F29550>: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。'))
+14056 不足，插入特征完成 插入-999条
+响应结果 <Response [200]>
+14055 不足，插入特征完成 插入77条
+响应结果 <Response [200]>
+14046 不足，插入特征完成 插入67条
+=================================第三步,根据留下来的10维度特征，去判断他们当时使用的活动区ID是否合法，生成今天需要使用的NOAAARS=================================
+=================================第三步,这个时候最后一列还没有更新，目前最后一列仅用于筛选是否提取出啦120个特征=================================
+T_REC_base 20250409
+{'14054': {'14054'}, '14057': {'14057'}, '14048,14053': {'14048'}, '14055': {'14055'}, '14046': {'14046'}}
+=================================第四步,爬取Event插入到数据库，但是每日预报虽然预报今天发生，但是只能拿到今天数据填充=================================
+=================================第五步,依次读取每一张图数据，单个或者多个活动区数据，整理，进行模型推理=================================
+14054 False
+Data 14054-LLM_VIT-TSS inserted successfully
+14057 False
+Data 14057-LLM_VIT-TSS inserted successfully
+14048 False
+Data 14048,14053-LLM_VIT-TSS inserted successfully
+14055 False
+Data 14055-LLM_VIT-TSS inserted successfully
+14046 False
+Data 14046-LLM_VIT-TSS inserted successfully
+***************************************************************************************************************************************
+2025-04-10 11:16:14.094268 操作结束
+***************************************************************************************************************************************
+
+Process finished with exit code 0
+
+
+2025-04-10 11:16:14.094268 十点到达，开始执行脚本
+=================================第一步先获取AR信息插入到数据库，并且标记是否够60以内=================================
+2025 04 10
+=================================第二步循环遍历当天活动区ID，获取10维特征=================================
+NOAAIDList: ['14059', '14058', '14054', '14057', '14048', '14056', '14055', '14046']
+响应结果 <Response [200]>
+14059 不足，插入特征完成 插入3条
+响应结果 <Response [200]>
+14058 不足，插入特征完成 插入3条
+响应结果 <Response [200]>
+14054 不足，插入特征完成 插入77条
+响应结果 <Response [200]>
+14057 不足，插入特征完成 插入77条
+响应结果 <Response [200]>
+14048 不足，插入特征完成 插入77条
+14056 不足，插入特征完成 插入-999条
+响应结果 <Response [200]>
+14055 不足，插入特征完成 插入77条
+响应结果 <Response [200]>
+14046 不足，插入特征完成 插入67条
+=================================第三步,根据留下来的10维度特征，去判断他们当时使用的活动区ID是否合法，生成今天需要使用的NOAAARS=================================
+=================================第三步,这个时候最后一列还没有更新，目前最后一列仅用于筛选是否提取出啦120个特征=================================
+T_REC_base 20250409
+{'14054': {'14054'}, '14057': {'14057'}, '14048,14053': {'14048'}, '14055': {'14055'}, '14046': {'14046'}}
+=================================第四步,爬取Event插入到数据库，但是每日预报虽然预报今天发生，但是只能拿到今天数据填充=================================
+=================================第五步,依次读取每一张图数据，单个或者多个活动区数据，整理，进行模型推理=================================
+14054 False
+Data 14054-LLM_VIT-TSS inserted successfully
+14057 False
+Data 14057-LLM_VIT-TSS inserted successfully
+14048 False
+Data 14048,14053-LLM_VIT-TSS inserted successfully
+14055 False
+Data 14055-LLM_VIT-TSS inserted successfully
+14046 False
+Data 14046-LLM_VIT-TSS inserted successfully
+***************************************************************************************************************************************
+2025-04-10 11:16:14.094268 操作结束
+***************************************************************************************************************************************

@@ -1,0 +1,725 @@
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/1Train.csv每一类的数量是: [15640, 2160]
+../../../data/1Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/1Val.csv每一类的数量是: [6640, 880]
+../../../data/1Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/1Test.csv每一类的数量是: [5600, 1400]
+../../../data/1Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+train_x.shape : (445, 40, 10) 
+train_y.shape : (445,) 
+validate_x.shape : (188, 40, 10) 
+validate_y.shape : (188,) 
+test_x.shape : (175, 40, 10) 
+test_y.shape : (175,) 
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=80, epochs=200, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=2, num_hidden_layers=4, num_layers=2, optim='Adam', print=0, seed=2021)
+====================数据集1测试集轮评估数据=============================================
+正类的预期值: -1.1068756580352783
+Computing SHAP values for sample 0...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(0)-([[0.78828865 0.2117113 ]]).png
+Computing SHAP values for sample 1...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(1)-([[0.62737113 0.37262887]]).png
+Computing SHAP values for sample 2...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(2)-([[0.69167095 0.3083291 ]]).png
+Computing SHAP values for sample 3...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(3)-([[0.4055461  0.59445393]]).png
+Computing SHAP values for sample 4...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(4)-([[0.36979818 0.6302019 ]]).png
+Computing SHAP values for sample 5...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(5)-([[0.26921558 0.7307843 ]]).png
+Computing SHAP values for sample 6...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(6)-([[0.13961764 0.8603823 ]]).png
+Computing SHAP values for sample 7...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(7)-([[0.6728743 0.3271257]]).png
+Computing SHAP values for sample 8...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(8)-([[0.7139553  0.28604472]]).png
+Computing SHAP values for sample 9...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(9)-([[0.51340693 0.48659295]]).png
+Computing SHAP values for sample 10...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(10)-([[0.51279324 0.4872068 ]]).png
+Computing SHAP values for sample 11...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(11)-([[0.3350241 0.6649759]]).png
+Computing SHAP values for sample 12...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(12)-([[0.6125066  0.38749328]]).png
+Computing SHAP values for sample 13...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(13)-([[0.67516804 0.32483196]]).png
+Computing SHAP values for sample 14...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(14)-([[0.48487002 0.5151299 ]]).png
+Computing SHAP values for sample 15...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(15)-([[0.6149098  0.38509023]]).png
+Computing SHAP values for sample 16...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(16)-([[0.50933    0.49067008]]).png
+Computing SHAP values for sample 17...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(17)-([[0.68670595 0.31329405]]).png
+Computing SHAP values for sample 18...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(18)-([[0.50603986 0.4939601 ]]).png
+Computing SHAP values for sample 19...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(19)-([[0.57690924 0.4230907 ]]).png
+Computing SHAP values for sample 20...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(20)-([[0.6854157  0.31458434]]).png
+Computing SHAP values for sample 21...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(21)-([[0.38791037 0.61208963]]).png
+Computing SHAP values for sample 22...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(22)-([[0.6075907  0.39240927]]).png
+Computing SHAP values for sample 23...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(23)-([[0.55553925 0.4444607 ]]).png
+Computing SHAP values for sample 24...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(24)-([[0.19314528 0.8068547 ]]).png
+Computing SHAP values for sample 25...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(25)-([[0.69513655 0.30486345]]).png
+Computing SHAP values for sample 26...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(26)-([[0.6197896 0.3802104]]).png
+Computing SHAP values for sample 27...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(27)-([[0.8938282  0.10617179]]).png
+Computing SHAP values for sample 28...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(28)-([[0.6033829  0.39661708]]).png
+Computing SHAP values for sample 29...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(29)-([[0.75891316 0.24108689]]).png
+Computing SHAP values for sample 30...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(30)-([[0.7313187 0.2686812]]).png
+Computing SHAP values for sample 31...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(31)-([[0.6864219 0.3135781]]).png
+Computing SHAP values for sample 32...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(32)-([[0.58791953 0.4120805 ]]).png
+Computing SHAP values for sample 33...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(33)-([[0.5289777  0.47102222]]).png
+Computing SHAP values for sample 34...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(34)-([[0.76066333 0.23933664]]).png
+Computing SHAP values for sample 35...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(35)-([[0.6608175  0.33918253]]).png
+Computing SHAP values for sample 36...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(36)-([[0.5879591  0.41204077]]).png
+Computing SHAP values for sample 37...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(37)-([[0.6539987  0.34600136]]).png
+Computing SHAP values for sample 38...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(38)-([[0.85110676 0.14889324]]).png
+Computing SHAP values for sample 39...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(39)-([[0.4348477 0.5651522]]).png
+Computing SHAP values for sample 40...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(40)-([[0.59784746 0.4021525 ]]).png
+Computing SHAP values for sample 41...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(41)-([[0.6754201  0.32457992]]).png
+Computing SHAP values for sample 42...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(42)-([[0.7802845 0.2197154]]).png
+Computing SHAP values for sample 43...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(43)-([[0.56303257 0.4369674 ]]).png
+Computing SHAP values for sample 44...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(44)-([[0.5701797 0.4298203]]).png
+Computing SHAP values for sample 45...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(45)-([[0.5617536  0.43824634]]).png
+Computing SHAP values for sample 46...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(46)-([[0.24621108 0.7537889 ]]).png
+Computing SHAP values for sample 47...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(47)-([[0.63310623 0.36689377]]).png
+Computing SHAP values for sample 48...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(48)-([[0.7791132  0.22088681]]).png
+Computing SHAP values for sample 49...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(49)-([[0.54828906 0.4517109 ]]).png
+Computing SHAP values for sample 50...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(50)-([[0.56956613 0.43043396]]).png
+Computing SHAP values for sample 51...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(51)-([[0.4677597 0.5322404]]).png
+Computing SHAP values for sample 52...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(52)-([[0.69693905 0.30306092]]).png
+Computing SHAP values for sample 53...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(53)-([[0.7059234  0.29407665]]).png
+Computing SHAP values for sample 54...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(54)-([[0.61659485 0.3834051 ]]).png
+Computing SHAP values for sample 55...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(55)-([[0.5671472  0.43285275]]).png
+Computing SHAP values for sample 56...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(56)-([[0.25620702 0.743793  ]]).png
+Computing SHAP values for sample 57...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(57)-([[0.65138495 0.34861505]]).png
+Computing SHAP values for sample 58...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(58)-([[0.4935134 0.5064866]]).png
+Computing SHAP values for sample 59...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(59)-([[0.03298284 0.9670172 ]]).png
+Computing SHAP values for sample 60...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(60)-([[0.38369808 0.6163019 ]]).png
+Computing SHAP values for sample 61...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(61)-([[0.6294673  0.37053272]]).png
+Computing SHAP values for sample 62...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(62)-([[0.12145748 0.8785426 ]]).png
+Computing SHAP values for sample 63...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(63)-([[0.5830646  0.41693535]]).png
+Computing SHAP values for sample 64...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(64)-([[0.0023294 0.9976706]]).png
+Computing SHAP values for sample 65...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(65)-([[0.07714503 0.92285496]]).png
+Computing SHAP values for sample 66...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(66)-([[0.46551037 0.53448963]]).png
+Computing SHAP values for sample 67...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(67)-([[0.14688276 0.8531173 ]]).png
+Computing SHAP values for sample 68...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(68)-([[0.08391552 0.9160844 ]]).png
+Computing SHAP values for sample 69...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(69)-([[0.20815241 0.7918475 ]]).png
+Computing SHAP values for sample 70...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(70)-([[0.4684587 0.5315413]]).png
+Computing SHAP values for sample 71...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(71)-([[0.0400493  0.95995075]]).png
+Computing SHAP values for sample 72...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(72)-([[0.1904204 0.8095796]]).png
+Computing SHAP values for sample 73...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(73)-([[0.33980614 0.66019386]]).png
+Computing SHAP values for sample 74...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(74)-([[0.18514605 0.814854  ]]).png
+Computing SHAP values for sample 75...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(75)-([[0.37542492 0.624575  ]]).png
+Computing SHAP values for sample 76...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(76)-([[0.23832399 0.76167595]]).png
+Computing SHAP values for sample 77...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(77)-([[0.19715479 0.8028452 ]]).png
+Computing SHAP values for sample 78...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(78)-([[0.17640732 0.8235927 ]]).png
+Computing SHAP values for sample 79...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(79)-([[0.2945568 0.7054432]]).png
+Computing SHAP values for sample 80...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(80)-([[0.44717836 0.55282164]]).png
+Computing SHAP values for sample 81...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(81)-([[0.47737607 0.5226239 ]]).png
+Computing SHAP values for sample 82...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(82)-([[0.1367204 0.8632795]]).png
+Computing SHAP values for sample 83...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(83)-([[0.5769115  0.42308852]]).png
+Computing SHAP values for sample 84...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(84)-([[0.24461652 0.7553835 ]]).png
+Computing SHAP values for sample 85...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(85)-([[0.1943901 0.8056099]]).png
+Computing SHAP values for sample 86...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(86)-([[0.2984584  0.70154154]]).png
+Computing SHAP values for sample 87...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(87)-([[0.45697653 0.54302347]]).png
+Computing SHAP values for sample 88...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(88)-([[0.18874937 0.81125057]]).png
+Computing SHAP values for sample 89...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(89)-([[0.71240824 0.28759164]]).png
+Computing SHAP values for sample 90...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(90)-([[0.85042435 0.1495756 ]]).png
+Computing SHAP values for sample 91...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(91)-([[0.7969267  0.20307335]]).png
+Computing SHAP values for sample 92...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(92)-([[0.7229423  0.27705768]]).png
+Computing SHAP values for sample 93...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(93)-([[0.88859165 0.11140835]]).png
+Computing SHAP values for sample 94...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(94)-([[0.5415152 0.4584848]]).png
+Computing SHAP values for sample 95...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(95)-([[0.80655867 0.19344133]]).png
+Computing SHAP values for sample 96...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(96)-([[0.7987407  0.20125926]]).png
+Computing SHAP values for sample 97...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(97)-([[0.6986637  0.30133623]]).png
+Computing SHAP values for sample 98...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(98)-([[0.6287567  0.37124327]]).png
+Computing SHAP values for sample 99...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(99)-([[0.5600202  0.43997976]]).png
+Computing SHAP values for sample 100...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(100)-([[0.789783   0.21021701]]).png
+Computing SHAP values for sample 101...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(101)-([[0.56055474 0.4394452 ]]).png
+Computing SHAP values for sample 102...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(102)-([[0.8458849  0.15411508]]).png
+Computing SHAP values for sample 103...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(103)-([[0.70862067 0.29137933]]).png
+Computing SHAP values for sample 104...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(104)-([[0.86362565 0.13637428]]).png
+Computing SHAP values for sample 105...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(105)-([[0.8930318  0.10696822]]).png
+Computing SHAP values for sample 106...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(106)-([[0.84279126 0.15720868]]).png
+Computing SHAP values for sample 107...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(107)-([[0.8696437  0.13035631]]).png
+Computing SHAP values for sample 108...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(108)-([[0.8655807  0.13441937]]).png
+Computing SHAP values for sample 109...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(109)-([[0.6905758  0.30942422]]).png
+Computing SHAP values for sample 110...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(110)-([[0.6149399  0.38506007]]).png
+Computing SHAP values for sample 111...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(111)-([[0.8597062  0.14029373]]).png
+Computing SHAP values for sample 112...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(112)-([[0.7235859  0.27641407]]).png
+Computing SHAP values for sample 113...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(113)-([[0.8357467  0.16425332]]).png
+Computing SHAP values for sample 114...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(114)-([[0.77578276 0.22421713]]).png
+Computing SHAP values for sample 115...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(115)-([[0.8084237  0.19157627]]).png
+Computing SHAP values for sample 116...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(116)-([[0.7435802 0.2564198]]).png
+Computing SHAP values for sample 117...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(117)-([[0.7964219  0.20357811]]).png
+Computing SHAP values for sample 118...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(118)-([[0.60872364 0.3912764 ]]).png
+Computing SHAP values for sample 119...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(119)-([[0.8323131  0.16768694]]).png
+Computing SHAP values for sample 120...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(120)-([[0.792413   0.20758703]]).png
+Computing SHAP values for sample 121...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(121)-([[0.87904674 0.12095325]]).png
+Computing SHAP values for sample 122...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(122)-([[0.8530229  0.14697713]]).png
+Computing SHAP values for sample 123...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(123)-([[0.69090086 0.30909917]]).png
+Computing SHAP values for sample 124...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(124)-([[0.7442024  0.25579756]]).png
+Computing SHAP values for sample 125...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(125)-([[0.7808554  0.21914454]]).png
+Computing SHAP values for sample 126...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(126)-([[0.87805486 0.1219451 ]]).png
+Computing SHAP values for sample 127...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(127)-([[0.73839295 0.261607  ]]).png
+Computing SHAP values for sample 128...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(128)-([[0.746201  0.2537991]]).png
+Computing SHAP values for sample 129...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(129)-([[0.84858155 0.15141843]]).png
+Computing SHAP values for sample 130...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(130)-([[0.87456185 0.1254382 ]]).png
+Computing SHAP values for sample 131...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(131)-([[0.8729046  0.12709539]]).png
+Computing SHAP values for sample 132...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(132)-([[0.7986998  0.20130011]]).png
+Computing SHAP values for sample 133...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(133)-([[0.6337931  0.36620682]]).png
+Computing SHAP values for sample 134...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(134)-([[0.8189383  0.18106179]]).png
+Computing SHAP values for sample 135...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(135)-([[0.80299175 0.19700833]]).png
+Computing SHAP values for sample 136...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(136)-([[0.8854615  0.11453848]]).png
+Computing SHAP values for sample 137...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(137)-([[0.7928127 0.2071874]]).png
+Computing SHAP values for sample 138...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(138)-([[0.7695581  0.23044197]]).png
+Computing SHAP values for sample 139...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(139)-([[0.65455496 0.34544504]]).png
+Computing SHAP values for sample 140...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(140)-([[0.76162857 0.23837143]]).png
+Computing SHAP values for sample 141...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(141)-([[0.7489117  0.25108826]]).png
+Computing SHAP values for sample 142...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(142)-([[0.74087733 0.25912258]]).png
+Computing SHAP values for sample 143...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(143)-([[0.840507   0.15949306]]).png
+Computing SHAP values for sample 144...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(144)-([[0.84435296 0.15564707]]).png
+Computing SHAP values for sample 145...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(145)-([[0.854375   0.14562498]]).png
+Computing SHAP values for sample 146...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(146)-([[0.78552777 0.21447228]]).png
+Computing SHAP values for sample 147...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(147)-([[0.8436309  0.15636912]]).png
+Computing SHAP values for sample 148...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(148)-([[0.6182389  0.38176104]]).png
+Computing SHAP values for sample 149...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(149)-([[0.9035236  0.09647635]]).png
+Computing SHAP values for sample 150...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(150)-([[0.89240503 0.10759497]]).png
+Computing SHAP values for sample 151...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(151)-([[0.8968626 0.1031374]]).png
+Computing SHAP values for sample 152...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(152)-([[0.41514724 0.5848528 ]]).png
+Computing SHAP values for sample 153...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(153)-([[0.643958 0.356042]]).png
+Computing SHAP values for sample 154...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(154)-([[0.6532014  0.34679857]]).png
+Computing SHAP values for sample 155...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(155)-([[0.8096646  0.19033533]]).png
+Computing SHAP values for sample 156...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(156)-([[0.8741349  0.12586519]]).png
+Computing SHAP values for sample 157...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(157)-([[0.82534546 0.17465462]]).png
+Computing SHAP values for sample 158...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(158)-([[0.8806856 0.1193144]]).png
+Computing SHAP values for sample 159...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(159)-([[0.80230415 0.19769576]]).png
+Computing SHAP values for sample 160...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(160)-([[0.8329221  0.16707791]]).png
+Computing SHAP values for sample 161...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(161)-([[0.8797052  0.12029482]]).png
+Computing SHAP values for sample 162...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(162)-([[0.81459713 0.18540272]]).png
+Computing SHAP values for sample 163...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(163)-([[0.70394593 0.2960541 ]]).png
+Computing SHAP values for sample 164...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(164)-([[0.77746785 0.2225321 ]]).png
+Computing SHAP values for sample 165...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(165)-([[0.8613731  0.13862681]]).png
+Computing SHAP values for sample 166...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(166)-([[0.66268253 0.3373175 ]]).png
+Computing SHAP values for sample 167...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(167)-([[0.7525747  0.24742529]]).png
+Computing SHAP values for sample 168...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(168)-([[0.82309586 0.1769041 ]]).png
+Computing SHAP values for sample 169...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(169)-([[0.42966062 0.5703393 ]]).png
+Computing SHAP values for sample 170...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(170)-([[0.00597545 0.9940246 ]]).png
+Computing SHAP values for sample 171...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(171)-([[0.00730486 0.9926951 ]]).png
+Computing SHAP values for sample 172...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(172)-([[0.05231356 0.9476865 ]]).png
+Computing SHAP values for sample 173...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(173)-([[0.17162086 0.8283792 ]]).png
+Computing SHAP values for sample 174...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-summary_plot-1(174)-([[0.0619947 0.9380054]]).png

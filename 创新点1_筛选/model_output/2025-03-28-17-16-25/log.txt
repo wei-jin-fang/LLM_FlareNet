@@ -1,0 +1,24 @@
+Namespace(batch_size=16, cuda=True, datasetname='data筛选', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+./data筛选/0Test.csv每一类的数量是: [3640, 800]
+./data筛选/0Test.csvget_Class函数得到的的权重： [0.6098901098901099, 2.775]
+./data筛选/0Test.csv每一类的数量是: [3640, 800]
+./data筛选/0Test.csvget_Class函数得到的的权重： [0.6098901098901099, 2.775]
+./data筛选/0Test.csv每一类的数量是: [3640, 800]
+./data筛选/0Test.csvget_Class函数得到的的权重： [0.6098901098901099, 2.775]
+(4440, 10)
+(111, 40, 10)
+(4440, 1)
+(111,)
+(4440, 1)
+(111,)
+(4440, 1)
+(111,)
+train_x.shape : (111, 40, 10) 
+train_y.shape : (111,) 
+validate_x.shape : (111, 40, 10) 
+validate_y.shape : (111,) 
+test_x.shape : (111, 40, 10) 
+test_y.shape : (111,) 
+zero: 0.6098901098901099
+zero: 2.775
+{0.0: 0.6098901098901099, 1.0: 2.775}

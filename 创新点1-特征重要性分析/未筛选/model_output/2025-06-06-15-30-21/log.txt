@@ -1,0 +1,33 @@
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/3Train.csv每一类的数量是: [15640, 2160]
+../../../data/3Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/3Val.csv每一类的数量是: [6640, 880]
+../../../data/3Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/3Test.csv每一类的数量是: [5600, 1400]
+../../../data/3Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+train_x.shape : (445, 40, 10) 
+train_y.shape : (445,) 
+validate_x.shape : (188, 40, 10) 
+validate_y.shape : (188,) 
+test_x.shape : (175, 40, 10) 
+test_y.shape : (175,) 
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=80, epochs=200, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=2, num_hidden_layers=4, num_layers=2, optim='Adam', print=0, seed=2021)
+====================数据集3测试集轮评估数据=============================================
+正类的预期值: -1.0928174257278442
+模型输出（正类 logits）: -1.8252525329589844
+正在计算样本 28 的 SHAP 值...
+SHAP 值形状: (2, 1, 40, 10)
+SHAP 值之和: -0.7422674161452023
+==============验证=======================基线值 + SHAP 值之和: -1.8350848418730465
+==============验证=======================模型实际输出（正类）: -1.8252525329589844
+==============验证=======================预测概率（基线值 + SHAP 值）: 0.1376336373574562
+==============验证=======================模型输出概率: 0.13880480712990664

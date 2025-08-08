@@ -1,0 +1,161 @@
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='NN', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/1Train.csv每一类的数量是: [15640, 2160]
+../../../data/1Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/1Val.csv每一类的数量是: [6640, 880]
+../../../data/1Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/1Test.csv每一类的数量是: [5600, 1400]
+../../../data/1Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+train_x.shape : (17800, 10) 
+train_y.shape : (17800,) 
+validate_x.shape : (7520, 10) 
+validate_y.shape : (7520,) 
+test_x.shape : (7000, 10) 
+test_y.shape : (7000,) 
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+====================数据集1测试集轮评估数据=============================================
+正类的预期值: 0.38503172993659973
+样本 6965 的模型输出 (nowprob): [[0.2600172  0.73998284]]
+Computing SHAP values for sample 6965...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6965)-([[0.2600172  0.73998284]]).png
+样本 6966 的模型输出 (nowprob): [[0.2600431 0.7399569]]
+Computing SHAP values for sample 6966...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6966)-([[0.2600431 0.7399569]]).png
+样本 6967 的模型输出 (nowprob): [[0.25947216 0.7405278 ]]
+Computing SHAP values for sample 6967...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6967)-([[0.25947216 0.7405278 ]]).png
+样本 6968 的模型输出 (nowprob): [[0.26866814 0.7313319 ]]
+Computing SHAP values for sample 6968...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6968)-([[0.26866814 0.7313319 ]]).png
+样本 6969 的模型输出 (nowprob): [[0.25130478 0.74869525]]
+Computing SHAP values for sample 6969...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6969)-([[0.25130478 0.74869525]]).png
+样本 6970 的模型输出 (nowprob): [[0.23786376 0.7621363 ]]
+Computing SHAP values for sample 6970...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6970)-([[0.23786376 0.7621363 ]]).png
+样本 6971 的模型输出 (nowprob): [[0.23525128 0.7647487 ]]
+Computing SHAP values for sample 6971...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6971)-([[0.23525128 0.7647487 ]]).png
+样本 6972 的模型输出 (nowprob): [[0.23284712 0.7671529 ]]
+Computing SHAP values for sample 6972...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6972)-([[0.23284712 0.7671529 ]]).png
+样本 6973 的模型输出 (nowprob): [[0.22824767 0.7717523 ]]
+Computing SHAP values for sample 6973...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6973)-([[0.22824767 0.7717523 ]]).png
+样本 6974 的模型输出 (nowprob): [[0.24071133 0.75928867]]
+Computing SHAP values for sample 6974...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6974)-([[0.24071133 0.75928867]]).png
+样本 6975 的模型输出 (nowprob): [[0.22967383 0.7703262 ]]
+Computing SHAP values for sample 6975...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6975)-([[0.22967383 0.7703262 ]]).png
+样本 6976 的模型输出 (nowprob): [[0.24417308 0.75582695]]
+Computing SHAP values for sample 6976...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6976)-([[0.24417308 0.75582695]]).png
+样本 6977 的模型输出 (nowprob): [[0.2322601 0.76774  ]]
+Computing SHAP values for sample 6977...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6977)-([[0.2322601 0.76774  ]]).png
+样本 6978 的模型输出 (nowprob): [[0.22232082 0.77767926]]
+Computing SHAP values for sample 6978...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6978)-([[0.22232082 0.77767926]]).png
+样本 6979 的模型输出 (nowprob): [[0.2249859  0.77501416]]
+Computing SHAP values for sample 6979...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6979)-([[0.2249859  0.77501416]]).png
+样本 6980 的模型输出 (nowprob): [[0.2350065 0.7649935]]
+Computing SHAP values for sample 6980...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6980)-([[0.2350065 0.7649935]]).png
+样本 6981 的模型输出 (nowprob): [[0.21943471 0.7805653 ]]
+Computing SHAP values for sample 6981...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6981)-([[0.21943471 0.7805653 ]]).png
+样本 6982 的模型输出 (nowprob): [[0.22541209 0.7745879 ]]
+Computing SHAP values for sample 6982...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6982)-([[0.22541209 0.7745879 ]]).png
+样本 6983 的模型输出 (nowprob): [[0.22971414 0.7702859 ]]
+Computing SHAP values for sample 6983...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6983)-([[0.22971414 0.7702859 ]]).png
+样本 6984 的模型输出 (nowprob): [[0.22267297 0.777327  ]]
+Computing SHAP values for sample 6984...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6984)-([[0.22267297 0.777327  ]]).png
+样本 6985 的模型输出 (nowprob): [[0.22345178 0.77654827]]
+Computing SHAP values for sample 6985...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6985)-([[0.22345178 0.77654827]]).png
+样本 6986 的模型输出 (nowprob): [[0.23947401 0.76052606]]
+Computing SHAP values for sample 6986...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6986)-([[0.23947401 0.76052606]]).png
+样本 6987 的模型输出 (nowprob): [[0.24201508 0.75798494]]
+Computing SHAP values for sample 6987...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6987)-([[0.24201508 0.75798494]]).png
+样本 6988 的模型输出 (nowprob): [[0.21916501 0.78083503]]
+Computing SHAP values for sample 6988...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6988)-([[0.21916501 0.78083503]]).png
+样本 6989 的模型输出 (nowprob): [[0.21937875 0.7806213 ]]
+Computing SHAP values for sample 6989...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6989)-([[0.21937875 0.7806213 ]]).png
+样本 6990 的模型输出 (nowprob): [[0.21607062 0.7839294 ]]
+Computing SHAP values for sample 6990...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6990)-([[0.21607062 0.7839294 ]]).png
+样本 6991 的模型输出 (nowprob): [[0.22165783 0.77834225]]
+Computing SHAP values for sample 6991...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6991)-([[0.22165783 0.77834225]]).png
+样本 6992 的模型输出 (nowprob): [[0.21421067 0.7857894 ]]
+Computing SHAP values for sample 6992...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6992)-([[0.21421067 0.7857894 ]]).png
+样本 6993 的模型输出 (nowprob): [[0.2139697 0.7860303]]
+Computing SHAP values for sample 6993...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6993)-([[0.2139697 0.7860303]]).png
+样本 6994 的模型输出 (nowprob): [[0.22446874 0.77553123]]
+Computing SHAP values for sample 6994...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6994)-([[0.22446874 0.77553123]]).png
+样本 6995 的模型输出 (nowprob): [[0.22547954 0.77452046]]
+Computing SHAP values for sample 6995...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6995)-([[0.22547954 0.77452046]]).png
+样本 6996 的模型输出 (nowprob): [[0.21442989 0.7855701 ]]
+Computing SHAP values for sample 6996...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6996)-([[0.21442989 0.7855701 ]]).png
+样本 6997 的模型输出 (nowprob): [[0.2014506 0.7985494]]
+Computing SHAP values for sample 6997...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6997)-([[0.2014506 0.7985494]]).png
+样本 6998 的模型输出 (nowprob): [[0.22875224 0.77124774]]
+Computing SHAP values for sample 6998...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6998)-([[0.22875224 0.77124774]]).png
+样本 6999 的模型输出 (nowprob): [[0.20702349 0.7929765 ]]
+Computing SHAP values for sample 6999...
+SHAP values shape: (2, 1, 10)
+图像已保存至 ./NN/waterfall-NN-positive_class-1-summary_plot-1(6999)-([[0.20702349 0.7929765 ]]).png
+样本 7000 的模型输出 (nowprob): []
+Computing SHAP values for sample 7000...
+SHAP values shape: (2, 0, 10)

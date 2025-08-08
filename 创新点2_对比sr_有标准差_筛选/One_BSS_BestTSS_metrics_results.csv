@@ -1,0 +1,9 @@
+,Threshold,Metric,Class 1 Mean_Std,Class 2 Mean_Std
+0,Threshold 0.4,Accuracy,0.95_0.035,0.95_0.035
+1,Threshold 0.4,Recall,0.946_0.041,0.987_0.037
+2,Threshold 0.4,Precision,0.998_0.004,0.726_0.179
+3,Threshold 0.4,TSS,0.933_0.041,0.933_0.041
+4,Threshold 0.4,BSS,0.065_0.018,0.3_0.196
+5,Threshold 0.4,HSS,0.796_0.129,0.796_0.129
+6,Threshold 0.4,FAR,0.001_0.004,0.273_0.179
+7,Threshold 0.4,FPR,0.012_0.037,0.053_0.041

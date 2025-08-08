@@ -1,0 +1,1544 @@
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/3Train.csv每一类的数量是: [15640, 2160]
+../../../data/3Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/3Val.csv每一类的数量是: [6640, 880]
+../../../data/3Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/3Test.csv每一类的数量是: [5600, 1400]
+../../../data/3Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+train_x.shape : (445, 40, 10) 
+train_y.shape : (445,) 
+validate_x.shape : (188, 40, 10) 
+validate_y.shape : (188,) 
+test_x.shape : (175, 40, 10) 
+test_y.shape : (175,) 
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=80, epochs=200, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=2, num_hidden_layers=4, num_layers=2, optim='Adam', print=0, seed=2021)
+====================数据集3测试集轮评估数据=============================================
+正类的预期值: -1.0928174257278442
+Computing SHAP values for sample 0...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-0-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-1-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-2-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-3-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-4-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-5-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-6-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-7-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-8-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-9-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-10-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-11-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-12-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-13-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-14-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-15-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-16-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-17-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-18-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-19-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-20-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-21-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-22-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-23-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-24-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-25-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-26-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-27-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-28-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-29-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-30-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-31-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-32-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-33-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-34-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-35-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-36-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-37-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-38-([[-0.7221334  -0.66497767]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-0-timestep-39-([[-0.7221334  -0.66497767]]).png
+Computing SHAP values for sample 1...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-0-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-1-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-2-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-3-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-4-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-5-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-6-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-7-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-8-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-9-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-10-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-11-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-12-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-13-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-14-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-15-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-16-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-17-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-18-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-19-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-20-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-21-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-22-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-23-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-24-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-25-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-26-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-27-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-28-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-29-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-30-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-31-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-32-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-33-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-34-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-35-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-36-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-37-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-38-([[-0.3641214 -1.1868105]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-1-timestep-39-([[-0.3641214 -1.1868105]]).png
+Computing SHAP values for sample 2...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-0-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-1-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-2-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-3-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-4-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-5-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-6-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-7-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-8-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-9-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-10-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-11-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-12-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-13-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-14-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-15-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-16-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-17-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-18-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-19-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-20-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-21-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-22-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-23-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-24-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-25-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-26-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-27-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-28-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-29-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-30-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-31-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-32-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-33-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-34-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-35-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-36-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-37-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-38-([[-0.5171833 -0.9068295]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-2-timestep-39-([[-0.5171833 -0.9068295]]).png
+Computing SHAP values for sample 3...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-0-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-1-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-2-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-3-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-4-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-5-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-6-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-7-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-8-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-9-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-10-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-11-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-12-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-13-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-14-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-15-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-16-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-17-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-18-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-19-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-20-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-21-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-22-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-23-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-24-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-25-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-26-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-27-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-28-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-29-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-30-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-31-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-32-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-33-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-34-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-35-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-36-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-37-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-38-([[-0.5940788 -0.8031204]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-3-timestep-39-([[-0.5940788 -0.8031204]]).png
+Computing SHAP values for sample 4...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-0-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-1-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-2-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-3-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-4-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-5-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-6-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-7-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-8-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-9-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-10-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-11-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-12-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-13-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-14-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-15-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-16-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-17-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-18-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-19-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-20-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-21-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-22-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-23-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-24-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-25-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-26-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-27-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-28-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-29-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-30-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-31-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-32-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-33-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-34-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-35-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-36-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-37-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-38-([[-0.562464  -0.8435129]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-4-timestep-39-([[-0.562464  -0.8435129]]).png
+Computing SHAP values for sample 5...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-0-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-1-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-2-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-3-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-4-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-5-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-6-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-7-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-8-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-9-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-10-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-11-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-12-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-13-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-14-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-15-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-16-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-17-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-18-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-19-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-20-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-21-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-22-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-23-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-24-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-25-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-26-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-27-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-28-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-29-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-30-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-31-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-32-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-33-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-34-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-35-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-36-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-37-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-38-([[-0.6174744 -0.7750187]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-5-timestep-39-([[-0.6174744 -0.7750187]]).png
+Computing SHAP values for sample 6...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-0-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-1-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-2-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-3-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-4-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-5-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-6-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-7-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-8-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-9-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-10-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-11-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-12-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-13-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-14-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-15-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-16-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-17-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-18-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-19-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-20-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-21-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-22-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-23-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-24-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-25-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-26-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-27-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-28-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-29-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-30-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-31-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-32-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-33-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-34-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-35-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-36-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-37-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-38-([[-1.173712   -0.36992958]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-6-timestep-39-([[-1.173712   -0.36992958]]).png
+Computing SHAP values for sample 7...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-0-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-1-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-2-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-3-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-4-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-5-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-6-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-7-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-8-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-9-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-10-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-11-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-12-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-13-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-14-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-15-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-16-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-17-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-18-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-19-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-20-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-21-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-22-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-23-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-24-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-25-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-26-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-27-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-28-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-29-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-30-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-31-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-32-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-33-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-34-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-35-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-36-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-37-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-38-([[-0.8106172  -0.58803713]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-7-timestep-39-([[-0.8106172  -0.58803713]]).png
+Computing SHAP values for sample 8...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-0-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-1-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-2-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-3-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-4-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-5-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-6-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-7-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-8-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-9-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-10-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-11-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-12-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-13-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-14-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-15-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-16-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-17-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-18-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-19-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-20-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-21-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-22-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-23-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-24-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-25-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-26-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-27-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-28-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-29-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-30-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-31-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-32-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-33-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-34-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-35-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-36-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-37-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-38-([[-0.4725725 -0.9765623]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-8-timestep-39-([[-0.4725725 -0.9765623]]).png
+Computing SHAP values for sample 9...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-0-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-1-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-2-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-3-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-4-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-5-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-6-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-7-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-8-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-9-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-10-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-11-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-12-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-13-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-14-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-15-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-16-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-17-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-18-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-19-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-20-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-21-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-22-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-23-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-24-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-25-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-26-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-27-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-28-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-29-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-30-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-31-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-32-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-33-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-34-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-35-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-36-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-37-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-38-([[-0.6784052  -0.70810974]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-9-timestep-39-([[-0.6784052  -0.70810974]]).png
+Computing SHAP values for sample 10...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-0-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-1-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-2-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-3-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-4-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-5-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-6-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-7-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-8-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-9-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-10-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-11-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-12-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-13-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-14-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-15-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-16-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-17-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-18-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-19-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-20-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-21-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-22-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-23-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-24-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-25-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-26-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-27-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-28-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-29-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-30-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-31-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-32-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-33-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-34-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-35-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-36-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-37-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-38-([[-1.0231937 -0.4454205]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-10-timestep-39-([[-1.0231937 -0.4454205]]).png
+Computing SHAP values for sample 11...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-0-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-1-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-2-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-3-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-4-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-5-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-6-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-7-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-8-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-9-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-10-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-11-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-12-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-13-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-14-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-15-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-16-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-17-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-18-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-19-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-20-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-21-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-22-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-23-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-24-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-25-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-26-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-27-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-28-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-29-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-30-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-31-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-32-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-33-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-34-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-35-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-36-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-37-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-38-([[-0.5432209 -0.8695843]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-11-timestep-39-([[-0.5432209 -0.8695843]]).png
+Computing SHAP values for sample 12...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-0-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-1-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-2-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-3-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-4-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-5-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-6-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-7-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-8-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-9-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-10-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-11-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-12-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-13-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-14-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-15-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-16-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-17-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-18-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-19-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-20-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-21-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-22-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-23-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-24-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-25-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-26-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-27-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-28-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-29-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-30-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-31-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-32-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-33-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-34-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-35-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-36-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-37-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-38-([[-0.4008851 -1.1078358]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-12-timestep-39-([[-0.4008851 -1.1078358]]).png
+Computing SHAP values for sample 13...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-0-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-1-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-2-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-3-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-4-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-5-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-6-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-7-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-8-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-9-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-10-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-11-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-12-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-13-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-14-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-15-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-16-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-17-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-18-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-19-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-20-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-21-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-22-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-23-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-24-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-25-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-26-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-27-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-28-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-29-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-30-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-31-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-32-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-33-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-34-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-35-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-36-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-37-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-38-([[-1.5103481  -0.24953003]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-13-timestep-39-([[-1.5103481  -0.24953003]]).png
+Computing SHAP values for sample 14...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-0-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-1-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-2-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-3-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-4-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-5-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-6-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-7-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-8-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-9-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-10-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-11-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-12-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-13-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-14-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-15-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-16-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-17-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-18-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-19-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-20-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-21-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-22-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-23-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-24-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-25-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-26-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-27-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-28-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-29-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-30-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-31-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-32-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-33-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-34-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-35-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-36-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-37-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-38-([[-0.40155208 -1.1064845 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-14-timestep-39-([[-0.40155208 -1.1064845 ]]).png
+Computing SHAP values for sample 15...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-0-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-1-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-2-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-3-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-4-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-5-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-6-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-7-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-8-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-9-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-10-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-11-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-12-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-13-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-14-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-15-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-16-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-17-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-18-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-19-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-20-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-21-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-22-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-23-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-24-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-25-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-26-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-27-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-28-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-29-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-30-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-31-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-32-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-33-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-34-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-35-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-36-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-37-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-38-([[-0.58623874 -0.81286836]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-15-timestep-39-([[-0.58623874 -0.81286836]]).png
+Computing SHAP values for sample 16...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-0-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-1-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-2-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-3-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-4-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-5-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-6-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-7-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-8-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-9-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-10-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-11-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-12-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-13-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-14-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-15-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-16-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-17-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-18-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-19-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-20-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-21-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-22-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-23-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-24-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-25-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-26-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-27-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-28-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-29-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-30-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-31-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-32-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-33-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-34-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-35-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-36-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-37-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-38-([[-0.37010086 -1.1733294 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-16-timestep-39-([[-0.37010086 -1.1733294 ]]).png
+Computing SHAP values for sample 17...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-0-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-1-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-2-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-3-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-4-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-5-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-6-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-7-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-8-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-9-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-10-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-11-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-12-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-13-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-14-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-15-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-16-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-17-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-18-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-19-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-20-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-21-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-22-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-23-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-24-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-25-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-26-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-27-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-28-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-29-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-30-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-31-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-32-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-33-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-34-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-35-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-36-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-37-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-38-([[-0.67209285 -0.7146544 ]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-17-timestep-39-([[-0.67209285 -0.7146544 ]]).png
+Computing SHAP values for sample 18...
+SHAP values shape: (2, 1, 40, 10)
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-0-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-1-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-2-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-3-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-4-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-5-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-6-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-7-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-8-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-9-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-10-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-11-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-12-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-13-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-14-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-15-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-16-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-17-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-18-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>
+图像已保存至 ./tesing/force/force-LLM_VIT-positive_class-1-sample-18-timestep-19-([[-1.3468995  -0.30116624]]).png
+<IPython.core.display.HTML object>

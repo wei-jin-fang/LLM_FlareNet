@@ -1,0 +1,724 @@
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/1Train.csv每一类的数量是: [15640, 2160]
+../../../data/1Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/1Val.csv每一类的数量是: [6640, 880]
+../../../data/1Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/1Test.csv每一类的数量是: [5600, 1400]
+../../../data/1Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+train_x.shape : (445, 40, 10) 
+train_y.shape : (445,) 
+validate_x.shape : (188, 40, 10) 
+validate_y.shape : (188,) 
+test_x.shape : (175, 40, 10) 
+test_y.shape : (175,) 
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+====================数据集1测试集轮评估数据=============================================
+正类的预期值: 0.3715592324733734
+样本 0 的模型输出 (nowprob): [[0.7882887 0.2117113]]
+Computing SHAP values for sample 0...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(0)-([[0.7882887 0.2117113]]).png
+样本 1 的模型输出 (nowprob): [[0.6273711 0.3726289]]
+Computing SHAP values for sample 1...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(1)-([[0.6273711 0.3726289]]).png
+样本 2 的模型输出 (nowprob): [[0.69167084 0.3083291 ]]
+Computing SHAP values for sample 2...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(2)-([[0.69167084 0.3083291 ]]).png
+样本 3 的模型输出 (nowprob): [[0.40554613 0.59445393]]
+Computing SHAP values for sample 3...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(3)-([[0.40554613 0.59445393]]).png
+样本 4 的模型输出 (nowprob): [[0.36979815 0.6302019 ]]
+Computing SHAP values for sample 4...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(4)-([[0.36979815 0.6302019 ]]).png
+样本 5 的模型输出 (nowprob): [[0.26921558 0.73078436]]
+Computing SHAP values for sample 5...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(5)-([[0.26921558 0.73078436]]).png
+样本 6 的模型输出 (nowprob): [[0.13961764 0.86038226]]
+Computing SHAP values for sample 6...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(6)-([[0.13961764 0.86038226]]).png
+样本 7 的模型输出 (nowprob): [[0.67287433 0.3271257 ]]
+Computing SHAP values for sample 7...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(7)-([[0.67287433 0.3271257 ]]).png
+样本 8 的模型输出 (nowprob): [[0.71395534 0.2860447 ]]
+Computing SHAP values for sample 8...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(8)-([[0.71395534 0.2860447 ]]).png
+样本 9 的模型输出 (nowprob): [[0.513407   0.48659295]]
+Computing SHAP values for sample 9...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(9)-([[0.513407   0.48659295]]).png
+样本 10 的模型输出 (nowprob): [[0.5127932  0.48720682]]
+Computing SHAP values for sample 10...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(10)-([[0.5127932  0.48720682]]).png
+样本 11 的模型输出 (nowprob): [[0.3350241 0.6649759]]
+Computing SHAP values for sample 11...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(11)-([[0.3350241 0.6649759]]).png
+样本 12 的模型输出 (nowprob): [[0.6125066 0.3874933]]
+Computing SHAP values for sample 12...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(12)-([[0.6125066 0.3874933]]).png
+样本 13 的模型输出 (nowprob): [[0.6751681  0.32483193]]
+Computing SHAP values for sample 13...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(13)-([[0.6751681  0.32483193]]).png
+样本 14 的模型输出 (nowprob): [[0.48487   0.5151299]]
+Computing SHAP values for sample 14...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(14)-([[0.48487   0.5151299]]).png
+样本 15 的模型输出 (nowprob): [[0.6149098  0.38509023]]
+Computing SHAP values for sample 15...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(15)-([[0.6149098  0.38509023]]).png
+样本 16 的模型输出 (nowprob): [[0.5093299 0.4906701]]
+Computing SHAP values for sample 16...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(16)-([[0.5093299 0.4906701]]).png
+样本 17 的模型输出 (nowprob): [[0.6867059  0.31329408]]
+Computing SHAP values for sample 17...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(17)-([[0.6867059  0.31329408]]).png
+样本 18 的模型输出 (nowprob): [[0.5060399  0.49396017]]
+Computing SHAP values for sample 18...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(18)-([[0.5060399  0.49396017]]).png
+样本 19 的模型输出 (nowprob): [[0.57690924 0.42309073]]
+Computing SHAP values for sample 19...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(19)-([[0.57690924 0.42309073]]).png
+样本 20 的模型输出 (nowprob): [[0.6854156 0.3145843]]
+Computing SHAP values for sample 20...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(20)-([[0.6854156 0.3145843]]).png
+样本 21 的模型输出 (nowprob): [[0.3879104  0.61208963]]
+Computing SHAP values for sample 21...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(21)-([[0.3879104  0.61208963]]).png
+样本 22 的模型输出 (nowprob): [[0.60759073 0.39240927]]
+Computing SHAP values for sample 22...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(22)-([[0.60759073 0.39240927]]).png
+样本 23 的模型输出 (nowprob): [[0.5555392  0.44446075]]
+Computing SHAP values for sample 23...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(23)-([[0.5555392  0.44446075]]).png
+样本 24 的模型输出 (nowprob): [[0.19314528 0.8068547 ]]
+Computing SHAP values for sample 24...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(24)-([[0.19314528 0.8068547 ]]).png
+样本 25 的模型输出 (nowprob): [[0.6951366  0.30486342]]
+Computing SHAP values for sample 25...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(25)-([[0.6951366  0.30486342]]).png
+样本 26 的模型输出 (nowprob): [[0.61978966 0.38021043]]
+Computing SHAP values for sample 26...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(26)-([[0.61978966 0.38021043]]).png
+样本 27 的模型输出 (nowprob): [[0.8938282 0.1061718]]
+Computing SHAP values for sample 27...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(27)-([[0.8938282 0.1061718]]).png
+样本 28 的模型输出 (nowprob): [[0.6033829  0.39661708]]
+Computing SHAP values for sample 28...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(28)-([[0.6033829  0.39661708]]).png
+样本 29 的模型输出 (nowprob): [[0.7589131  0.24108689]]
+Computing SHAP values for sample 29...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(29)-([[0.7589131  0.24108689]]).png
+样本 30 的模型输出 (nowprob): [[0.7313188 0.2686812]]
+Computing SHAP values for sample 30...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(30)-([[0.7313188 0.2686812]]).png
+样本 31 的模型输出 (nowprob): [[0.6864219 0.3135781]]
+Computing SHAP values for sample 31...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(31)-([[0.6864219 0.3135781]]).png
+样本 32 的模型输出 (nowprob): [[0.5879195 0.4120805]]
+Computing SHAP values for sample 32...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(32)-([[0.5879195 0.4120805]]).png
+样本 33 的模型输出 (nowprob): [[0.5289777  0.47102222]]
+Computing SHAP values for sample 33...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(33)-([[0.5289777  0.47102222]]).png
+样本 34 的模型输出 (nowprob): [[0.76066345 0.23933664]]
+Computing SHAP values for sample 34...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(34)-([[0.76066345 0.23933664]]).png
+样本 35 的模型输出 (nowprob): [[0.6608175  0.33918256]]
+Computing SHAP values for sample 35...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(35)-([[0.6608175  0.33918256]]).png
+样本 36 的模型输出 (nowprob): [[0.5879591 0.4120408]]
+Computing SHAP values for sample 36...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(36)-([[0.5879591 0.4120408]]).png
+样本 37 的模型输出 (nowprob): [[0.6539986  0.34600136]]
+Computing SHAP values for sample 37...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(37)-([[0.6539986  0.34600136]]).png
+样本 38 的模型输出 (nowprob): [[0.8511068  0.14889324]]
+Computing SHAP values for sample 38...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(38)-([[0.8511068  0.14889324]]).png
+样本 39 的模型输出 (nowprob): [[0.4348477 0.5651522]]
+Computing SHAP values for sample 39...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(39)-([[0.4348477 0.5651522]]).png
+样本 40 的模型输出 (nowprob): [[0.5978474 0.4021525]]
+Computing SHAP values for sample 40...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(40)-([[0.5978474 0.4021525]]).png
+样本 41 的模型输出 (nowprob): [[0.6754201 0.3245799]]
+Computing SHAP values for sample 41...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(41)-([[0.6754201 0.3245799]]).png
+样本 42 的模型输出 (nowprob): [[0.7802846 0.2197154]]
+Computing SHAP values for sample 42...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(42)-([[0.7802846 0.2197154]]).png
+样本 43 的模型输出 (nowprob): [[0.56303257 0.43696743]]
+Computing SHAP values for sample 43...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(43)-([[0.56303257 0.43696743]]).png
+样本 44 的模型输出 (nowprob): [[0.5701797  0.42982033]]
+Computing SHAP values for sample 44...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(44)-([[0.5701797  0.42982033]]).png
+样本 45 的模型输出 (nowprob): [[0.5617536  0.43824637]]
+Computing SHAP values for sample 45...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(45)-([[0.5617536  0.43824637]]).png
+样本 46 的模型输出 (nowprob): [[0.24621108 0.75378895]]
+Computing SHAP values for sample 46...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(46)-([[0.24621108 0.75378895]]).png
+样本 47 的模型输出 (nowprob): [[0.63310623 0.36689377]]
+Computing SHAP values for sample 47...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(47)-([[0.63310623 0.36689377]]).png
+样本 48 的模型输出 (nowprob): [[0.77911323 0.22088681]]
+Computing SHAP values for sample 48...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(48)-([[0.77911323 0.22088681]]).png
+样本 49 的模型输出 (nowprob): [[0.54828906 0.4517109 ]]
+Computing SHAP values for sample 49...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(49)-([[0.54828906 0.4517109 ]]).png
+样本 50 的模型输出 (nowprob): [[0.5695661  0.43043393]]
+Computing SHAP values for sample 50...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(50)-([[0.5695661  0.43043393]]).png
+样本 51 的模型输出 (nowprob): [[0.46775967 0.5322404 ]]
+Computing SHAP values for sample 51...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(51)-([[0.46775967 0.5322404 ]]).png
+样本 52 的模型输出 (nowprob): [[0.69693905 0.30306092]]
+Computing SHAP values for sample 52...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(52)-([[0.69693905 0.30306092]]).png
+样本 53 的模型输出 (nowprob): [[0.7059234  0.29407662]]
+Computing SHAP values for sample 53...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(53)-([[0.7059234  0.29407662]]).png
+样本 54 的模型输出 (nowprob): [[0.61659485 0.38340512]]
+Computing SHAP values for sample 54...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(54)-([[0.61659485 0.38340512]]).png
+样本 55 的模型输出 (nowprob): [[0.5671472 0.4328528]]
+Computing SHAP values for sample 55...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(55)-([[0.5671472 0.4328528]]).png
+样本 56 的模型输出 (nowprob): [[0.25620702 0.7437931 ]]
+Computing SHAP values for sample 56...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(56)-([[0.25620702 0.7437931 ]]).png
+样本 57 的模型输出 (nowprob): [[0.65138495 0.34861502]]
+Computing SHAP values for sample 57...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(57)-([[0.65138495 0.34861502]]).png
+样本 58 的模型输出 (nowprob): [[0.4935134 0.5064866]]
+Computing SHAP values for sample 58...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(58)-([[0.4935134 0.5064866]]).png
+样本 59 的模型输出 (nowprob): [[0.03298284 0.96701723]]
+Computing SHAP values for sample 59...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(59)-([[0.03298284 0.96701723]]).png
+样本 60 的模型输出 (nowprob): [[0.38369814 0.61630195]]
+Computing SHAP values for sample 60...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(60)-([[0.38369814 0.61630195]]).png
+样本 61 的模型输出 (nowprob): [[0.62946725 0.37053275]]
+Computing SHAP values for sample 61...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(61)-([[0.62946725 0.37053275]]).png
+样本 62 的模型输出 (nowprob): [[0.12145748 0.87854254]]
+Computing SHAP values for sample 62...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(62)-([[0.12145748 0.87854254]]).png
+样本 63 的模型输出 (nowprob): [[0.58306456 0.41693538]]
+Computing SHAP values for sample 63...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(63)-([[0.58306456 0.41693538]]).png
+样本 64 的模型输出 (nowprob): [[0.0023294 0.9976706]]
+Computing SHAP values for sample 64...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(64)-([[0.0023294 0.9976706]]).png
+样本 65 的模型输出 (nowprob): [[0.07714502 0.922855  ]]
+Computing SHAP values for sample 65...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(65)-([[0.07714502 0.922855  ]]).png
+样本 66 的模型输出 (nowprob): [[0.46551037 0.53448963]]
+Computing SHAP values for sample 66...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(66)-([[0.46551037 0.53448963]]).png
+样本 67 的模型输出 (nowprob): [[0.14688274 0.8531172 ]]
+Computing SHAP values for sample 67...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(67)-([[0.14688274 0.8531172 ]]).png
+样本 68 的模型输出 (nowprob): [[0.08391552 0.9160844 ]]
+Computing SHAP values for sample 68...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(68)-([[0.08391552 0.9160844 ]]).png
+样本 69 的模型输出 (nowprob): [[0.20815241 0.7918475 ]]
+Computing SHAP values for sample 69...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(69)-([[0.20815241 0.7918475 ]]).png
+样本 70 的模型输出 (nowprob): [[0.46845868 0.5315413 ]]
+Computing SHAP values for sample 70...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(70)-([[0.46845868 0.5315413 ]]).png
+样本 71 的模型输出 (nowprob): [[0.04004931 0.9599507 ]]
+Computing SHAP values for sample 71...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(71)-([[0.04004931 0.9599507 ]]).png
+样本 72 的模型输出 (nowprob): [[0.19042039 0.8095796 ]]
+Computing SHAP values for sample 72...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(72)-([[0.19042039 0.8095796 ]]).png
+样本 73 的模型输出 (nowprob): [[0.3398061  0.66019386]]
+Computing SHAP values for sample 73...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(73)-([[0.3398061  0.66019386]]).png
+样本 74 的模型输出 (nowprob): [[0.18514605 0.81485397]]
+Computing SHAP values for sample 74...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(74)-([[0.18514605 0.81485397]]).png
+样本 75 的模型输出 (nowprob): [[0.37542495 0.6245751 ]]
+Computing SHAP values for sample 75...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(75)-([[0.37542495 0.6245751 ]]).png
+样本 76 的模型输出 (nowprob): [[0.23832399 0.7616761 ]]
+Computing SHAP values for sample 76...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(76)-([[0.23832399 0.7616761 ]]).png
+样本 77 的模型输出 (nowprob): [[0.1971548 0.8028452]]
+Computing SHAP values for sample 77...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(77)-([[0.1971548 0.8028452]]).png
+样本 78 的模型输出 (nowprob): [[0.17640732 0.82359266]]
+Computing SHAP values for sample 78...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(78)-([[0.17640732 0.82359266]]).png
+样本 79 的模型输出 (nowprob): [[0.29455683 0.70544314]]
+Computing SHAP values for sample 79...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(79)-([[0.29455683 0.70544314]]).png
+样本 80 的模型输出 (nowprob): [[0.44717836 0.55282164]]
+Computing SHAP values for sample 80...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(80)-([[0.44717836 0.55282164]]).png
+样本 81 的模型输出 (nowprob): [[0.4773761 0.5226239]]
+Computing SHAP values for sample 81...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(81)-([[0.4773761 0.5226239]]).png
+样本 82 的模型输出 (nowprob): [[0.1367204 0.8632795]]
+Computing SHAP values for sample 82...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(82)-([[0.1367204 0.8632795]]).png
+样本 83 的模型输出 (nowprob): [[0.5769115  0.42308852]]
+Computing SHAP values for sample 83...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(83)-([[0.5769115  0.42308852]]).png
+样本 84 的模型输出 (nowprob): [[0.24461652 0.7553835 ]]
+Computing SHAP values for sample 84...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(84)-([[0.24461652 0.7553835 ]]).png
+样本 85 的模型输出 (nowprob): [[0.19439009 0.8056099 ]]
+Computing SHAP values for sample 85...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(85)-([[0.19439009 0.8056099 ]]).png
+样本 86 的模型输出 (nowprob): [[0.29845837 0.7015416 ]]
+Computing SHAP values for sample 86...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(86)-([[0.29845837 0.7015416 ]]).png
+样本 87 的模型输出 (nowprob): [[0.45697656 0.54302347]]
+Computing SHAP values for sample 87...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(87)-([[0.45697656 0.54302347]]).png
+样本 88 的模型输出 (nowprob): [[0.18874936 0.8112506 ]]
+Computing SHAP values for sample 88...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(88)-([[0.18874936 0.8112506 ]]).png
+样本 89 的模型输出 (nowprob): [[0.71240836 0.28759164]]
+Computing SHAP values for sample 89...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(89)-([[0.71240836 0.28759164]]).png
+样本 90 的模型输出 (nowprob): [[0.85042435 0.14957559]]
+Computing SHAP values for sample 90...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(90)-([[0.85042435 0.14957559]]).png
+样本 91 的模型输出 (nowprob): [[0.7969267  0.20307337]]
+Computing SHAP values for sample 91...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(91)-([[0.7969267  0.20307337]]).png
+样本 92 的模型输出 (nowprob): [[0.72294235 0.2770577 ]]
+Computing SHAP values for sample 92...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(92)-([[0.72294235 0.2770577 ]]).png
+样本 93 的模型输出 (nowprob): [[0.88859165 0.11140834]]
+Computing SHAP values for sample 93...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(93)-([[0.88859165 0.11140834]]).png
+样本 94 的模型输出 (nowprob): [[0.5415152  0.45848477]]
+Computing SHAP values for sample 94...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(94)-([[0.5415152  0.45848477]]).png
+样本 95 的模型输出 (nowprob): [[0.8065587  0.19344135]]
+Computing SHAP values for sample 95...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(95)-([[0.8065587  0.19344135]]).png
+样本 96 的模型输出 (nowprob): [[0.79874074 0.20125926]]
+Computing SHAP values for sample 96...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(96)-([[0.79874074 0.20125926]]).png
+样本 97 的模型输出 (nowprob): [[0.6986637  0.30133623]]
+Computing SHAP values for sample 97...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(97)-([[0.6986637  0.30133623]]).png
+样本 98 的模型输出 (nowprob): [[0.62875676 0.3712433 ]]
+Computing SHAP values for sample 98...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(98)-([[0.62875676 0.3712433 ]]).png
+样本 99 的模型输出 (nowprob): [[0.56002027 0.43997976]]
+Computing SHAP values for sample 99...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(99)-([[0.56002027 0.43997976]]).png
+样本 100 的模型输出 (nowprob): [[0.78978306 0.210217  ]]
+Computing SHAP values for sample 100...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(100)-([[0.78978306 0.210217  ]]).png
+样本 101 的模型输出 (nowprob): [[0.56055474 0.4394452 ]]
+Computing SHAP values for sample 101...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(101)-([[0.56055474 0.4394452 ]]).png
+样本 102 的模型输出 (nowprob): [[0.845885   0.15411508]]
+Computing SHAP values for sample 102...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(102)-([[0.845885   0.15411508]]).png
+样本 103 的模型输出 (nowprob): [[0.7086207 0.2913793]]
+Computing SHAP values for sample 103...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(103)-([[0.7086207 0.2913793]]).png
+样本 104 的模型输出 (nowprob): [[0.8636257  0.13637428]]
+Computing SHAP values for sample 104...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(104)-([[0.8636257  0.13637428]]).png
+样本 105 的模型输出 (nowprob): [[0.8930317  0.10696821]]
+Computing SHAP values for sample 105...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(105)-([[0.8930317  0.10696821]]).png
+样本 106 的模型输出 (nowprob): [[0.8427913  0.15720868]]
+Computing SHAP values for sample 106...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(106)-([[0.8427913  0.15720868]]).png
+样本 107 的模型输出 (nowprob): [[0.8696437  0.13035631]]
+Computing SHAP values for sample 107...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(107)-([[0.8696437  0.13035631]]).png
+样本 108 的模型输出 (nowprob): [[0.8655806 0.1344194]]
+Computing SHAP values for sample 108...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(108)-([[0.8655806 0.1344194]]).png
+样本 109 的模型输出 (nowprob): [[0.69057584 0.30942422]]
+Computing SHAP values for sample 109...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(109)-([[0.69057584 0.30942422]]).png
+样本 110 的模型输出 (nowprob): [[0.6149399 0.3850601]]
+Computing SHAP values for sample 110...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(110)-([[0.6149399 0.3850601]]).png
+样本 111 的模型输出 (nowprob): [[0.8597062  0.14029375]]
+Computing SHAP values for sample 111...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(111)-([[0.8597062  0.14029375]]).png
+样本 112 的模型输出 (nowprob): [[0.72358596 0.27641407]]
+Computing SHAP values for sample 112...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(112)-([[0.72358596 0.27641407]]).png
+样本 113 的模型输出 (nowprob): [[0.83574665 0.16425331]]
+Computing SHAP values for sample 113...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(113)-([[0.83574665 0.16425331]]).png
+样本 114 的模型输出 (nowprob): [[0.7757828  0.22421715]]
+Computing SHAP values for sample 114...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(114)-([[0.7757828  0.22421715]]).png
+样本 115 的模型输出 (nowprob): [[0.80842376 0.19157627]]
+Computing SHAP values for sample 115...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(115)-([[0.80842376 0.19157627]]).png
+样本 116 的模型输出 (nowprob): [[0.7435803 0.2564198]]
+Computing SHAP values for sample 116...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(116)-([[0.7435803 0.2564198]]).png
+样本 117 的模型输出 (nowprob): [[0.7964219  0.20357813]]
+Computing SHAP values for sample 117...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(117)-([[0.7964219  0.20357813]]).png
+样本 118 的模型输出 (nowprob): [[0.6087236 0.3912764]]
+Computing SHAP values for sample 118...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(118)-([[0.6087236 0.3912764]]).png
+样本 119 的模型输出 (nowprob): [[0.83231306 0.16768692]]
+Computing SHAP values for sample 119...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(119)-([[0.83231306 0.16768692]]).png
+样本 120 的模型输出 (nowprob): [[0.79241306 0.20758703]]
+Computing SHAP values for sample 120...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(120)-([[0.79241306 0.20758703]]).png
+样本 121 的模型输出 (nowprob): [[0.8790468  0.12095324]]
+Computing SHAP values for sample 121...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(121)-([[0.8790468  0.12095324]]).png
+样本 122 的模型输出 (nowprob): [[0.8530228  0.14697711]]
+Computing SHAP values for sample 122...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(122)-([[0.8530228  0.14697711]]).png
+样本 123 的模型输出 (nowprob): [[0.69090086 0.30909914]]
+Computing SHAP values for sample 123...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(123)-([[0.69090086 0.30909914]]).png
+样本 124 的模型输出 (nowprob): [[0.74420244 0.25579756]]
+Computing SHAP values for sample 124...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(124)-([[0.74420244 0.25579756]]).png
+样本 125 的模型输出 (nowprob): [[0.7808554  0.21914455]]
+Computing SHAP values for sample 125...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(125)-([[0.7808554  0.21914455]]).png
+样本 126 的模型输出 (nowprob): [[0.8780549 0.1219451]]
+Computing SHAP values for sample 126...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(126)-([[0.8780549 0.1219451]]).png
+样本 127 的模型输出 (nowprob): [[0.73839295 0.26160702]]
+Computing SHAP values for sample 127...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(127)-([[0.73839295 0.26160702]]).png
+样本 128 的模型输出 (nowprob): [[0.7462009  0.25379908]]
+Computing SHAP values for sample 128...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(128)-([[0.7462009  0.25379908]]).png
+样本 129 的模型输出 (nowprob): [[0.84858155 0.15141843]]
+Computing SHAP values for sample 129...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(129)-([[0.84858155 0.15141843]]).png
+样本 130 的模型输出 (nowprob): [[0.87456185 0.1254382 ]]
+Computing SHAP values for sample 130...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(130)-([[0.87456185 0.1254382 ]]).png
+样本 131 的模型输出 (nowprob): [[0.8729046  0.12709539]]
+Computing SHAP values for sample 131...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(131)-([[0.8729046  0.12709539]]).png
+样本 132 的模型输出 (nowprob): [[0.79869986 0.20130011]]
+Computing SHAP values for sample 132...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(132)-([[0.79869986 0.20130011]]).png
+样本 133 的模型输出 (nowprob): [[0.6337932  0.36620682]]
+Computing SHAP values for sample 133...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(133)-([[0.6337932  0.36620682]]).png
+样本 134 的模型输出 (nowprob): [[0.81893826 0.18106179]]
+Computing SHAP values for sample 134...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(134)-([[0.81893826 0.18106179]]).png
+样本 135 的模型输出 (nowprob): [[0.80299175 0.19700833]]
+Computing SHAP values for sample 135...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(135)-([[0.80299175 0.19700833]]).png
+样本 136 的模型输出 (nowprob): [[0.88546145 0.11453849]]
+Computing SHAP values for sample 136...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(136)-([[0.88546145 0.11453849]]).png
+样本 137 的模型输出 (nowprob): [[0.79281265 0.2071874 ]]
+Computing SHAP values for sample 137...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(137)-([[0.79281265 0.2071874 ]]).png
+样本 138 的模型输出 (nowprob): [[0.7695581  0.23044199]]
+Computing SHAP values for sample 138...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(138)-([[0.7695581  0.23044199]]).png
+样本 139 的模型输出 (nowprob): [[0.65455496 0.345445  ]]
+Computing SHAP values for sample 139...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(139)-([[0.65455496 0.345445  ]]).png
+样本 140 的模型输出 (nowprob): [[0.7616286  0.23837143]]
+Computing SHAP values for sample 140...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(140)-([[0.7616286  0.23837143]]).png
+样本 141 的模型输出 (nowprob): [[0.7489117  0.25108826]]
+Computing SHAP values for sample 141...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(141)-([[0.7489117  0.25108826]]).png
+样本 142 的模型输出 (nowprob): [[0.74087745 0.25912258]]
+Computing SHAP values for sample 142...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(142)-([[0.74087745 0.25912258]]).png
+样本 143 的模型输出 (nowprob): [[0.8405069  0.15949306]]
+Computing SHAP values for sample 143...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(143)-([[0.8405069  0.15949306]]).png
+样本 144 的模型输出 (nowprob): [[0.844353   0.15564707]]
+Computing SHAP values for sample 144...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(144)-([[0.844353   0.15564707]]).png
+样本 145 的模型输出 (nowprob): [[0.854375 0.145625]]
+Computing SHAP values for sample 145...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(145)-([[0.854375 0.145625]]).png
+样本 146 的模型输出 (nowprob): [[0.7855278  0.21447226]]
+Computing SHAP values for sample 146...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(146)-([[0.7855278  0.21447226]]).png
+样本 147 的模型输出 (nowprob): [[0.8436309 0.1563691]]
+Computing SHAP values for sample 147...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(147)-([[0.8436309 0.1563691]]).png
+样本 148 的模型输出 (nowprob): [[0.6182389  0.38176107]]
+Computing SHAP values for sample 148...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(148)-([[0.6182389  0.38176107]]).png
+样本 149 的模型输出 (nowprob): [[0.9035237  0.09647635]]
+Computing SHAP values for sample 149...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(149)-([[0.9035237  0.09647635]]).png
+样本 150 的模型输出 (nowprob): [[0.89240503 0.10759497]]
+Computing SHAP values for sample 150...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(150)-([[0.89240503 0.10759497]]).png
+样本 151 的模型输出 (nowprob): [[0.8968626 0.1031374]]
+Computing SHAP values for sample 151...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(151)-([[0.8968626 0.1031374]]).png
+样本 152 的模型输出 (nowprob): [[0.41514727 0.58485276]]
+Computing SHAP values for sample 152...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(152)-([[0.41514727 0.58485276]]).png
+样本 153 的模型输出 (nowprob): [[0.643958   0.35604203]]
+Computing SHAP values for sample 153...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(153)-([[0.643958   0.35604203]]).png
+样本 154 的模型输出 (nowprob): [[0.6532014  0.34679854]]
+Computing SHAP values for sample 154...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(154)-([[0.6532014  0.34679854]]).png
+样本 155 的模型输出 (nowprob): [[0.8096647  0.19033533]]
+Computing SHAP values for sample 155...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(155)-([[0.8096647  0.19033533]]).png
+样本 156 的模型输出 (nowprob): [[0.87413484 0.1258652 ]]
+Computing SHAP values for sample 156...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(156)-([[0.87413484 0.1258652 ]]).png
+样本 157 的模型输出 (nowprob): [[0.8253454 0.1746546]]
+Computing SHAP values for sample 157...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(157)-([[0.8253454 0.1746546]]).png
+样本 158 的模型输出 (nowprob): [[0.8806856  0.11931439]]
+Computing SHAP values for sample 158...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(158)-([[0.8806856  0.11931439]]).png
+样本 159 的模型输出 (nowprob): [[0.80230427 0.19769576]]
+Computing SHAP values for sample 159...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(159)-([[0.80230427 0.19769576]]).png
+样本 160 的模型输出 (nowprob): [[0.83292204 0.1670779 ]]
+Computing SHAP values for sample 160...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(160)-([[0.83292204 0.1670779 ]]).png
+样本 161 的模型输出 (nowprob): [[0.8797052  0.12029481]]
+Computing SHAP values for sample 161...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(161)-([[0.8797052  0.12029481]]).png
+样本 162 的模型输出 (nowprob): [[0.81459725 0.18540274]]
+Computing SHAP values for sample 162...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(162)-([[0.81459725 0.18540274]]).png
+样本 163 的模型输出 (nowprob): [[0.70394593 0.2960541 ]]
+Computing SHAP values for sample 163...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(163)-([[0.70394593 0.2960541 ]]).png
+样本 164 的模型输出 (nowprob): [[0.7774679 0.2225321]]
+Computing SHAP values for sample 164...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(164)-([[0.7774679 0.2225321]]).png
+样本 165 的模型输出 (nowprob): [[0.8613731  0.13862683]]
+Computing SHAP values for sample 165...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(165)-([[0.8613731  0.13862683]]).png
+样本 166 的模型输出 (nowprob): [[0.66268253 0.3373175 ]]
+Computing SHAP values for sample 166...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(166)-([[0.66268253 0.3373175 ]]).png
+样本 167 的模型输出 (nowprob): [[0.75257474 0.24742529]]
+Computing SHAP values for sample 167...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(167)-([[0.75257474 0.24742529]]).png
+样本 168 的模型输出 (nowprob): [[0.8230959 0.1769041]]
+Computing SHAP values for sample 168...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(168)-([[0.8230959 0.1769041]]).png
+样本 169 的模型输出 (nowprob): [[0.42966062 0.5703393 ]]
+Computing SHAP values for sample 169...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(169)-([[0.42966062 0.5703393 ]]).png
+样本 170 的模型输出 (nowprob): [[0.00597545 0.9940246 ]]
+Computing SHAP values for sample 170...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(170)-([[0.00597545 0.9940246 ]]).png
+样本 171 的模型输出 (nowprob): [[0.00730486 0.9926951 ]]
+Computing SHAP values for sample 171...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(171)-([[0.00730486 0.9926951 ]]).png
+样本 172 的模型输出 (nowprob): [[0.05231357 0.9476865 ]]
+Computing SHAP values for sample 172...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(172)-([[0.05231357 0.9476865 ]]).png
+样本 173 的模型输出 (nowprob): [[0.17162086 0.8283792 ]]
+Computing SHAP values for sample 173...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(173)-([[0.17162086 0.8283792 ]]).png
+样本 174 的模型输出 (nowprob): [[0.0619947 0.9380053]]
+Computing SHAP values for sample 174...
+SHAP values shape: (2, 1, 40, 10)
+图像已保存至 ./tesing/waterfall/waterfall-LLM_VIT-positive_class-1-summary_plot-1(174)-([[0.0619947 0.9380053]]).png

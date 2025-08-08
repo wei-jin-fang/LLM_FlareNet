@@ -1,0 +1,306 @@
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/0Train.csv每一类的数量是: [15640, 2160]
+../../../data/0Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/0Val.csv每一类的数量是: [6640, 880]
+../../../data/0Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/0Test.csv每一类的数量是: [5600, 1400]
+../../../data/0Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+train_x.shape : (445, 40, 10) 
+train_y.shape : (445,) 
+validate_x.shape : (188, 40, 10) 
+validate_y.shape : (188,) 
+test_x.shape : (175, 40, 10) 
+test_y.shape : (175,) 
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=80, epochs=200, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=2, num_hidden_layers=4, num_layers=2, optim='Adam', print=0, seed=2021)
+====================数据集0测试集轮评估数据=============================================
+Processing batch 1
+Processing batch 2
+Processing batch 3
+Processing batch 4
+Processing batch 5
+Processing batch 6
+Processing batch 7
+Processing batch 8
+Processing batch 9
+Processing batch 10
+SHAP values shape: (20, 16, 40, 10)
+Saved plot to shap_feature_importance_0.png
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/1Train.csv每一类的数量是: [15640, 2160]
+../../../data/1Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/1Val.csv每一类的数量是: [6640, 880]
+../../../data/1Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/1Test.csv每一类的数量是: [5600, 1400]
+../../../data/1Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=80, epochs=200, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=2, num_hidden_layers=4, num_layers=2, optim='Adam', print=0, seed=2021)
+====================数据集1测试集轮评估数据=============================================
+Processing batch 1
+Processing batch 2
+Processing batch 3
+Processing batch 4
+Processing batch 5
+Processing batch 6
+Processing batch 7
+Processing batch 8
+Processing batch 9
+Processing batch 10
+SHAP values shape: (20, 16, 40, 10)
+Saved plot to shap_feature_importance_1.png
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/2Train.csv每一类的数量是: [15640, 2160]
+../../../data/2Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/2Val.csv每一类的数量是: [6640, 880]
+../../../data/2Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/2Test.csv每一类的数量是: [5600, 1400]
+../../../data/2Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=80, epochs=200, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=2, num_hidden_layers=4, num_layers=2, optim='Adam', print=0, seed=2021)
+====================数据集2测试集轮评估数据=============================================
+Processing batch 1
+Processing batch 2
+Processing batch 3
+Processing batch 4
+Processing batch 5
+Processing batch 6
+Processing batch 7
+Processing batch 8
+Processing batch 9
+Processing batch 10
+SHAP values shape: (20, 16, 40, 10)
+Saved plot to shap_feature_importance_2.png
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/3Train.csv每一类的数量是: [15640, 2160]
+../../../data/3Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/3Val.csv每一类的数量是: [6640, 880]
+../../../data/3Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/3Test.csv每一类的数量是: [5600, 1400]
+../../../data/3Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=80, epochs=200, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=2, num_hidden_layers=4, num_layers=2, optim='Adam', print=0, seed=2021)
+====================数据集3测试集轮评估数据=============================================
+Processing batch 1
+Processing batch 2
+Processing batch 3
+Processing batch 4
+Processing batch 5
+Processing batch 6
+Processing batch 7
+Processing batch 8
+Processing batch 9
+Processing batch 10
+SHAP values shape: (20, 16, 40, 10)
+Saved plot to shap_feature_importance_3.png
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/4Train.csv每一类的数量是: [15640, 2160]
+../../../data/4Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/4Val.csv每一类的数量是: [6640, 880]
+../../../data/4Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/4Test.csv每一类的数量是: [5600, 1400]
+../../../data/4Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=80, epochs=200, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=2, num_hidden_layers=4, num_layers=2, optim='Adam', print=0, seed=2021)
+====================数据集4测试集轮评估数据=============================================
+Processing batch 1
+Processing batch 2
+Processing batch 3
+Processing batch 4
+Processing batch 5
+Processing batch 6
+Processing batch 7
+Processing batch 8
+Processing batch 9
+Processing batch 10
+SHAP values shape: (20, 16, 40, 10)
+Saved plot to shap_feature_importance_4.png
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/5Train.csv每一类的数量是: [15640, 2160]
+../../../data/5Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/5Val.csv每一类的数量是: [6640, 880]
+../../../data/5Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/5Test.csv每一类的数量是: [5600, 1400]
+../../../data/5Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=80, epochs=200, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=2, num_hidden_layers=4, num_layers=2, optim='Adam', print=0, seed=2021)
+====================数据集5测试集轮评估数据=============================================
+Processing batch 1
+Processing batch 2
+Processing batch 3
+Processing batch 4
+Processing batch 5
+Processing batch 6
+Processing batch 7
+Processing batch 8
+Processing batch 9
+Processing batch 10
+SHAP values shape: (20, 16, 40, 10)
+Saved plot to shap_feature_importance_5.png
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/6Train.csv每一类的数量是: [15640, 2160]
+../../../data/6Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/6Val.csv每一类的数量是: [6640, 880]
+../../../data/6Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/6Test.csv每一类的数量是: [5600, 1400]
+../../../data/6Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=80, epochs=200, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=2, num_hidden_layers=4, num_layers=2, optim='Adam', print=0, seed=2021)
+====================数据集6测试集轮评估数据=============================================
+Processing batch 1
+Processing batch 2
+Processing batch 3
+Processing batch 4
+Processing batch 5
+Processing batch 6
+Processing batch 7
+Processing batch 8
+Processing batch 9
+Processing batch 10
+SHAP values shape: (20, 16, 40, 10)
+Saved plot to shap_feature_importance_6.png
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/7Train.csv每一类的数量是: [15640, 2160]
+../../../data/7Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/7Val.csv每一类的数量是: [6640, 880]
+../../../data/7Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/7Test.csv每一类的数量是: [5600, 1400]
+../../../data/7Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=80, epochs=200, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=2, num_hidden_layers=4, num_layers=2, optim='Adam', print=0, seed=2021)
+====================数据集7测试集轮评估数据=============================================
+Processing batch 1
+Processing batch 2
+Processing batch 3
+Processing batch 4
+Processing batch 5
+Processing batch 6
+Processing batch 7
+Processing batch 8
+Processing batch 9
+Processing batch 10
+SHAP values shape: (20, 16, 40, 10)
+Saved plot to shap_feature_importance_7.png
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/8Train.csv每一类的数量是: [15640, 2160]
+../../../data/8Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/8Val.csv每一类的数量是: [6640, 880]
+../../../data/8Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/8Test.csv每一类的数量是: [5600, 1400]
+../../../data/8Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=80, epochs=200, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=2, num_hidden_layers=4, num_layers=2, optim='Adam', print=0, seed=2021)
+====================数据集8测试集轮评估数据=============================================
+Processing batch 1
+Processing batch 2
+Processing batch 3
+Processing batch 4
+Processing batch 5
+Processing batch 6
+Processing batch 7
+Processing batch 8
+Processing batch 9
+Processing batch 10
+SHAP values shape: (20, 16, 40, 10)
+Saved plot to shap_feature_importance_8.png
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=100, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=5, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+../../../data/9Train.csv每一类的数量是: [15640, 2160]
+../../../data/9Train.csvget_Class函数得到的的权重： [0.5690537084398977, 4.12037037037037]
+../../../data/9Val.csv每一类的数量是: [6640, 880]
+../../../data/9Val.csvget_Class函数得到的的权重： [0.5662650602409639, 4.2727272727272725]
+../../../data/9Test.csv每一类的数量是: [5600, 1400]
+../../../data/9Test.csvget_Class函数得到的的权重： [0.625, 2.5]
+(17800, 1)
+(445,)
+(7520, 1)
+(188,)
+(7000, 1)
+(175,)
+zero: 0.5690537084398977
+zero: 4.12037037037037
+{0.0: 0.5690537084398977, 1.0: 4.12037037037037}
+Namespace(batch_size=16, cuda=True, datasetname='data', dropout=0.5, embed='timeF', embed_dim=80, epochs=200, hidden_units=256, log_interval=100, lr=0.001, model_type='LLM_VIT', num_dataset=9, num_heads=2, num_hidden_layers=4, num_layers=2, optim='Adam', print=0, seed=2021)
+====================数据集9测试集轮评估数据=============================================
+Processing batch 1
+Processing batch 2
+Processing batch 3
+Processing batch 4
+Processing batch 5
+Processing batch 6
+Processing batch 7
+Processing batch 8
+Processing batch 9
+Processing batch 10
+SHAP values shape: (20, 16, 40, 10)
+Saved plot to shap_feature_importance_9.png

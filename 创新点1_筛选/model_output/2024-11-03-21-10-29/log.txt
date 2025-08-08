@@ -1,0 +1,298 @@
+Namespace(batch_size=16, cuda=True, datasetname='dataÉ¸Ñ¡', dropout=0.5, embed='timeF', embed_dim=80, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='NN', num_dataset=9, num_heads=8, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+./dataÉ¸Ñ¡/0Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3640, 800]
+./dataÉ¸Ñ¡/0Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6098901098901099, 2.775]
+./dataÉ¸Ñ¡/0Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3640, 800]
+./dataÉ¸Ñ¡/0Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6098901098901099, 2.775]
+./dataÉ¸Ñ¡/0Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3640, 800]
+./dataÉ¸Ñ¡/0Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6098901098901099, 2.775]
+train_x.shape : (4440, 10) 
+train_y.shape : (4440,) 
+validate_x.shape : (4440, 10) 
+validate_y.shape : (4440,) 
+test_x.shape : (4440, 10) 
+test_y.shape : (4440,) 
+zero: 0.6098901098901099
+zero: 2.775
+{0.0: 0.6098901098901099, 1.0: 2.775}
+[2024-11-03 21:10:31,267] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.0
+[93m [WARNING] [0m please install triton==1.0.0 if you want to use sparse attention
+====================Êı¾İ¼¯0²âÊÔ¼¯ÂÖÆÀ¹ÀÊı¾İ=============================================
+[[3640    0]
+ [ 375  425]]
+TSS: 0.53125
+±¾ÂÖÆÀ¹ÀÍê³É 
+Test set: Average loss: 5.8914, Accuracy: 4065/4440 (92%)
+
+[[3640    0]
+ [ 375  425]]
+Recall [1.      0.53125]
+Precision [0.90660025 1.        ]
+Accuracy [0.91554054 0.91554054]
+TSS [0.53125 0.53125]
+HSS [0.65013658 0.65013658]
+FAR [0.09339975 0.        ]
+data_FPR [0.46875 0.     ]
+BS, BSS [0.10322454479347229, 0.30119251846133643]
+Êı¾İ¼¯ 0 ²âÊÔ¼¯BSS: 0.30119251846133643
+Namespace(batch_size=16, cuda=True, datasetname='dataÉ¸Ñ¡', dropout=0.5, embed='timeF', embed_dim=80, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='NN', num_dataset=9, num_heads=8, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+./dataÉ¸Ñ¡/1Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [4000, 760]
+./dataÉ¸Ñ¡/1Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.595, 3.1315789473684212]
+./dataÉ¸Ñ¡/1Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [4000, 760]
+./dataÉ¸Ñ¡/1Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.595, 3.1315789473684212]
+./dataÉ¸Ñ¡/1Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [4000, 760]
+./dataÉ¸Ñ¡/1Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.595, 3.1315789473684212]
+zero: 0.595
+zero: 3.1315789473684212
+{0.0: 0.595, 1.0: 3.1315789473684212}
+====================Êı¾İ¼¯1²âÊÔ¼¯ÂÖÆÀ¹ÀÊı¾İ=============================================
+[[3993    7]
+ [ 520  240]]
+TSS: 0.3140394736842105
+±¾ÂÖÆÀ¹ÀÍê³É 
+Test set: Average loss: 5.8926, Accuracy: 4233/4760 (89%)
+
+[[3993    7]
+ [ 520  240]]
+Recall [0.99825    0.31578947]
+Precision [0.88477731 0.97165992]
+Accuracy [0.88928571 0.88928571]
+TSS [0.31403947 0.31403947]
+HSS [0.43218919 0.43218919]
+FAR [0.11522269 0.02834008]
+data_FPR [0.68421053 0.00175   ]
+BS, BSS [0.10358638145047773, 0.22795434330521358]
+Êı¾İ¼¯ 1 ²âÊÔ¼¯BSS: 0.22795434330521358
+Namespace(batch_size=16, cuda=True, datasetname='dataÉ¸Ñ¡', dropout=0.5, embed='timeF', embed_dim=80, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='NN', num_dataset=9, num_heads=8, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+./dataÉ¸Ñ¡/2Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3560, 720]
+./dataÉ¸Ñ¡/2Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.601123595505618, 2.9722222222222223]
+./dataÉ¸Ñ¡/2Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3560, 720]
+./dataÉ¸Ñ¡/2Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.601123595505618, 2.9722222222222223]
+./dataÉ¸Ñ¡/2Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3560, 720]
+./dataÉ¸Ñ¡/2Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.601123595505618, 2.9722222222222223]
+zero: 0.601123595505618
+zero: 2.9722222222222223
+{0.0: 0.601123595505618, 1.0: 2.9722222222222223}
+====================Êı¾İ¼¯2²âÊÔ¼¯ÂÖÆÀ¹ÀÊı¾İ=============================================
+[[3505   55]
+ [ 432  288]]
+TSS: 0.3845505617977528
+±¾ÂÖÆÀ¹ÀÍê³É 
+Test set: Average loss: 5.7369, Accuracy: 3793/4280 (89%)
+
+[[3505   55]
+ [ 432  288]]
+Recall [0.98455056 0.4       ]
+Precision [0.89027178 0.83965015]
+Accuracy [0.88621495 0.88621495]
+TSS [0.38455056 0.38455056]
+HSS [0.48606906 0.48606906]
+FAR [0.10972822 0.16034985]
+data_FPR [0.6        0.01544944]
+BS, BSS [0.1001939784920576, 0.2839445319877587]
+Êı¾İ¼¯ 2 ²âÊÔ¼¯BSS: 0.2839445319877587
+Namespace(batch_size=16, cuda=True, datasetname='dataÉ¸Ñ¡', dropout=0.5, embed='timeF', embed_dim=80, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='NN', num_dataset=9, num_heads=8, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+./dataÉ¸Ñ¡/3Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3280, 880]
+./dataÉ¸Ñ¡/3Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6341463414634146, 2.3636363636363638]
+./dataÉ¸Ñ¡/3Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3280, 880]
+./dataÉ¸Ñ¡/3Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6341463414634146, 2.3636363636363638]
+./dataÉ¸Ñ¡/3Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3280, 880]
+./dataÉ¸Ñ¡/3Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6341463414634146, 2.3636363636363638]
+zero: 0.6341463414634146
+zero: 2.3636363636363638
+{0.0: 0.6341463414634146, 1.0: 2.3636363636363638}
+====================Êı¾İ¼¯3²âÊÔ¼¯ÂÖÆÀ¹ÀÊı¾İ=============================================
+[[3220   60]
+ [ 487  393]]
+TSS: 0.42829822616407975
+±¾ÂÖÆÀ¹ÀÍê³É 
+Test set: Average loss: 6.2377, Accuracy: 3613/4160 (87%)
+
+[[3220   60]
+ [ 487  393]]
+Recall [0.98170732 0.44659091]
+Precision [0.86862692 0.86754967]
+Accuracy [0.86850962 0.86850962]
+TSS [0.42829823 0.42829823]
+HSS [0.52074136 0.52074136]
+FAR [0.13137308 0.13245033]
+data_FPR [0.55340909 0.01829268]
+BS, BSS [0.11299882532911859, 0.3225081514635795]
+Êı¾İ¼¯ 3 ²âÊÔ¼¯BSS: 0.3225081514635795
+Namespace(batch_size=16, cuda=True, datasetname='dataÉ¸Ñ¡', dropout=0.5, embed='timeF', embed_dim=80, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='NN', num_dataset=9, num_heads=8, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+./dataÉ¸Ñ¡/4Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3440, 680]
+./dataÉ¸Ñ¡/4Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.5988372093023255, 3.0294117647058822]
+./dataÉ¸Ñ¡/4Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3440, 680]
+./dataÉ¸Ñ¡/4Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.5988372093023255, 3.0294117647058822]
+./dataÉ¸Ñ¡/4Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3440, 680]
+./dataÉ¸Ñ¡/4Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.5988372093023255, 3.0294117647058822]
+zero: 0.5988372093023255
+zero: 3.0294117647058822
+{0.0: 0.5988372093023255, 1.0: 3.0294117647058822}
+====================Êı¾İ¼¯4²âÊÔ¼¯ÂÖÆÀ¹ÀÊı¾İ=============================================
+[[3440    0]
+ [ 378  302]]
+TSS: 0.4441176470588235
+±¾ÂÖÆÀ¹ÀÍê³É 
+Test set: Average loss: 5.5587, Accuracy: 3742/4120 (91%)
+
+[[3440    0]
+ [ 378  302]]
+Recall [1.         0.44411765]
+Precision [0.90099529 1.        ]
+Accuracy [0.90825243 0.90825243]
+TSS [0.44411765 0.44411765]
+HSS [0.57157948 0.57157948]
+FAR [0.09900471 0.        ]
+data_FPR [0.55588235 0.        ]
+BS, BSS [0.09466383867192418, 0.3130720489258878]
+Êı¾İ¼¯ 4 ²âÊÔ¼¯BSS: 0.3130720489258878
+Namespace(batch_size=16, cuda=True, datasetname='dataÉ¸Ñ¡', dropout=0.5, embed='timeF', embed_dim=80, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='NN', num_dataset=9, num_heads=8, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+./dataÉ¸Ñ¡/5Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3200, 800]
+./dataÉ¸Ñ¡/5Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.625, 2.5]
+./dataÉ¸Ñ¡/5Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3200, 800]
+./dataÉ¸Ñ¡/5Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.625, 2.5]
+./dataÉ¸Ñ¡/5Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3200, 800]
+./dataÉ¸Ñ¡/5Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.625, 2.5]
+zero: 0.625
+zero: 2.5
+{0.0: 0.625, 1.0: 2.5}
+====================Êı¾İ¼¯5²âÊÔ¼¯ÂÖÆÀ¹ÀÊı¾İ=============================================
+[[3200    0]
+ [ 664  136]]
+TSS: 0.17000000000000004
+±¾ÂÖÆÀ¹ÀÍê³É 
+Test set: Average loss: 6.1748, Accuracy: 3336/4000 (83%)
+
+[[3200    0]
+ [ 664  136]]
+Recall [1.   0.17]
+Precision [0.82815735 1.        ]
+Accuracy [0.834 0.834]
+TSS [0.17 0.17]
+HSS [0.24682396 0.24682396]
+FAR [0.17184265 0.        ]
+data_FPR [0.83 0.  ]
+BS, BSS [0.11230413523512202, 0.29809915478044047]
+Êı¾İ¼¯ 5 ²âÊÔ¼¯BSS: 0.29809915478044047
+Namespace(batch_size=16, cuda=True, datasetname='dataÉ¸Ñ¡', dropout=0.5, embed='timeF', embed_dim=80, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='NN', num_dataset=9, num_heads=8, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+./dataÉ¸Ñ¡/6Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3880, 800]
+./dataÉ¸Ñ¡/6Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6030927835051546, 2.925]
+./dataÉ¸Ñ¡/6Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3880, 800]
+./dataÉ¸Ñ¡/6Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6030927835051546, 2.925]
+./dataÉ¸Ñ¡/6Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3880, 800]
+./dataÉ¸Ñ¡/6Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6030927835051546, 2.925]
+zero: 0.6030927835051546
+zero: 2.925
+{0.0: 0.6030927835051546, 1.0: 2.925}
+====================Êı¾İ¼¯6²âÊÔ¼¯ÂÖÆÀ¹ÀÊı¾İ=============================================
+[[3880    0]
+ [ 533  267]]
+TSS: 0.33375
+±¾ÂÖÆÀ¹ÀÍê³É 
+Test set: Average loss: 5.5403, Accuracy: 4147/4680 (89%)
+
+[[3880    0]
+ [ 533  267]]
+Recall [1.      0.33375]
+Precision [0.87922048 1.        ]
+Accuracy [0.88611111 0.88611111]
+TSS [0.33375 0.33375]
+HSS [0.45373558 0.45373558]
+FAR [0.12077952 0.        ]
+data_FPR [0.66625 0.     ]
+BS, BSS [0.09714244782305631, 0.3145448617268265]
+Êı¾İ¼¯ 6 ²âÊÔ¼¯BSS: 0.3145448617268265
+Namespace(batch_size=16, cuda=True, datasetname='dataÉ¸Ñ¡', dropout=0.5, embed='timeF', embed_dim=80, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='NN', num_dataset=9, num_heads=8, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+./dataÉ¸Ñ¡/7Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3640, 840]
+./dataÉ¸Ñ¡/7Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6153846153846154, 2.6666666666666665]
+./dataÉ¸Ñ¡/7Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3640, 840]
+./dataÉ¸Ñ¡/7Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6153846153846154, 2.6666666666666665]
+./dataÉ¸Ñ¡/7Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3640, 840]
+./dataÉ¸Ñ¡/7Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6153846153846154, 2.6666666666666665]
+zero: 0.6153846153846154
+zero: 2.6666666666666665
+{0.0: 0.6153846153846154, 1.0: 2.6666666666666665}
+====================Êı¾İ¼¯7²âÊÔ¼¯ÂÖÆÀ¹ÀÊı¾İ=============================================
+[[3626   14]
+ [ 694  146]]
+TSS: 0.16996336996337003
+±¾ÂÖÆÀ¹ÀÍê³É 
+Test set: Average loss: 6.2655, Accuracy: 3772/4480 (84%)
+
+[[3626   14]
+ [ 694  146]]
+Recall [0.99615385 0.17380952]
+Precision [0.83935185 0.9125    ]
+Accuracy [0.84196429 0.84196429]
+TSS [0.16996337 0.16996337]
+HSS [0.24680851 0.24680851]
+FAR [0.16064815 0.0875    ]
+data_FPR [0.82619048 0.00384615]
+BS, BSS [0.11564859464419729, 0.24087076336116653]
+Êı¾İ¼¯ 7 ²âÊÔ¼¯BSS: 0.24087076336116653
+Namespace(batch_size=16, cuda=True, datasetname='dataÉ¸Ñ¡', dropout=0.5, embed='timeF', embed_dim=80, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='NN', num_dataset=9, num_heads=8, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+./dataÉ¸Ñ¡/8Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3440, 640]
+./dataÉ¸Ñ¡/8Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.5930232558139535, 3.1875]
+./dataÉ¸Ñ¡/8Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3440, 640]
+./dataÉ¸Ñ¡/8Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.5930232558139535, 3.1875]
+./dataÉ¸Ñ¡/8Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3440, 640]
+./dataÉ¸Ñ¡/8Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.5930232558139535, 3.1875]
+zero: 0.5930232558139535
+zero: 3.1875
+{0.0: 0.5930232558139535, 1.0: 3.1875}
+====================Êı¾İ¼¯8²âÊÔ¼¯ÂÖÆÀ¹ÀÊı¾İ=============================================
+[[3440    0]
+ [ 394  246]]
+TSS: 0.384375
+±¾ÂÖÆÀ¹ÀÍê³É 
+Test set: Average loss: 5.7452, Accuracy: 3686/4080 (90%)
+
+[[3440    0]
+ [ 394  246]]
+Recall [1.       0.384375]
+Precision [0.89723526 1.        ]
+Accuracy [0.90343137 0.90343137]
+TSS [0.384375 0.384375]
+HSS [0.51287273 0.51287273]
+FAR [0.10276474 0.        ]
+data_FPR [0.615625 0.      ]
+BS, BSS [0.09948827078756155, 0.24776455721374457]
+Êı¾İ¼¯ 8 ²âÊÔ¼¯BSS: 0.24776455721374457
+Namespace(batch_size=16, cuda=True, datasetname='dataÉ¸Ñ¡', dropout=0.5, embed='timeF', embed_dim=80, epochs=160, hidden_units=256, log_interval=100, lr=0.001, model_type='NN', num_dataset=9, num_heads=8, num_hidden_layers=4, num_layers=2, optim='Adam', print=1, seed=2021)
+./dataÉ¸Ñ¡/9Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3400, 840]
+./dataÉ¸Ñ¡/9Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6235294117647059, 2.5238095238095237]
+./dataÉ¸Ñ¡/9Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3400, 840]
+./dataÉ¸Ñ¡/9Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6235294117647059, 2.5238095238095237]
+./dataÉ¸Ñ¡/9Test.csvÃ¿Ò»ÀàµÄÊıÁ¿ÊÇ: [3400, 840]
+./dataÉ¸Ñ¡/9Test.csvget_Classº¯ÊıµÃµ½µÄµÄÈ¨ÖØ£º [0.6235294117647059, 2.5238095238095237]
+zero: 0.6235294117647059
+zero: 2.5238095238095237
+{0.0: 0.6235294117647059, 1.0: 2.5238095238095237}
+====================Êı¾İ¼¯9²âÊÔ¼¯ÂÖÆÀ¹ÀÊı¾İ=============================================
+[[3339   61]
+ [ 364  476]]
+TSS: 0.5487254901960784
+±¾ÂÖÆÀ¹ÀÍê³É 
+Test set: Average loss: 5.2358, Accuracy: 3815/4240 (90%)
+
+[[3339   61]
+ [ 364  476]]
+Recall [0.98205882 0.56666667]
+Precision [0.90170132 0.88640596]
+Accuracy [0.89976415 0.89976415]
+TSS [0.54872549 0.54872549]
+HSS [0.63495073 0.63495073]
+FAR [0.09829868 0.11359404]
+data_FPR [0.43333333 0.01794118]
+BS, BSS [0.08924081047308442, 0.4382578451117478]
+Êı¾İ¼¯ 9 ²âÊÔ¼¯BSS: 0.4382578451117478
+#½ÓÏÂÀ´¼ÆËãËùÓĞ²âÊÔ¼¯Ö¸±ê¾ùÖµºÍ·½·¨
+[[35283   197]
+ [ 4841  2919]]
+[[0.10322454479347229, 0.30119251846133643], [0.10358638145047773, 0.22795434330521358], [0.1001939784920576, 0.2839445319877587], [0.11299882532911859, 0.3225081514635795], [0.09466383867192418, 0.3130720489258878], [0.11230413523512202, 0.29809915478044047], [0.09714244782305631, 0.3145448617268265], [0.11564859464419729, 0.24087076336116653], [0.09948827078756155, 0.24776455721374457], [0.08924081047308442, 0.4382578451117478]]
+½á¹ûÒÑĞ´Èë ./model_output/2024-11-03-21-10-29/results.xlsx
+³ÌĞòÔËĞĞÊ±¼ä: 0.18 ·ÖÖÓ

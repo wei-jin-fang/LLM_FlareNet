@@ -1,0 +1,8 @@
+Threshold,Metric Name/BS and BSS ,Class 0 Value,Class 1 Value
+0.25,Accuracy,0.824,0.824
+0.25,Recall,0.981,0.125
+0.25,Precision,0.833,0.6
+0.25,BSS,0.162,-0.086
+0.25,HSS,0.153,0.153
+0.25,FAR,0.166,0.4
+0.25,FPR,0.875,0.018
