@@ -134,7 +134,7 @@ def globaldata():
     import os
 
     # 示例用法
-    folder_path = r'../../Data2原始数据'
+    folder_path = r'../../Data_origin'
     output_folder = r'./clean之后数据'  # 当前py文件目录下的新文件夹，可以自定义文件夹名称
     target_string = '2.939.1'
     replacement_string = '2.939'  # 替换的字符串

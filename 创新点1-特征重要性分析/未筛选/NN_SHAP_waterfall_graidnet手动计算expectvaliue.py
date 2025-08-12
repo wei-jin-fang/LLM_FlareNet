@@ -445,9 +445,9 @@ if __name__ == "__main__":
                 train_csv_path = rf"../../../{dataname}/{count}Train.csv"
                 validate_csv_path = rf"../../../{dataname}/{count}Val.csv"
                 test_csv_path = rf"../../../{dataname}/{count}Test.csv"
-                # train_csv_path = rf"E:\conda_code_tf\LLM\LLM_VIT\Data2原始数据\1Test.csv"
-                # validate_csv_path = rf"E:\conda_code_tf\LLM\LLM_VIT\Data2原始数据\1Test.csv"
-                # test_csv_path = rf"E:\conda_code_tf\LLM\LLM_VIT\Data2原始数据\1Test.csv"
+                # train_csv_path = rf"E:\conda_code_tf\LLM\LLM_VIT\Data_origin\1Test.csv"
+                # validate_csv_path = rf"E:\conda_code_tf\LLM\LLM_VIT\Data_origin\1Test.csv"
+                # test_csv_path = rf"E:\conda_code_tf\LLM\LLM_VIT\Data_origin\1Test.csv"
                 train_x, train_y, validate_x, validate_y, test_x, test_y, class_weight = Preprocess(train_csv_path,
                                                                                                     validate_csv_path,
                                                                                                     test_csv_path)

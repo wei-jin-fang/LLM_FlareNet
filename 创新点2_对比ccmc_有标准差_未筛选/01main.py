@@ -70,7 +70,13 @@ def check_and_add_columns(folder_path,Columns):
 
             except Exception as e:
                 print(f"无法处理文件 '{file_name}'，错误: {e}")
+
+
+
+
 def getTenFeature():
+
+
     # 设置基础目录，即"23_24SHARPImage_40"文件夹的路径
     base_directory = r'G:\本科\SHARP_23_24\23_24SHARPImage_40'
 
@@ -134,7 +140,7 @@ def globaldata():
     import os
 
     # 示例用法
-    folder_path = r'../../Data2原始数据'
+    folder_path = r'../../Data_origin'
     output_folder = r'./clean之后数据'  # 当前py文件目录下的新文件夹，可以自定义文件夹名称
     target_string = '2.939.1'
     replacement_string = '2.939'  # 替换的字符串
