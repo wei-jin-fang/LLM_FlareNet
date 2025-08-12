@@ -1,0 +1,12 @@
+Data 14175,14177-LLM_VIT-TSS inserted successfully
+14171 False
+Data 14169,14171,14176-LLM_VIT-TSS inserted successfully
+14165 False
+Data 14165,14168-LLM_VIT-TSS inserted successfully
+14174 False
+Data 14174-LLM_VIT-TSS inserted successfully
+14173 False
+Data 14161,14164,14170,14173-LLM_VIT-TSS inserted successfully
+****************************************************************************
+2025-08-11 00:00:00 ²Ù×÷½áÊø
+****************************************************************************

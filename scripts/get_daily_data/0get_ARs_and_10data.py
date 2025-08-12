@@ -57,6 +57,7 @@ def main(today: datetime):
     '''
         比如预报2025.08.11爆发情况，那么today就是2025.08.11
     '''
+    result_today_predict_str = today.strftime("%Y%m%d")
     ar_today_datetime = today
     print("=================================第一步先获取AR信息插入到数据库，并且标记是否够60以内=================================")
     ar_year, ar_month, ar_day = \
@@ -114,7 +115,7 @@ def main(today: datetime):
 
 if __name__ == '__main__':
     start_date = datetime.today()
-
+    start_date = datetime(2025,8,11)
     end_date = start_date
     now = time.time()
     # 打开 log.txt 文件用于写入

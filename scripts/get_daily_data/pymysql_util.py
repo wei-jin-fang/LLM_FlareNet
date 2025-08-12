@@ -48,6 +48,33 @@ def db_update(sql):
         # 只关闭游标，不关闭连接
         if cursor:
             cursor.close()
+def get_data_noaaars_and_Nmbr_in_sql(T_REC_base):
+    """
+        根据给定的T_REC_base前缀，查询sharp_data_ten_feature表中的NOAA_ARS和Nmbr字段，
+        并按NOAA_ARS分组返回结果。
+        """
+    cursor = None
+    results = {}
+    try:
+        cursor = connection.cursor()
+        query_sql = """
+                SELECT NOAA_ARS, Nmbr
+                FROM sharp_data_ten_feature
+                WHERE T_REC LIKE %s
+            """
+        cursor.execute(query_sql, (f"{T_REC_base}%",))  # 因为之前就算补充的话拼接了下载当前的，所有通配符可以模糊查询
+        rows = cursor.fetchall()
+        for noaa_ars, nmbr in rows:
+            if noaa_ars not in results:
+                results[noaa_ars] = set()
+            results[noaa_ars].add(nmbr)
+        return results
+    except pymysql.MySQLError as e:
+        logging.error(f"查询失败，错误信息：{e}")
+        return {}
+    finally:
+        if cursor:
+            cursor.close()
 
 def get_noaa_ids_for_today(today):
     date_format_ar = today.strftime("%Y-%m-%d")  # 格式化为 "2024-11-01"
@@ -168,7 +195,7 @@ def check_is60_is120(date_format_ar, NOAAID):
         if cursor:
             cursor.close()
 
-def get_sharp_data_records(T_REC_base, NOAAID):
+def get_120_ten_feather_data_in_sql(T_REC_base, NOAAID):
     """
     根据T_REC_base和NOAAID查询sharp_data_ten_feature表，获取指定字段的记录。
     """
@@ -220,7 +247,7 @@ def fetch_noaa_ars_nmbr(T_REC_base):
         if cursor:
             cursor.close()
 
-def insert_forecast_data(data):
+def insert_result_data_to_sql(data):
     """
     插入预测数据到result_forecast表。
     :param data: 要插入的数据列表

@@ -13,19 +13,19 @@ class LLMFlareNetModel(nn.Module):
         super(LLMFlareNetModel, self).__init__()
 
 
-        self.bert_config = BertConfig.from_pretrained(r'/home/wjf/project/LLM_FlareNet/pre_train_model/bert')
+        self.bert_config = BertConfig.from_pretrained(r'G:\本科\项目_比赛_论文资料\论文_LLM_VIT\bert')
         self.bert_config.num_hidden_layers = args.bert_num_hidden_layers
         self.bert_config.output_attentions = True
         self.bert_config.output_hidden_states = True
 
         self.tokenizer = BertTokenizer.from_pretrained(
-                r'/home/wjf/project/LLM_FlareNet/pre_train_model/bert',
+                r'G:\本科\项目_比赛_论文资料\论文_LLM_VIT\bert',
                 trust_remote_code=True,
                 local_files_only=True
         )
 
         self.llm_model = BertModel.from_pretrained(
-            r'/home/wjf/project/LLM_FlareNet/pre_train_model/bert',
+            r'G:\本科\项目_比赛_论文资料\论文_LLM_VIT\bert',
             trust_remote_code=True,
             local_files_only=True,
             config=self.bert_config,
@@ -104,6 +104,7 @@ class LLMFlareNetModel(nn.Module):
             att
         '''
         input2nlp=self.reprogramming_layer(input_patchs,source_embeddings,source_embeddings)
+
         # print(input2nlp.shape)torch.Size([16, 7, 768])
         '''
             输入大模型
@@ -113,7 +114,6 @@ class LLMFlareNetModel(nn.Module):
         #去掉提示词，拿出数据部分长度
         nlp2data = nlp[:, :, -patch_num:]
         # print(nlp2data.shape)torch.Size([16, 148, 7])
-        print("todo")
         # 分类头
         enc_out_flat = nlp2data.reshape(nlp2data.size(0), -1)  # [16, 1036]
         attention_mul = self.classifier(enc_out_flat)

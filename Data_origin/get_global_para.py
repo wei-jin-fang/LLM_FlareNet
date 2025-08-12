@@ -95,7 +95,7 @@ def globaldata():
     import pandas as pd
 
     # 声明csv文件路径列表
-    numdataset = 1
+    numdataset = 0
     csv_files = [rf'{output_folder}\{numdataset}Train.csv',
                  rf'{output_folder}\{numdataset}Val.csv',
                  rf'{output_folder}\{numdataset}Test.csv',

@@ -1,52 +1,135 @@
+import argparse
 import logging
 import shutil
+import sys
 import time
 import uuid
 from decimal import Decimal
 from ftplib import FTP
 from datetime import datetime, timedelta
 
+import numpy as np
+import pandas as pd
 import pymysql
 import requests
+import torch
 import urllib3
-
-from pymysql_util import insert_ar_info, connection, update_is120_field,check_is60_is120
+from sklearn.preprocessing import StandardScaler
+from tools import DualOutput, setup_seed_torch, truncate
+from pymysql_util import insert_ar_info, connection, update_is120_field, check_is60_is120, \
+    get_120_ten_feather_data_in_sql, insert_result_data_to_sql, get_data_noaaars_and_Nmbr_in_sql
 import os
 
-from csv_util import update_is120_in_csv, check_data_in_csv
+from csv_util import update_is120_in_csv, check_data_in_csv, get_120_ten_feature_data_in_csv, insert_result_data_to_csv, \
+    get_data_noaaars_and_Nmbr_in_csv
 
 
-def check_data_is_available(date_format_ar, NOAAID):
-    print(check_is60_is120(date_format_ar, NOAAID))
-    return (check_data_in_csv(date_format_ar, NOAAID))
+def insert_result_data(insertdata,read_mode="sql"):
 
-def get_data_noaaars_and_Nmbr(T_REC_base):
-    """
-    根据给定的T_REC_base前缀，查询sharp_data_ten_feature表中的NOAA_ARS和Nmbr字段，
-    并按NOAA_ARS分组返回结果。
-    """
-    cursor = None
-    results = {}
-    try:
-        cursor = connection.cursor()
-        query_sql = """
-            SELECT NOAA_ARS, Nmbr
-            FROM sharp_data_ten_feature
-            WHERE T_REC LIKE %s
-        """
-        cursor.execute(query_sql, (f"{T_REC_base}%",))  #因为之前就算补充的话拼接了下载当前的，所有通配符可以模糊查询
-        rows = cursor.fetchall()
-        for noaa_ars, nmbr in rows:
-            if noaa_ars not in results:
-                results[noaa_ars] = set()
-            results[noaa_ars].add(nmbr)
-        return results
-    except pymysql.MySQLError as e:
-        logging.error(f"查询失败，错误信息：{e}")
-        return {}
-    finally:
-        if cursor:
-            cursor.close()
+    if read_mode == "sql":
+        return insert_result_data_to_sql(insertdata)
+    elif read_mode == "csv":
+        return  insert_result_data_to_csv(insertdata)
+
+def inference_by_data(_modelTypeList, data, JianceType):
+    parser = argparse.ArgumentParser(description='Time-LLM')
+    parser.add_argument('--model_type', type=str, default='VIT', help='VIT,LLM_VIT')
+    parser.add_argument('--seed', type=int, default=2021, help='random seed')
+    args = parser.parse_args()
+
+    for _modelType in _modelTypeList:
+        args.model_type = _modelType
+        start_time = time.time()
+
+        timelabel = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime(time.time()))
+        model_base = rf".\model_output\{timelabel}"
+        os.makedirs(rf"{model_base}")
+        os.makedirs(rf"{model_base}\plot")
+        results_filepath = rf"{model_base}\important.txt"
+        results_logfilepath = rf"{model_base}\log.txt"
+
+        sys.stdout = DualOutput(results_logfilepath)
+        with open(results_filepath, 'w') as results_file:
+            probabilitiesList = []
+            for count in range(10):  # 循环处理0-9个数据集
+                setup_seed_torch(args.seed)
+                model_filename = rf"." \
+                                 + f"\{JianceType}_{args.model_type}" \
+                                 + f"\model_{count}.pt"
+
+                # 加载最佳模型
+                model_test = torch.load(model_filename, map_location=torch.device('cpu'), weights_only=False)
+                if not isinstance(data, torch.Tensor):
+                    data = torch.tensor(data, dtype=torch.float32)
+                data_3d = data.unsqueeze(0).to("cpu")
+                output = model_test(data_3d)
+                # 添加内容方便计算BSS BS
+                probabilities = torch.exp(output)  # 拿到这一批次概率数值
+                probabilitiesList.append(probabilities)
+
+
+            #probabilitiesList:   [tensor([[0.5651, 0.4349]], grad_fn=<ExpBackward0>), tensor([[0.6017, 0.3983]], grad_fn=<ExpBackward0>), tensor([[0.6134, 0.3866]], grad_fn=<ExpBackward0>), tensor([[0.6159, 0.3841]],
+            # tensor[0, 1]：从每个张量中提取第一个样本（索引 0,tensor([[0.5651, 0.4349]]）的第二个值（索引 1），
+            # 即二分类中的第二个类别的概率（例如 0.4349, 0.3983, 0.3866, 0.3841）。
+            new_list = [truncate(tensor[0, 1].item(), 3) for tensor in probabilitiesList]
+            return new_list
+
+
+def global_data_by_mean_and_std(list_data):
+    print("++++++++++++++++++++++++++++++++第四步归一化+++++++++++++++++++++++++++++++++++++++++++++")
+
+    # 将数据加载到 DataFrame 中，并将所有数据转换为浮点数类型
+    df = pd.DataFrame(list_data,
+                      columns=["TOTUSJH", "TOTPOT", "TOTUSJZ", "ABSNJZH",
+                               "SAVNCPP", "USFLUX", "AREA_ACR", "MEANPOT", "R_VALUE", "SHRGT45"])
+    df = df.apply(pd.to_numeric)  # 转换为数值类型
+
+    # 手动设置标准化参数（使用提供的均值和标准差）
+    mean_values = np.array([
+        1.19527086e+03, 2.68865850e+23, 2.45100336e+13, 1.50900269e+02,
+        6.72536197e+12, 1.54981119e+22, 8.31207961e+02, 6.51523418e+03,
+        3.13289555e+00, 2.62529642e+01
+    ])
+    scale_values = np.array([
+        1.36034771e+03, 4.14845493e+23, 2.63605181e+13, 2.70139847e+02,
+        1.00889221e+13, 1.73280368e+22, 8.09170152e+02, 4.20950529e+03,
+        1.45805498e+00, 1.61363519e+01
+    ])
+
+    # 初始化 StandardScaler 并手动设置参数
+    scaler = StandardScaler()
+    scaler.mean_ = mean_values  # 设置均值
+    scaler.scale_ = scale_values  # 设置标准差
+    scaler.var_ = scale_values ** 2  # 方差是标准差的平方
+
+    # 使用手动设置的 scaler 对新数据进行标准化
+    df_normalized = df.copy()
+    new_data_normalized_data = scaler.transform(df_normalized)
+
+    return new_data_normalized_data
+
+def get_120_ten_feather_data_by_T_REC_base_and_Nmbr(T_REC_base, Nmbr,read_mode="sql"):
+    if read_mode == "sql":
+        return get_120_ten_feather_data_in_sql(T_REC_base, Nmbr)
+    elif read_mode == "csv":
+        return  get_120_ten_feature_data_in_csv(T_REC_base, Nmbr)
+
+def check_data_is_available(date_format_ar, NOAAID,read_mode="sql"):
+    if read_mode=="sql":
+        return (check_is60_is120(date_format_ar, NOAAID))
+    elif read_mode=="csv":
+        return (check_data_in_csv(date_format_ar, NOAAID))
+
+
+
+
+def get_data_noaaars_and_Nmbr(T_REC_base,read_mode):
+    if read_mode=="sql":
+        return get_data_noaaars_and_Nmbr_in_sql(T_REC_base)
+    elif read_mode=="csv":
+        return (get_data_noaaars_and_Nmbr_in_csv(T_REC_base))
+
+
 
 def update_sql_and_csv(SELECT_date_format_ar,NOAAID,isin120):
     update_is120_field(SELECT_date_format_ar, NOAAID, isin120)

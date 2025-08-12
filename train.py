@@ -325,9 +325,9 @@ def read_parameters():
     parser.add_argument('--batch_size', type=int, default=16, help='batch size of train input data')
     parser.add_argument('--device', type=str, default="cuda")  # 循环处理0-9个数据集
     parser.add_argument('--datasetname', type=str, default="data", help='new_data_scaler,data')
-
+    parser.add_argument('--epochs', type=int, default=1)
     # 公共训练参数
-    parser.add_argument('--epochs', type=int, default=50)
+    parser.add_argument('--cuda', action='store_false')
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--optim', type=str, default='Adam')
     parser.add_argument('--seed', type=int, default=2021, help='random seed')
@@ -597,7 +597,7 @@ if __name__ == "__main__":
                     file_path = os.path.join(model_base, filename)
                     try:
                         # 删除文件
-                        os.remove(file_path)
+                        # os.remove(file_path)
                         pass
                     except Exception as e:
                         print(f"删除文件 {file_path} 时出错: {e}")
