@@ -8,6 +8,9 @@ import numpy as np
 import torch
 from matplotlib import pyplot as plt
 from sklearn.metrics import confusion_matrix, brier_score_loss
+def truncate(number, digits) -> float:
+    stepper = 10.0 ** digits
+    return np.trunc(stepper * number) / stepper
 
 def save_csv(y_pred, y_true,path):
     '''
