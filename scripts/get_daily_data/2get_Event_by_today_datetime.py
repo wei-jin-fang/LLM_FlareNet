@@ -4,6 +4,8 @@ from datetime import datetime, timedelta
 import requests
 from lxml import html
 
+from scripts.get_daily_data.process_util import insert_event_data_to_sql_and_csv
+
 
 def get_today_latest_event():
     # 请求页面内容
@@ -111,7 +113,7 @@ def get_event_data_by_urlcontent(year,start_date_str,start_date_event_key):
     return data
 
 def main(start_date=None):
-
+    print("现在是补充时间,对于当日情况，当日的表还没有形成，肯定要拿前一天的")
     start_date = (start_date - timedelta(days=1))  #今天的时候list里面最新的是前一天的
 
     start_date_str = start_date.strftime("%Y%m%d")
@@ -120,9 +122,12 @@ def main(start_date=None):
     pre_date_event_key,start_date_event_key  = (get_event_today_and_pre_day_urlcontent(start_date_str))
     # {'20250429': '2359', '20250428': '2359'}
     print(start_date_event_key, pre_date_event_key)
-    print(get_event_data_by_urlcontent(year, start_date_str, start_date_event_key))
+    today_event_data_list=(get_event_data_by_urlcontent(year, start_date_str, start_date_event_key))
+    insert_event_data_to_sql_and_csv(today_event_data_list)
+
 if __name__ == '__main__':
-    main(start_date = datetime.today())
+    # main(start_date = datetime.today())
+    main(start_date = datetime(2025,8,12))
     # with open('../创新点整理版本/创新点3_每日预报/tool/Event_data.json', 'r') as file:
     #     loaded_data = json.load(file)
     # # 定义日期范围

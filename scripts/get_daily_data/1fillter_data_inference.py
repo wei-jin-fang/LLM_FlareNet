@@ -133,7 +133,7 @@ def main(today: datetime,read_mode="sql"):
                     insertdata.extend([""]) #这时候没有全局最大值类别，设置为""
                     insertdata.extend([""]) #这时候没有全局最大值类别对应的id，设置为""
                     insertdata.extend([str(result_today_predict_str)]) #预报日期，数据日期的后一天
-                    insert_result_data(insertdata,read_mode)
+                    insert_result_data(insertdata)
 
                 else:
                     insertdata = []
@@ -147,7 +147,7 @@ def main(today: datetime,read_mode="sql"):
                     insertdata.extend([""])
                     insertdata.extend([""])
                     insertdata.extend([str(result_today_predict_str)])
-                    insert_result_data(insertdata,read_mode)
+                    insert_result_data(insertdata)
 
 
 if __name__ == '__main__':

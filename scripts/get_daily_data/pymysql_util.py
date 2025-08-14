@@ -311,7 +311,7 @@ def update_forecast_data(T_REC, _modelType, JianceType, NOAA_ARS, Class, new_noa
         if cursor:
             cursor.close()
 
-def insert_event_data(EventdataList):
+def insert_event_data_in_sql(EventdataList):
     """
     插入特定数据到 Eventdata 表，不使用参数化查询。
     """

@@ -1,11 +1,103 @@
 import csv
+import logging
+import re
 from typing import List, Tuple, Dict, Set
 
 import pandas as pd
-import os
-import pandas as pd
+
 import os
 from typing import List, Tuple
+
+def insert_event_data_to_csv(EventdataList: List[Tuple], csv_file_path: str = "./Eventdata.csv") -> bool:
+        """
+        插入特定数据到 Eventdata.csv 文件。
+        :param EventdataList: 要插入的数据列表，每个元素为元组，包含至少7个字段（索引0-6），对应 EventID, EName, Start, Stop, Peak, GOES_Class, Derived_Position/NOAA_ID
+        :param csv_file_path: CSV文件的路径，默认为 "./Eventdata.csv"
+        :return: 成功返回True，失败返回False
+        """
+        try:
+            # CSV文件的表头
+            headers = ['EventID', 'EName', 'Start', 'Stop', 'Peak', 'GOES_Class', 'Derived_Position', 'NOAA_ID',
+                       'Start_day']
+
+            # 文件是否存在
+            file_exists = os.path.exists(csv_file_path)
+
+            # 读取现有CSV文件（如果存在）
+            if file_exists:
+                df = pd.read_csv(csv_file_path, encoding='utf-8', dtype=str)
+            else:
+                df = pd.DataFrame(columns=headers)
+
+            # 检查必要的列是否存在
+            if not all(col in df.columns for col in headers):
+                print(f"CSV文件中缺少必要的列: {headers}")
+                return False
+
+            # 清理CSV中的数据：去除前后空格
+            for col in headers:
+                df[col] = df[col].str.strip()
+
+            # 处理每条事件数据
+            new_rows = []
+            for event in EventdataList:
+                # 确保事件数据长度足够
+                if len(event) < 7:
+                    logging.error(f"事件数据长度不足，预期至少7个字段，实际 {len(event)} 个")
+                    continue
+
+                # 格式化 EventID（从 EName 中提取日期部分 YYYYMMDD）
+                date_format_event = str(event[1]).strip()[4:12]
+                eventID = date_format_event
+
+                # 处理 Derived_Position 和 NOAA_ID
+                event6 = str(event[6]).strip()  # 例如 "S05W07(3883)"
+                Derived_Position = event6[:6].strip() if len(event6) >= 6 else event6.strip()
+                match = re.search(r'\((\s*\d+\s*)\)', event6)
+                NOAA_ID = "1" + match.group(1).strip() if match else event6.strip()
+
+                # 格式化 Start_day（从 Start 字段提取 YYYYMMDD）
+                start_date = str(event[2]).strip().split()[0]
+                year, month, day = start_date.split('/')
+                formatted_date = year + month + day
+
+                # 构造新行
+                row = [
+                    eventID,
+                    str(event[1]).strip(),  # EName
+                    str(event[2]).strip(),  # Start
+                    str(event[3]).strip(),  # Stop
+                    str(event[4]).strip(),  # Peak
+                    str(event[5]).strip(),  # GOES_Class
+                    Derived_Position,
+                    NOAA_ID,
+                    formatted_date
+                ]
+                new_rows.append(row)
+
+            # 如果没有有效数据，直接返回
+            if not new_rows:
+                print("没有有效的事件数据可插入")
+                return False
+
+            # 追加新记录
+            new_df = pd.DataFrame(new_rows, columns=headers)
+            df = pd.concat([df, new_df], ignore_index=True)
+
+            # 写回CSV文件
+            df.to_csv(csv_file_path, index=False, encoding='utf-8')
+
+            # 记录插入成功的日志
+            for row in new_rows:
+                logging.info(f"Successfully inserted data for Event ID: {row[0]}")
+
+            return True
+
+        except Exception as e:
+            print(f"写入CSV文件时出错: {e}")
+            for row in new_rows:
+                logging.error(f"Error inserting data for Event ID: {row[0]}")
+            return False
 
 def insert_result_data_to_csv(data: Tuple, csv_file_path: str = "./result_forecast.csv") -> bool:
     """

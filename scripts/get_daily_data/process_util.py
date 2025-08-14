@@ -17,19 +17,21 @@ import urllib3
 from sklearn.preprocessing import StandardScaler
 from tools import DualOutput, setup_seed_torch, truncate
 from pymysql_util import insert_ar_info, connection, update_is120_field, check_is60_is120, \
-    get_120_ten_feather_data_in_sql, insert_result_data_to_sql, get_data_noaaars_and_Nmbr_in_sql
+    get_120_ten_feather_data_in_sql, insert_result_data_to_sql, get_data_noaaars_and_Nmbr_in_sql, \
+    insert_event_data_in_sql
 import os
 
 from csv_util import update_is120_in_csv, check_data_in_csv, get_120_ten_feature_data_in_csv, insert_result_data_to_csv, \
-    get_data_noaaars_and_Nmbr_in_csv
+    get_data_noaaars_and_Nmbr_in_csv, insert_event_data_to_csv
 
 
-def insert_result_data(insertdata,read_mode="sql"):
+def insert_event_data_to_sql_and_csv(insertdata):
+    insert_event_data_in_sql(insertdata)
+    insert_event_data_to_csv(insertdata)
+def insert_result_data(insertdata):
 
-    if read_mode == "sql":
-        return insert_result_data_to_sql(insertdata)
-    elif read_mode == "csv":
-        return  insert_result_data_to_csv(insertdata)
+    insert_result_data_to_sql(insertdata)
+    insert_result_data_to_csv(insertdata)
 
 def inference_by_data(_modelTypeList, data, JianceType):
     parser = argparse.ArgumentParser(description='Time-LLM')
