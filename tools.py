@@ -35,6 +35,41 @@ def save_csv(y_pred, y_true,path):
     # 保存为CSV文件，包含表头
     df.to_csv(os.path.join(save_csv_dir, "" + str(path) + ".csv",), header=True, index=False,encoding="utf-8-sig")
 
+def compare_goes_class(class1, class2):
+    """
+    比较两个 GOES_Class 字段，返回较大的一个。
+    比较规则：N < C < M < X，对于同一个字母，比较后面的数字部分，数字越大类别越大。
+    """
+    # 定义类别顺序
+    order = {'A':-2,'B':-1,'N': 0, 'C': 1, 'M': 2, 'X': 3}
+
+    # 获取字母和数字部分
+    letter1, number1 = class1[0], float(class1[1:])
+    letter2, number2 = class2[0], float(class2[1:])
+
+    # 先按字母顺序比较
+    if order[letter1] != order[letter2]:
+        return class1 if order[letter1] > order[letter2] else class2
+    else:
+        # 字母相同时，比较数字部分
+        return class1 if number1 > number2 else class2
+def find_max_label_for_noaaARs_in_day(noaa_ars_dict):
+    """
+    在所有 NOAA_ARS 中找到整体最大类别的 GOES_Class 和对应的 NOAAID。
+    :param noaa_ars_dict: 每个 NOAA_ARS 的最大 GOES_Class 和 NOAAID 字典
+    :return: 整体最大 GOES_Class 和对应的 NOAAID
+    """
+    overall_max_goes_class = None
+    overall_max_noaa_id = None
+
+    for noaa_ars, (goes_class, noaa_id) in noaa_ars_dict.items():
+        if overall_max_goes_class is None or compare_goes_class(goes_class, overall_max_goes_class) == goes_class:
+            overall_max_goes_class = goes_class
+            overall_max_noaa_id = noaa_id
+
+    return overall_max_goes_class, overall_max_noaa_id
+
+
 class Metric(object):
     def __init__(self, y_true, y_pred):
         self.y_true = np.array(y_true)

@@ -99,7 +99,7 @@ class LLMFlareNetModel(nn.Module):
             patch
         '''
         input_patchs,patch_num=self.patch_embedding(inputs)
-        # print(x_enc.shape)torch.Size([16, 7, d_model])
+        # print(x_enc.shape)#torch.Size([16, 7, d_model])
         '''
             att
         '''

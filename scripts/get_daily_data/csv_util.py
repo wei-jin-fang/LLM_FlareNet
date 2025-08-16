@@ -7,6 +7,99 @@ import pandas as pd
 
 import os
 from typing import List, Tuple
+import pandas as pd
+import logging
+
+from tools import compare_goes_class
+
+
+def update_result_by_overall_max_label_and_noaaid_in_csv(result_today_predict_str, NOAA_ARS, overall_max_goes_class,
+                                            overall_max_noaa_id, csv_file_path="./result_forecast.csv"):
+    """
+    根据 result_today_predict_str 和 NOAA_ARS 列表，匹配 result_forecast.csv 中的 predictday 和 NOAA_ARS，
+    更新匹配行的 Class 列为 overall_max_goes_class，new_noaaid 列为 overall_max_noaa_id。
+    :param result_today_predict_str: 预测日期，格式例如：'20250809'
+    :param NOAA_ARS: NOAA_ARS 列表（字符串列表）
+    :param overall_max_goes_class: 整体最大 GOES_Class（字符串）
+    :param overall_max_noaa_id: 对应的 NOAAID（字符串）
+    :param csv_file_path: result_forecast.csv 文件路径
+    :return: None（直接更新 CSV 文件）
+    """
+    try:
+        # 读取 CSV 文件，指定所有列为字符串类型
+        df = pd.read_csv(csv_file_path, dtype=str)
+
+        # 确保输入为字符串
+        result_today_predict_str = str(result_today_predict_str)
+        overall_max_goes_class = str(overall_max_goes_class)
+        overall_max_noaa_id = str(overall_max_noaa_id)
+        NOAA_ARS = str(NOAA_ARS)
+        # 使用完全匹配优化更新逻辑
+        mask = (df['predictday'] == result_today_predict_str) & (df['NOAA_ARS']==(NOAA_ARS))
+
+        # 更新匹配行的 Class 和 new_noaaid 列
+        if mask.any():
+            df.loc[mask, 'Class'] = overall_max_goes_class
+            df.loc[mask, 'new_noaaid'] = overall_max_noaa_id
+            # 保存更新后的 DataFrame 到 CSV 文件
+            df.to_csv(csv_file_path, index=False)
+            logging.info(f"成功更新 {csv_file_path}，匹配 predictday={result_today_predict_str} 和 NOAA_ARS={NOAA_ARS} 的行，"
+                         f"Class 更新为 {overall_max_goes_class}，new_noaaid 更新为 {overall_max_noaa_id}")
+        else:
+            logging.warning(f"未找到 predictday={result_today_predict_str} 和 NOAA_ARS={NOAA_ARS} 的匹配行")
+
+    except FileNotFoundError:
+        logging.error(f"CSV 文件 {csv_file_path} 未找到")
+    except Exception as e:
+        logging.error(f"更新 CSV 文件时发生错误: {e}")
+
+def find_max_label_for_noaaid_in_day_in_csv(date_format_event, noaa_ars_list, csv_file_path="./Eventdata.csv"):
+    """
+    遍历 NOAA_ARS 列表，在 CSV 文件中找到每个 NOAA_ARS 对应的最大 GOES_Class 和代表的 NOAAID。
+    :param date_format_event: 用于查询的日期，格式例如：'20250809'
+    :param noaa_ars_list: NOAA_ARS 列表（字符串列表）
+    :param csv_file_path: CSV 文件路径，包含 Eventdata 数据
+    :return: 每个 NOAA_ARS 对应的最大 GOES_Class 和 NOAAID 的字典
+    """
+    max_goes_classes = {}
+
+    try:
+        # 读取 CSV 文件，指定所有列为字符串类型
+        df = pd.read_csv(csv_file_path, dtype=str)
+
+        # 确保输入的 date_format_event 是字符串
+        date_format_event = str(date_format_event)
+
+        for thisgroupid in noaa_ars_list:
+            # 确保 thisgroupid 是字符串
+            thisgroupid = str(thisgroupid)
+            try:
+                # 筛选符合条件的行：Start_day 和 NOAA_ID 作为字符串匹配
+                filtered_df = df[(df['Start_day'] == date_format_event) & (df['NOAA_ID'] == thisgroupid)]
+                max_goes_class = "N0"  # 默认值为 "N0"（无数据时）
+                max_noaa_id = thisgroupid  # 默认使用输入的 thisgroupid
+
+                # 遍历筛选结果
+                for _, row in filtered_df.iterrows():
+                    goes_class = row['GOES_Class']
+                    noaa_id = row['NOAA_ID']
+                    # 比较当前 GOES_Class 是否比 max_goes_class 更大
+                    if max_goes_class == "N0" or compare_goes_class(goes_class, max_goes_class) == goes_class:
+                        max_goes_class = goes_class
+                        max_noaa_id = noaa_id
+
+                # 保存最大 GOES_Class 和对应的 NOAAID
+                max_goes_classes[thisgroupid] = (max_goes_class, max_noaa_id)
+
+            except Exception as e:
+                logging.error(f"处理 NOAA_ARS {thisgroupid} 的最大 GOES_Class 发生错误: {e}")
+
+    except FileNotFoundError:
+        logging.error(f"CSV 文件 {csv_file_path} 未找到")
+    except Exception as e:
+        logging.error(f"读取 CSV 文件或处理数据时发生错误: {e}")
+
+    return max_goes_classes
 
 def insert_event_data_to_csv(EventdataList: List[Tuple], csv_file_path: str = "./Eventdata.csv") -> bool:
         """

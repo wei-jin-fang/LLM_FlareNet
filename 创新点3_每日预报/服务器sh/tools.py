@@ -15,19 +15,6 @@ def truncate(number, digits) -> float:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 def save_csv(y_pred, y_true,dir,path):
     '''
     y_pred  ALL_PROBA.append([n_proba, c_proba, m_proba, x_proba])  save_csv(np.array(ALL_PROBA)

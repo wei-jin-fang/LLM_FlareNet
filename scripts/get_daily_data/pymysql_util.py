@@ -8,6 +8,7 @@ import pymysql
 #         'database': 'sloarflare',  # 数据库名
 #         'charset': 'utf8mb4'  # 字符集
 #     }
+from tools import compare_goes_class
 
 db_config = {
         'host': 'localhost',  # 数据库地址
@@ -18,7 +19,9 @@ db_config = {
     }
 
 # 创建全局连接对象
-connection = pymysql.connect(**db_config)
+connection = None
+# connection = pymysql.connect(**db_config)
+
 def db_update(sql):
     """
     执行数据库更新操作（插入、更新、删除），返回受影响的行数。
@@ -355,10 +358,10 @@ def insert_event_data_in_sql(EventdataList):
 #                     '''
 #
 # 完成上述代码的补充实现
-def find_max_goes_class_for_noaa_ars(date_format_event, noaa_ars_list):
+def find_max_label_for_noaaid_in_day_in_sql(date_format_event, noaa_ars_list):
     """
     遍历 NOAA_ARS 列表，在 Eventdata 表中找到每个 NOAA_ARS 对应的最大 GOES_Class 和代表的 NOAAID。
-    :param date_format_event: 用于查询的日期
+    :param date_format_event: 用于查询的日期，格式例如：20250809
     :param noaa_ars_list: NOAA_ARS 列表
     :return: 每个 NOAA_ARS 对应的最大 GOES_Class 和 NOAAID 的字典
     """
@@ -367,7 +370,7 @@ def find_max_goes_class_for_noaa_ars(date_format_event, noaa_ars_list):
 
     for thisgroupid in noaa_ars_list:
         '''
-        确实有这几个
+        例如
         13880 20241109
         13883 20241109
         13884 20241109
