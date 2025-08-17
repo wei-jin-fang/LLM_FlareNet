@@ -41,6 +41,6 @@ def main(today: datetime,read_mode="sql"):
 
 if __name__ == '__main__':
     # main(start_date = datetime.today())
-    main(datetime(2025,8,11),read_mode="csv")
+    main(datetime(2025,8,11),read_mode="sql")
 
     pass

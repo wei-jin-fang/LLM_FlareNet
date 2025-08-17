@@ -1,4 +1,6 @@
 import re
+from typing import List
+
 import pymysql
 #
 # db_config = {
@@ -19,8 +21,8 @@ db_config = {
     }
 
 # 创建全局连接对象
-connection = None
-# connection = pymysql.connect(**db_config)
+# connection = None
+connection = pymysql.connect(**db_config)
 
 def db_update(sql):
     """
@@ -51,6 +53,64 @@ def db_update(sql):
         # 只关闭游标，不关闭连接
         if cursor:
             cursor.close()
+
+
+def update_result_by_overall_max_label_and_noaaid_in_sql(result_today_predict_str: str, NOAA_ARS: List[str],
+                                                         overall_max_goes_class: str, overall_max_noaa_id: str
+                                                         ) -> None:
+    """
+    根据 result_today_predict_str 和 NOAA_ARS 列表，匹配 result_forecast 表中的 predictday 和 NOAA_ARS，
+    更新匹配行的 Class 列为 overall_max_goes_class，new_noaaid 列为 overall_max_noaa_id。
+    :param result_today_predict_str: 预测日期，格式例如：'20250809'
+    :param NOAA_ARS: NOAA_ARS 列表（字符串列表）
+    :param overall_max_goes_class: 整体最大 GOES_Class（字符串）
+    :param overall_max_noaa_id: 对应的 NOAAID（字符串）
+    :param connection: 数据库连接对象
+    :return: None（直接更新数据库表）
+    """
+    cursor = None
+    try:
+        cursor = connection.cursor()
+
+        # 确保输入为字符串并去除前后空格
+        result_today_predict_str = str(result_today_predict_str).strip()
+        overall_max_goes_class = str(overall_max_goes_class).strip()
+        overall_max_noaa_id = str(overall_max_noaa_id).strip()
+        NOAA_ARS = str(NOAA_ARS)
+
+        # 构造 SQL 更新语句，使用精确匹配
+        update_sql = """
+                    UPDATE result_forecast
+                    SET Class = %s, new_noaaid = %s
+                    WHERE predictday = %s AND NOAA_ARS = %s
+                """
+
+        # 执行更新
+        cursor.execute(update_sql, (overall_max_goes_class, overall_max_noaa_id, result_today_predict_str, NOAA_ARS))
+
+        # 获取受影响的行数
+        affected_rows = cursor.rowcount
+
+        # 提交事务
+        connection.commit()
+
+        if affected_rows > 0:
+            logging.info(
+                f"成功更新 result_forecast 表，匹配 predictday={result_today_predict_str} 和 NOAA_ARS={NOAA_ARS} 的 {affected_rows} 行，"
+                f"Class 更新为 {overall_max_goes_class}，new_noaaid 更新为 {overall_max_noaa_id}")
+        else:
+            logging.warning(f"未找到 predictday={result_today_predict_str} 和 NOAA_ARS={NOAA_ARS} 的匹配行")
+
+    except pymysql.MySQLError as e:
+        logging.error(f"更新数据库时发生错误: {e}")
+        connection.rollback()
+    except Exception as e:
+        logging.error(f"更新数据库时发生错误: {e}")
+        connection.rollback()
+    finally:
+        if cursor:
+            cursor.close()
+
 def get_data_noaaars_and_Nmbr_in_sql(T_REC_base):
     """
         根据给定的T_REC_base前缀，查询sharp_data_ten_feature表中的NOAA_ARS和Nmbr字段，
