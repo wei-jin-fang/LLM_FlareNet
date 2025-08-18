@@ -11,6 +11,8 @@ import argparse
 import os
 import pandas as pd
 from sklearn.utils import compute_class_weight
+
+from models.Onefitall import OnefitallModel
 from tools import BS_BSS_score, BSS_eval_np, get_batches_all
 
 from tools import Metric, plot_losses
@@ -325,17 +327,18 @@ def read_parameters():
     parser.add_argument('--batch_size', type=int, default=16, help='batch size of train input data')
     parser.add_argument('--device', type=str, default="cuda")  # 循环处理0-9个数据集
     parser.add_argument('--datasetname', type=str, default="data", help='new_data_scaler,data')
-    parser.add_argument('--epochs', type=int, default=1)
+    parser.add_argument('--epochs', type=int, default=50)
     # 公共训练参数
     parser.add_argument('--cuda', action='store_false')
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--optim', type=str, default='Adam')
     parser.add_argument('--seed', type=int, default=2021, help='random seed')
-    parser.add_argument('--model_type', type=str, default='LLMFlareNet', help='VIT,LLM_VIT')
-
-    # LLMFlareNetModel训练参数
+    parser.add_argument('--model_type', type=str, default='LLMFlareNet', help='Onefitall,LLMFlareNet')
     parser.add_argument('--bert_emb', type=int, default=768) #不能改BERT-base:768
     parser.add_argument('--d_llm', type=int, default=768) #不能改BERT-base:768
+    parser.add_argument('--d_model', type=int, default=16, help='patch of out_channels')
+    # LLMFlareNetModel训练参数
+
     parser.add_argument('--bert_num_hidden_layers', type=int, default=2)
     parser.add_argument('--description_data', type=str,
                         default="数据形状是40*10,由40个耀斑物理特征时间步数据组成，每个时间步有10个特征,"
@@ -343,12 +346,15 @@ def read_parameters():
     parser.add_argument('--description_task', type=str,
                         default="使用这些数据预报未来24小时内爆发大于等于M类别耀斑的概率，"
                                 "预报的概率值大于0.5则视为发生了")
-    parser.add_argument('--d_model', type=int, default=16, help='dimension of model')
     parser.add_argument('--n_heads', type=int, default=8, help='num of heads')
     parser.add_argument('--dropout', type=float, default=0.5, help='dimension of fcn')
     parser.add_argument('--num_tokens', type=int, default=1000, help='映射与时间有关的')
-    parser.add_argument('--patch_len', type=int, default=8, help='patch length')
-    parser.add_argument('--stride', type=int, default=5, help='stride')
+    parser.add_argument('--patch_len', type=int, default=1, help='patch length')#8
+    parser.add_argument('--stride', type=int, default=1, help='stride')#5
+    # LLMFlareNetModel训练参数
+
+
+
     # 备注参数
     parser.add_argument('--conmment', type=str, default="None")
 
@@ -367,6 +373,7 @@ def get_model(model_name):
     # 在主程序中定义模型映射
     model_dict = {
         "LLMFlareNet": LLMFlareNetModel,
+        "Onefitall": OnefitallModel,
     }
 
     # 实例化模型
@@ -424,7 +431,7 @@ if __name__ == "__main__":
                     lr = args.lr
                     batch_size=args.batch_size
 
-                    model=get_model("LLMFlareNet")
+                    model=get_model(args.model_type)
                     model_train = model(args).float()
                     # model_train = model(args).to(torch.bfloat16)
                     model_train.to(device)
@@ -597,7 +604,7 @@ if __name__ == "__main__":
                     file_path = os.path.join(model_base, filename)
                     try:
                         # 删除文件
-                        # os.remove(file_path)
+                        os.remove(file_path)
                         pass
                     except Exception as e:
                         print(f"删除文件 {file_path} 时出错: {e}")

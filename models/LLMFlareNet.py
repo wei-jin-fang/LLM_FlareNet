@@ -13,19 +13,19 @@ class LLMFlareNetModel(nn.Module):
         super(LLMFlareNetModel, self).__init__()
 
 
-        self.bert_config = BertConfig.from_pretrained(r'G:\本科\项目_比赛_论文资料\论文_LLM_VIT\bert')
+        self.bert_config = BertConfig.from_pretrained(r'./pre_train_model/bert')
         self.bert_config.num_hidden_layers = args.bert_num_hidden_layers
         self.bert_config.output_attentions = True
         self.bert_config.output_hidden_states = True
 
         self.tokenizer = BertTokenizer.from_pretrained(
-                r'G:\本科\项目_比赛_论文资料\论文_LLM_VIT\bert',
+                r'./pre_train_model/bert',
                 trust_remote_code=True,
                 local_files_only=True
         )
 
         self.llm_model = BertModel.from_pretrained(
-            r'G:\本科\项目_比赛_论文资料\论文_LLM_VIT\bert',
+            r'./pre_train_model/bert',
             trust_remote_code=True,
             local_files_only=True,
             config=self.bert_config,
@@ -43,7 +43,7 @@ class LLMFlareNetModel(nn.Module):
         self.patch_embedding = PatchEmbedding(args.d_model, args.patch_len, args.stride, args.dropout)
 
         print("初始化结束")
-        self.classifier = nn.Linear(148 * 7, 2)
+        self.classifier = nn.Linear(40 * 768, 2)
 
     def forward(self, inputs):
         # print(inputs.shape) torch.Size([16, 40, 10])
@@ -99,7 +99,7 @@ class LLMFlareNetModel(nn.Module):
             patch
         '''
         input_patchs,patch_num=self.patch_embedding(inputs)
-        # print(x_enc.shape)#torch.Size([16, 7, d_model])
+        # print(input_patchs.shape)##torch.Size([16, 7, d_model])
         '''
             att
         '''
@@ -111,9 +111,11 @@ class LLMFlareNetModel(nn.Module):
         '''
         llama_enc_out = torch.cat([prompt_embeddings, input2nlp], dim=1)
         nlp= self.llm_model(inputs_embeds=llama_enc_out).last_hidden_state  # 7+7
-        #去掉提示词，拿出数据部分长度
-        nlp2data = nlp[:, :, -patch_num:]
-        # print(nlp2data.shape)torch.Size([16, 148, 7])
+        # print(nlp.shape)#torch.Size([16, 181, 768])
+        # 去掉提示词，拿出数据部分长度
+        nlp2data = nlp[:, -patch_num:, :]  # 切片作用于序列维度，保留最后 patch_num 个 token
+
+        # print(nlp2data.shape)#torch.Size([16, 181, 7])
         # 分类头
         enc_out_flat = nlp2data.reshape(nlp2data.size(0), -1)  # [16, 1036]
         attention_mul = self.classifier(enc_out_flat)
