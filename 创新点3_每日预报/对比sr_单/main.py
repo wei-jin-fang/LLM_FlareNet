@@ -4,8 +4,6 @@ def addcol(path):
     # 读取没有表头的 CSV 文件
     df = pd.read_csv(path, header=None)
 
-
-
     # 按照图片中的内容设置表头
     df.columns = [
         "T_REC", "_modelTyp", "JianceType", "NOAA_ARS",
