@@ -31,7 +31,8 @@ class Onefitall_11Model(nn.Module):
         self.d_model = args.d_model
         self.patch_embedding = PatchEmbedding(args.d_model, patch_len=1, stride=1, dropout=args.dropout)
         self.classification_head = ClassificationHead(args)
-
+        # 添加 Sigmoid 激活函数
+        self.sigmoid = nn.Sigmoid()
         print("初始化结束")
 
     def forward(self, inputs):
@@ -45,10 +46,10 @@ class Onefitall_11Model(nn.Module):
         # 输入 BERT 模型
         nlp = self.llm_model(inputs_embeds=input_patchs).last_hidden_state  # [batch, 40, 768]
         # 分类头
-        attention_mul = self.classification_head(nlp)
-        out_put = F.log_softmax(attention_mul, dim=1)
-
-        return out_put
+        x = self.classification_head(nlp)
+        # 添加 Sigmoid 激活函数
+        x = self.sigmoid(x)  # 形状: [batch_size, 1]
+        return x
 
 
 class ClassificationHead(nn.Module):

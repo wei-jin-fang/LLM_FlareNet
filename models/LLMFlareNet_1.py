@@ -45,7 +45,8 @@ class LLMFlareNet_1Model(nn.Module):
         print("初始化结束")
         # 分类头
         self.classification_head = ClassificationHead(args)
-
+        # 添加 Sigmoid 激活函数
+        self.sigmoid = nn.Sigmoid()
     def forward(self, inputs):
         # print(inputs.shape) torch.Size([16, 40, 10])
 
@@ -119,8 +120,9 @@ class LLMFlareNet_1Model(nn.Module):
         # print(nlp2data.shape)#torch.Size([16, 64, 768])
         # 分类头
         nlp_last_dim=nlp2data.shape[-1]
-        out_put = self.classification_head(nlp2data)
-        out_put = F.log_softmax(out_put, dim=1)
+        x = self.classification_head(nlp2data)
+        # 添加 Sigmoid 激活函数
+        out_put = self.sigmoid(x)  # 形状: [batch_size, 1]
 
 
         return out_put

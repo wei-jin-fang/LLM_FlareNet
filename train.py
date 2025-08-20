@@ -133,44 +133,34 @@ def Preprocess(train_csv_path, validate_csv_path, test_csv_path):
     print(class_weight)
 
     return train_x, train_y, validate_x, validate_y, test_x, test_y, class_weight
-
-
-def train_integer(ep, train_x, train_y, optimizer, model,batch_size):
+def train_integer(ep, train_x, train_y, optimizer, model, batch_size):
     global steps
     train_loss = 0
     model.train()
     batch_count = 0
     for batch_idx, (data, target) in enumerate(get_batches_integer(train_x, train_y, batch_size)):
-
         if not isinstance(data, torch.Tensor):
             data = torch.tensor(data, dtype=torch.float32)
-        if not isinstance(target, torch.Tensor):
-            target = torch.tensor(target, dtype=torch.long)
+        # 修改 target 处理：无论是否为 Tensor，都强制转换为 float32
+        target = torch.tensor(target, dtype=torch.float32) if not isinstance(target, torch.Tensor) else target.to(dtype=torch.float32)
 
         if args.cuda:
             data, target = data.cuda(), target.cuda()
-
-        if args.cuda:
-            data, target = data.cuda(), target.cuda()
-            class_weights_cuda = torch.tensor([class_weight[0.], class_weight[1.]], dtype=torch.float32).cuda()
+            class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32).cuda()  # 正类权重
         else:
-            class_weights_cuda = torch.tensor([class_weight[0.], class_weight[1.]], dtype=torch.float32)
+            class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32)
 
         optimizer.zero_grad()
-        # print("data.shape",data.shape) #data.shape torch.Size([4, 1, 400])
-        output = model(data)
-
-        loss = F.nll_loss(output, target, weight=class_weights_cuda)
+        output = model(data)  # [batch_size, 1]，概率值
+        target = target.view(-1, 1)  # 确保 target 形状为 [batch_size, 1]
+        loss = F.binary_cross_entropy(output, target, weight=class_weights_cuda)  # 使用 BCE Loss
         loss.backward()
-
         optimizer.step()
         train_loss += loss.item()
-
         batch_count += 1
 
     message = ('Train Epoch: {} \t average Loss: {:.6f}'.format(ep, train_loss / batch_count))
     print(message)
-
     return train_loss / batch_count
 
 def train_all(ep, train_x, train_y, optimizer, model,batch_size):
@@ -179,95 +169,85 @@ def train_all(ep, train_x, train_y, optimizer, model,batch_size):
     model.train()
     batch_count = 0
     for batch_idx, (data, target) in enumerate(get_batches_all(train_x, train_y, batch_size)):
-
         if not isinstance(data, torch.Tensor):
             data = torch.tensor(data, dtype=torch.float32)
-        if not isinstance(target, torch.Tensor):
-            target = torch.tensor(target, dtype=torch.long)
+        # 修改 target 处理：无论是否为 Tensor，都强制转换为 float32
+        target = torch.tensor(target, dtype=torch.float32) if not isinstance(target, torch.Tensor) else target.to(dtype=torch.float32)
 
         if args.cuda:
             data, target = data.cuda(), target.cuda()
-
-        if args.cuda:
-            data, target = data.cuda(), target.cuda()
-            class_weights_cuda = torch.tensor([class_weight[0.], class_weight[1.]], dtype=torch.float32).cuda()
+            class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32).cuda()  # 正类权重
         else:
-            class_weights_cuda = torch.tensor([class_weight[0.], class_weight[1.]], dtype=torch.float32)
+            class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32)
 
         optimizer.zero_grad()
-        # print("data.shape",data.shape) #data.shape torch.Size([4, 1, 400])
-        output = model(data)
-
-        loss = F.nll_loss(output, target, weight=class_weights_cuda)
+        output = model(data)  # [batch_size, 1]，概率值
+        target = target.view(-1, 1)  # 确保 target 形状为 [batch_size, 1]
+        loss = F.binary_cross_entropy(output, target, weight=class_weights_cuda)  # 使用 BCE Loss
         loss.backward()
-
         optimizer.step()
         train_loss += loss.item()
-        steps += len(data)
-
         batch_count += 1
 
-    message = ('Train Epoch: {} \t average Loss: {:.6f}\tSteps: {}'.format(ep, train_loss / batch_count , steps))
+    message = ('Train Epoch: {} \t average Loss: {:.6f}'.format(ep, train_loss / batch_count))
     print(message)
-
     return train_loss / batch_count
 
-
 def evaluate_integer(data_x, data_y, model, batch_size):
+    model.eval()
+    test_loss = 0
+    correct = 0
+    all_targets = []
+    all_predictions = []
+    batch_count = 0
+    all_predictions_y_true = []
+    all_predictions_y_prob = []
 
-        model.eval()
-        test_loss = 0
-        correct = 0
-        all_targets = []
-        all_predictions = []
-        batch_count = 0
+    with torch.no_grad():
+        for data, target in get_batches_integer(data_x, data_y, batch_size):
+            if not isinstance(data, torch.Tensor):
+                data = torch.tensor(data, dtype=torch.float32)
+            # 修改 target 处理：无论是否为 Tensor，都强制转换为 float32
+            target = torch.tensor(target, dtype=torch.float32) if not isinstance(target, torch.Tensor) else target.to(dtype=torch.float32)
 
-        all_predictions_y_true = []
-        all_predictions_y_prob = []
-        with torch.no_grad():
-            for data, target in get_batches_integer(data_x, data_y, batch_size):
+            if args.cuda:
+                data, target = data.cuda(), target.cuda()
+                class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32).cuda()
+            else:
+                class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32)
 
-                if not isinstance(data, torch.Tensor):
-                    data = torch.tensor(data, dtype=torch.float32)
-                if not isinstance(target, torch.Tensor):
-                    target = torch.tensor(target, dtype=torch.long)
+            output = model(data)  # [batch_size, 1]，概率值
+            target = target.view(-1, 1)
+            test_loss += F.binary_cross_entropy(output, target, weight=class_weights_cuda).item()
 
-                if args.cuda:
-                    data, target = data.cuda(), target.cuda()
+            pred = (output > 0.5).float()  # 阈值 0.5 这个地方取值就是0或者1
 
-                output = model(data)
-                test_loss += F.nll_loss(output, target, size_average=False).item()
+            all_predictions.extend(pred.cpu().numpy().flatten())#对应之前的：这一批次预测laebl加进去数组
+            correct += pred.eq(target.data.view_as(pred)).cpu().sum()
+            all_targets.extend(target.cpu().numpy().flatten())#对应之前的：这一批次实际label加进去数组
 
-                pred = torch.argmax(output, dim=1)  # 拿到概率最大的下标
-                all_predictions.extend(torch.argmax(output, dim=1).cpu().numpy())  # 这一批次预测label加进去数组
+            # 添加内容方便计算 BSS BS
+            all_predictions_y_true.extend(target.cpu().numpy().flatten())#对应之前的：拿到实际的label
+            pos_prob = output  # 正类概率 [batch_size, 1]
+            neg_prob = 1.0 - pos_prob  # 负类概率 [batch_size, 1]
+            probabilities = torch.cat((neg_prob, pos_prob), dim=1)  # [batch_size, 2]，[负类概率, 正类概率]
+            all_predictions_y_prob.extend(probabilities.cpu().numpy().tolist())  # 存储 [负类概率, 正类概率] 列表 #对应之前的： 拿到概率数值加入数组
 
-                correct += pred.eq(target.data.view_as(pred)).cpu().sum()
-                all_targets.extend(target.cpu().numpy())  # 这一批次实际label加进去数组
+            batch_count += 1
 
-                # 添加内容方便计算BSS BS
-                probabilities = torch.exp(output)  # 拿到这一批次概率数值，对应两个数值
-                # tensor([[0.8139, 0.1861],
-                #         [0.8321, 0.1679],
+        metric = Metric(all_targets, all_predictions)
+        print(metric.Matrix())
+        TSS = metric.TSS()[0]
+        print(f"TSS: {TSS}")
+        test_loss /= batch_count
+        accuracy = correct / len(data_x)
+        message = (
+            '\nTesting: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
+                test_loss, correct, len(data_x), 100. * accuracy))
+        print("本轮评估完成", message)
+        return {'loss': test_loss, 'accuracy': accuracy, 'tss': TSS, "metric": metric}, \
+               all_predictions_y_true, all_predictions_y_prob
 
-                all_predictions_y_true.extend(target.cpu().numpy())  # 拿到预测的实际label
-                all_predictions_y_prob.extend(probabilities.cpu().numpy().tolist())  # 拿到概率数值加入数组
-
-                batch_count += 1
-
-            # 计算当前轮次的指标
-            metric = Metric(all_targets, all_predictions)
-            print(metric.Matrix())
-            TSS = metric.TSS()[0]
-            print(f"TSS: {TSS}")
-            test_loss /= batch_count
-
-            accuracy = correct / len(data_x)
-            message = (
-                '\nTesting: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(test_loss, correct, len(data_x),
-                                                                                      100. * accuracy))
-            print("本轮评估完成", message)
-            return {'loss': test_loss, 'accuracy': accuracy, 'tss': TSS,
-                    "metric": metric}, all_predictions_y_true, all_predictions_y_prob
 
 def evalual_all(data_x, data_y, model,batch_size):
     model.eval()
@@ -276,51 +256,54 @@ def evalual_all(data_x, data_y, model,batch_size):
     all_targets = []
     all_predictions = []
     batch_count = 0
-
     all_predictions_y_true = []
     all_predictions_y_prob = []
+
     with torch.no_grad():
         for data, target in get_batches_all(data_x, data_y, batch_size):
-
             if not isinstance(data, torch.Tensor):
                 data = torch.tensor(data, dtype=torch.float32)
-            if not isinstance(target, torch.Tensor):
-                target = torch.tensor(target, dtype=torch.long)
+            # 修改 target 处理：无论是否为 Tensor，都强制转换为 float32
+            target = torch.tensor(target, dtype=torch.float32) if not isinstance(target, torch.Tensor) else target.to(dtype=torch.float32)
 
             if args.cuda:
                 data, target = data.cuda(), target.cuda()
+                class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32).cuda()
+            else:
+                class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32)
 
-            output = model(data)
-            test_loss += F.nll_loss(output, target,  size_average=False).item()
+            output = model(data)  # [batch_size, 1]，概率值
+            target = target.view(-1, 1)
+            test_loss += F.binary_cross_entropy(output, target, weight=class_weights_cuda).item()
 
-            pred = torch.argmax(output, dim=1)  # 拿到概率最大的下标
-            all_predictions.extend(torch.argmax(output, dim=1).cpu().numpy())  # 这一批次预测label加进去数组
+            pred = (output > 0.5).float()  # 阈值 0.5 这个地方取值就是0或者1
 
+            all_predictions.extend(pred.cpu().numpy().flatten())  # 对应之前的：这一批次预测laebl加进去数组
             correct += pred.eq(target.data.view_as(pred)).cpu().sum()
-            all_targets.extend(target.cpu().numpy())  # 这一批次实际label加进去数组
+            all_targets.extend(target.cpu().numpy().flatten())  # 对应之前的：这一批次实际label加进去数组
 
-
-            # 添加内容方便计算BSS BS
-            probabilities = torch.exp(output)  # 拿到这一批次概率数值，对应两个数值
-            # tensor([[0.8139, 0.1861],
-            #         [0.8321, 0.1679],
-
-            all_predictions_y_true.extend(target.cpu().numpy())  # 拿到预测的实际label
-            all_predictions_y_prob.extend(probabilities.cpu().numpy().tolist())  # 拿到概率数值加入数组
+            # 添加内容方便计算 BSS BS
+            all_predictions_y_true.extend(target.cpu().numpy().flatten())  # 对应之前的：拿到实际的label
+            pos_prob = output  # 正类概率 [batch_size, 1]
+            neg_prob = 1.0 - pos_prob  # 负类概率 [batch_size, 1]
+            probabilities = torch.cat((neg_prob, pos_prob), dim=1)  # [batch_size, 2]，[负类概率, 正类概率]
+            all_predictions_y_prob.extend(probabilities.cpu().numpy().tolist())  # 存储 [负类概率, 正类概率] 列表 #对应之前的： 拿到概率数值加入数组
 
             batch_count += 1
 
-        # 计算当前轮次的指标
         metric = Metric(all_targets, all_predictions)
         print(metric.Matrix())
         TSS = metric.TSS()[0]
         print(f"TSS: {TSS}")
         test_loss /= batch_count
-
         accuracy = correct / len(data_x)
-        message = ('\nTesting: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(test_loss, correct, len(data_x),100. * accuracy))
+        message = (
+            '\nTesting: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
+                test_loss, correct, len(data_x), 100. * accuracy))
         print("本轮评估完成", message)
-        return {'loss': test_loss, 'accuracy': accuracy, 'tss': TSS, "metric": metric},all_predictions_y_true, all_predictions_y_prob
+        return {'loss': test_loss, 'accuracy': accuracy, 'tss': TSS, "metric": metric}, \
+               all_predictions_y_true, all_predictions_y_prob
+
 
 def read_parameters():
     # 初始化参数收集器
@@ -338,7 +321,8 @@ def read_parameters():
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--optim', type=str, default='Adam')
     parser.add_argument('--seed', type=int, default=2021, help='random seed')
-    parser.add_argument('--model_type', type=str, default='Onefitall_13', help='Onefitall,LLMFlareNet')
+    parser.add_argument('--model_type', type=str, default='LLMFlareNet_1',
+                        help='Onefitall,LLMFlareNet')
     parser.add_argument('--bert_emb', type=int, default=768) #不能改BERT-base:768
     parser.add_argument('--d_llm', type=int, default=768) #不能改BERT-base:768
     parser.add_argument('--d_model', type=int, default=16, help='patch of out_channels')
@@ -363,7 +347,7 @@ def read_parameters():
     parser.add_argument('--dropout_rate', type=float, default=0.5, help='Dropout rate')
     parser.add_argument('--fc64_dim', type=int, default=64, help='Dimension for first fully connected layer')
     parser.add_argument('--fc32_dim', type=int, default=32, help='Dimension for second fully connected layer')
-    parser.add_argument('--output_dim', type=int, default=2, help='Output dimension (number of classes)')
+    parser.add_argument('--output_dim', type=int, default=1, help='Output dimension (number of classes)')
     # 备注参数
     parser.add_argument('--conmment', type=str, default="None")
 

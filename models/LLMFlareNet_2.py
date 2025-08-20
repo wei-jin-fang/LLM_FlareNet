@@ -45,7 +45,8 @@ class LLMFlareNet_2Model(nn.Module):
         print("初始化结束")
         # 分类头
         self.classification_head = ClassificationHead(args)
-
+        # 添加 Sigmoid 激活函数
+        self.sigmoid = nn.Sigmoid()
     def forward(self, inputs):
 
         '''
@@ -56,10 +57,10 @@ class LLMFlareNet_2Model(nn.Module):
 
 
         out_put = self.classification_head(input_patchs)
-        out_put = F.log_softmax(out_put, dim=1)
+        # 添加 Sigmoid 激活函数
+        x = self.sigmoid(out_put)  # 形状: [batch_size, 1]
+        return x
 
-
-        return out_put
 
 
 class ClassificationHead(nn.Module):

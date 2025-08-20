@@ -27,7 +27,8 @@ class Onefitall_13Model(nn.Module):
         self.d_model = args.d_model
         self.patch_embedding = PatchEmbedding(args.d_model, patch_len=1, stride=1, dropout=args.dropout)
         self.classification_head = ClassificationHead(args)
-
+        # 添加 Sigmoid 激活函数
+        self.sigmoid = nn.Sigmoid()
         print("初始化结束")
 
     def forward(self, inputs):
@@ -35,10 +36,10 @@ class Onefitall_13Model(nn.Module):
         # Patch 嵌入
         input_patchs, patch_num = self.patch_embedding(inputs)  # [batch, 40, d_model]
         # 分类头
-        attention_mul = self.classification_head(input_patchs)
-        out_put = F.log_softmax(attention_mul, dim=1)
-
-        return out_put
+        x = self.classification_head(input_patchs)
+        # 添加 Sigmoid 激活函数
+        x = self.sigmoid(x)  # 形状: [batch_size, 1]
+        return x
 
 
 class ClassificationHead(nn.Module):
