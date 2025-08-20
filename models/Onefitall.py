@@ -9,13 +9,13 @@ class OnefitallModel(nn.Module):
     def __init__(self, args):
         super(OnefitallModel, self).__init__()
 
-        self.bert_config = BertConfig.from_pretrained(r'./pre_train_model/bert')
+        self.bert_config = BertConfig.from_pretrained(r'E:\conda_code_tf\LLM\bert')
         self.bert_config.num_hidden_layers = args.bert_num_hidden_layers
         self.bert_config.output_attentions = True
         self.bert_config.output_hidden_states = True
 
         self.llm_model = BertModel.from_pretrained(
-            r'./pre_train_model/bert',
+            r'E:\conda_code_tf\LLM\bert',
             trust_remote_code=True,
             local_files_only=True,
             config=self.bert_config,
@@ -33,12 +33,12 @@ class OnefitallModel(nn.Module):
         # inputs: [batch, 40, 10]
         # Patch 嵌入
         input_patchs, patch_num = self.patch_embedding(inputs)  # [batch, 40, d_model]
-        # print(input_patchs.shape,patch_num)torch.Size([16, 40, 768]) 40
+        # print(input_patchs.shape,patch_num)
+        # torch.Size([16, 40, 768]) 40
         # ReprogrammingLayer 处理
 
         # 输入 BERT 模型
         nlp = self.llm_model(inputs_embeds=input_patchs).last_hidden_state  # [batch, 40, 768]
-
         # 分类头
         enc_out_flat = nlp.reshape(nlp.size(0), -1)  # [batch, 40 * 768]
         attention_mul = self.classifier(enc_out_flat)

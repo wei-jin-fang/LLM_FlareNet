@@ -99,13 +99,13 @@ class LLMFlareNetModel(nn.Module):
             patch
         '''
         input_patchs,patch_num=self.patch_embedding(inputs)
-        # print(input_patchs.shape)##torch.Size([16, 7, d_model])
+        # print(input_patchs.shape)##torch.Size([16, 64, d_model])
         '''
             att
         '''
         input2nlp=self.reprogramming_layer(input_patchs,source_embeddings,source_embeddings)
 
-        # print(input2nlp.shape)torch.Size([16, 7, 768])
+        # print(input2nlp.shape)torch.Size([16, 64, 768])
         '''
             输入大模型
         '''
@@ -115,7 +115,7 @@ class LLMFlareNetModel(nn.Module):
         # 去掉提示词，拿出数据部分长度
         nlp2data = nlp[:, -patch_num:, :]  # 切片作用于序列维度，保留最后 patch_num 个 token
 
-        # print(nlp2data.shape)#torch.Size([16, 181, 7])
+        # print(nlp2data.shape)#torch.Size([16, 64, 7])
         # 分类头
         enc_out_flat = nlp2data.reshape(nlp2data.size(0), -1)  # [16, 1036]
         attention_mul = self.classifier(enc_out_flat)

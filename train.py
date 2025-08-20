@@ -333,7 +333,7 @@ def read_parameters():
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--optim', type=str, default='Adam')
     parser.add_argument('--seed', type=int, default=2021, help='random seed')
-    parser.add_argument('--model_type', type=str, default='LLMFlareNet', help='Onefitall,LLMFlareNet')
+    parser.add_argument('--model_type', type=str, default='Onefitall', help='Onefitall,LLMFlareNet')
     parser.add_argument('--bert_emb', type=int, default=768) #不能改BERT-base:768
     parser.add_argument('--d_llm', type=int, default=768) #不能改BERT-base:768
     parser.add_argument('--d_model', type=int, default=16, help='patch of out_channels')
