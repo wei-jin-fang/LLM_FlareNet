@@ -5,9 +5,9 @@ import torch.nn.functional as F
 from transformers import BertConfig, BertModel
 
 
-class OnefitallModel(nn.Module):
+class Onefitall_13Model(nn.Module):
     def __init__(self, args):
-        super(OnefitallModel, self).__init__()
+        super(Onefitall_13Model, self).__init__()
 
         self.bert_config = BertConfig.from_pretrained(r'E:\conda_code_tf\LLM\bert')
         self.bert_config.num_hidden_layers = args.bert_num_hidden_layers
@@ -20,12 +20,13 @@ class OnefitallModel(nn.Module):
             local_files_only=True,
             config=self.bert_config,
         )
-        for param in self.llm_model.parameters():
+        # 不解冻LayerNorm参与训练
+        for name, param in self.llm_model.named_parameters():
             param.requires_grad = False
 
         self.d_model = args.d_model
         self.patch_embedding = PatchEmbedding(args.d_model, patch_len=1, stride=1, dropout=args.dropout)
-        self.classifier = nn.Linear(40 * 768, 2)  # 40 patches, each 768 dim
+        self.classification_head = ClassificationHead(args)
 
         print("初始化结束")
 
@@ -33,19 +34,59 @@ class OnefitallModel(nn.Module):
         # inputs: [batch, 40, 10]
         # Patch 嵌入
         input_patchs, patch_num = self.patch_embedding(inputs)  # [batch, 40, d_model]
-        # print(input_patchs.shape,patch_num)
-        # torch.Size([16, 40, 768]) 40
-        # ReprogrammingLayer 处理
-
-        # 输入 BERT 模型
-        nlp = self.llm_model(inputs_embeds=input_patchs).last_hidden_state  # [batch, 40, 768]
         # 分类头
-        enc_out_flat = nlp.reshape(nlp.size(0), -1)  # [batch, 40 * 768]
-        attention_mul = self.classifier(enc_out_flat)
+        attention_mul = self.classification_head(input_patchs)
         out_put = F.log_softmax(attention_mul, dim=1)
 
         return out_put
 
+
+class ClassificationHead(nn.Module):
+    def __init__(self, args):
+        super(ClassificationHead, self).__init__()
+        # 延迟初始化 batch_norm，nlp_last_dim 将在 forward 中动态获取
+        self.batch_norm = None
+        self.batch_norm64 = nn.BatchNorm1d(args.batch_norm64_dim)
+        self.batch_norm32 = nn.BatchNorm1d(args.batch_norm32_dim)
+        self.final_dropout = nn.Dropout(args.dropout_rate)
+        self.flatten = nn.Flatten()
+        # 延迟初始化 fc64，input_dim 将在 forward 中动态计算
+        self.fc64 = None
+        self.fc32 = nn.Linear(args.fc64_dim, args.fc32_dim)
+        self.outlinear = nn.Linear(args.fc32_dim, args.output_dim)
+        # 存储 args 中的维度参数
+        self.fc64_dim = args.fc64_dim
+
+    def forward(self, x):
+        # x 的形状: [batch_size, patch_num, nlp_last_dim]，例如 [16, 40, 768]
+
+        # 动态获取 nlp_last_dim 和 patch_num
+        batch_size, patch_num, nlp_last_dim = x.shape
+
+        # 在第一次前向传播时动态初始化 batch_norm 和 fc64
+        if self.batch_norm is None:
+            self.batch_norm = nn.BatchNorm1d(nlp_last_dim).to(x.device)
+        if self.fc64 is None:
+            input_dim = nlp_last_dim * patch_num
+            self.fc64 = nn.Linear(input_dim, self.fc64_dim).to(x.device)
+
+        # 转置以适应批量归一化: [batch_size, nlp_last_dim, patch_num]
+        x = x.transpose(1, 2)  # 形状: [batch_size, nlp_last_dim, patch_num]
+        x = self.batch_norm(x)
+
+        # 转置回原始形状并展平
+        x = x.transpose(1, 2)  # 形状: [batch_size, patch_num, nlp_last_dim]
+        x = self.flatten(x)  # 形状: [batch_size, patch_num * nlp_last_dim]
+
+        # 通过全连接层
+        x = self.fc64(x)  # 形状: [batch_size, fc64_dim]
+        x = self.batch_norm64(x)
+        x = self.fc32(x)  # 形状: [batch_size, fc32_dim]
+        x = self.batch_norm32(x)
+        x = self.final_dropout(x)
+        x = self.outlinear(x)  # 形状: [batch_size, output_dim]
+
+        return x
 
 class PatchEmbedding(nn.Module):
     def __init__(self, d_model, patch_len, stride, dropout):

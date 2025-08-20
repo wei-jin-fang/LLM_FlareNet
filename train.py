@@ -12,7 +12,12 @@ import os
 import pandas as pd
 from sklearn.utils import compute_class_weight
 
+from models.LLMFlareNet_1 import LLMFlareNet_1Model
+from models.LLMFlareNet_2 import LLMFlareNet_2Model
 from models.Onefitall import OnefitallModel
+from models.Onefitall_11 import Onefitall_11Model
+from models.Onefitall_12 import Onefitall_12Model
+from models.Onefitall_13 import Onefitall_13Model
 from tools import BS_BSS_score, BSS_eval_np, get_batches_all
 
 from tools import Metric, plot_losses
@@ -333,12 +338,11 @@ def read_parameters():
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--optim', type=str, default='Adam')
     parser.add_argument('--seed', type=int, default=2021, help='random seed')
-    parser.add_argument('--model_type', type=str, default='Onefitall', help='Onefitall,LLMFlareNet')
+    parser.add_argument('--model_type', type=str, default='Onefitall_13', help='Onefitall,LLMFlareNet')
     parser.add_argument('--bert_emb', type=int, default=768) #不能改BERT-base:768
     parser.add_argument('--d_llm', type=int, default=768) #不能改BERT-base:768
     parser.add_argument('--d_model', type=int, default=16, help='patch of out_channels')
     # LLMFlareNetModel训练参数
-
     parser.add_argument('--bert_num_hidden_layers', type=int, default=2)
     parser.add_argument('--description_data', type=str,
                         default="数据形状是40*10,由40个耀斑物理特征时间步数据组成，每个时间步有10个特征,"
@@ -351,16 +355,18 @@ def read_parameters():
     parser.add_argument('--num_tokens', type=int, default=1000, help='映射与时间有关的')
     parser.add_argument('--patch_len', type=int, default=1, help='patch length')#8
     parser.add_argument('--stride', type=int, default=1, help='stride')#5
-    # LLMFlareNetModel训练参数
+    # OnefitallModel训练参数
 
-
-
+    #NN输出层
+    parser.add_argument('--batch_norm64_dim', type=int, default=64, help='Dimension for second batch norm layer')
+    parser.add_argument('--batch_norm32_dim', type=int, default=32, help='Dimension for third batch norm layer')
+    parser.add_argument('--dropout_rate', type=float, default=0.5, help='Dropout rate')
+    parser.add_argument('--fc64_dim', type=int, default=64, help='Dimension for first fully connected layer')
+    parser.add_argument('--fc32_dim', type=int, default=32, help='Dimension for second fully connected layer')
+    parser.add_argument('--output_dim', type=int, default=2, help='Output dimension (number of classes)')
     # 备注参数
     parser.add_argument('--conmment', type=str, default="None")
 
-    # basic config
-    parser.add_argument('--embed', type=str, default='timeF',
-                        help='time features encoding, options:[timeF, fixed, learned]')
     args = parser.parse_args()
     return  args
 
@@ -373,7 +379,12 @@ def get_model(model_name):
     # 在主程序中定义模型映射
     model_dict = {
         "LLMFlareNet": LLMFlareNetModel,
+        "LLMFlareNet_1": LLMFlareNet_1Model,
+        "LLMFlareNet_2": LLMFlareNet_2Model,
         "Onefitall": OnefitallModel,
+        "Onefitall_11": Onefitall_11Model,
+        "Onefitall_12": Onefitall_12Model,
+        "Onefitall_13": Onefitall_13Model,
     }
 
     # 实例化模型

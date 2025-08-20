@@ -8,24 +8,24 @@ from transformers import BertConfig, BertModel, BertTokenizer
 import transformers
 transformers.logging.set_verbosity_error()
 import torch.nn as nn
-class LLMFlareNetModel(nn.Module):
+class LLMFlareNet_1Model(nn.Module):
     def __init__(self,args):
-        super(LLMFlareNetModel, self).__init__()
+        super(LLMFlareNet_1Model, self).__init__()
 
 
-        self.bert_config = BertConfig.from_pretrained(r'./pre_train_model/bert')
+        self.bert_config = BertConfig.from_pretrained(r'E:\conda_code_tf\LLM\bert')
         self.bert_config.num_hidden_layers = args.bert_num_hidden_layers
         self.bert_config.output_attentions = True
         self.bert_config.output_hidden_states = True
 
         self.tokenizer = BertTokenizer.from_pretrained(
-                r'./pre_train_model/bert',
+                r'E:\conda_code_tf\LLM\bert',
                 trust_remote_code=True,
                 local_files_only=True
         )
 
         self.llm_model = BertModel.from_pretrained(
-            r'./pre_train_model/bert',
+            r'E:\conda_code_tf\LLM\bert',
             trust_remote_code=True,
             local_files_only=True,
             config=self.bert_config,
@@ -43,7 +43,8 @@ class LLMFlareNetModel(nn.Module):
         self.patch_embedding = PatchEmbedding(args.d_model, args.patch_len, args.stride, args.dropout)
 
         print("初始化结束")
-        self.classifier = nn.Linear(40 * 768, 2)
+        # 分类头
+        self.classification_head = ClassificationHead(args)
 
     def forward(self, inputs):
         # print(inputs.shape) torch.Size([16, 40, 10])
@@ -115,15 +116,62 @@ class LLMFlareNetModel(nn.Module):
         # 去掉提示词，拿出数据部分长度
         nlp2data = nlp[:, -patch_num:, :]  # 切片作用于序列维度，保留最后 patch_num 个 token
 
-        # print(nlp2data.shape)#torch.Size([16, 64, 7])
+        # print(nlp2data.shape)#torch.Size([16, 64, 768])
         # 分类头
-        enc_out_flat = nlp2data.reshape(nlp2data.size(0), -1)  # [16, 1036]
-        attention_mul = self.classifier(enc_out_flat)
-        out_put = F.log_softmax(attention_mul, dim=1)
-        # out_put=1
+        nlp_last_dim=nlp2data.shape[-1]
+        out_put = self.classification_head(nlp2data)
+        out_put = F.log_softmax(out_put, dim=1)
+
 
         return out_put
 
+
+class ClassificationHead(nn.Module):
+    def __init__(self, args):
+        super(ClassificationHead, self).__init__()
+        # 延迟初始化 batch_norm，nlp_last_dim 将在 forward 中动态获取
+        self.batch_norm = None
+        self.batch_norm64 = nn.BatchNorm1d(args.batch_norm64_dim)
+        self.batch_norm32 = nn.BatchNorm1d(args.batch_norm32_dim)
+        self.final_dropout = nn.Dropout(args.dropout_rate)
+        self.flatten = nn.Flatten()
+        # 延迟初始化 fc64，input_dim 将在 forward 中动态计算
+        self.fc64 = None
+        self.fc32 = nn.Linear(args.fc64_dim, args.fc32_dim)
+        self.outlinear = nn.Linear(args.fc32_dim, args.output_dim)
+        # 存储 args 中的维度参数
+        self.fc64_dim = args.fc64_dim
+
+    def forward(self, x):
+        # x 的形状: [batch_size, patch_num, nlp_last_dim]，例如 [16, 40, 768]
+
+        # 动态获取 nlp_last_dim 和 patch_num
+        batch_size, patch_num, nlp_last_dim = x.shape
+
+        # 在第一次前向传播时动态初始化 batch_norm 和 fc64
+        if self.batch_norm is None:
+            self.batch_norm = nn.BatchNorm1d(nlp_last_dim).to(x.device)
+        if self.fc64 is None:
+            input_dim = nlp_last_dim * patch_num
+            self.fc64 = nn.Linear(input_dim, self.fc64_dim).to(x.device)
+
+        # 转置以适应批量归一化: [batch_size, nlp_last_dim, patch_num]
+        x = x.transpose(1, 2)  # 形状: [batch_size, nlp_last_dim, patch_num]
+        x = self.batch_norm(x)
+
+        # 转置回原始形状并展平
+        x = x.transpose(1, 2)  # 形状: [batch_size, patch_num, nlp_last_dim]
+        x = self.flatten(x)  # 形状: [batch_size, patch_num * nlp_last_dim]
+
+        # 通过全连接层
+        x = self.fc64(x)  # 形状: [batch_size, fc64_dim]
+        x = self.batch_norm64(x)
+        x = self.fc32(x)  # 形状: [batch_size, fc32_dim]
+        x = self.batch_norm32(x)
+        x = self.final_dropout(x)
+        x = self.outlinear(x)  # 形状: [batch_size, output_dim]
+
+        return x
 
 class PatchEmbedding(nn.Module):
     def __init__(self, d_model, patch_len, stride, dropout):
