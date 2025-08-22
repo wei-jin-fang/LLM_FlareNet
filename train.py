@@ -352,7 +352,35 @@ def read_parameters():
     parser.add_argument('--conmment', type=str, default="None")
 
     args = parser.parse_args()
-    return  args
+    return args
+
+def save_args_to_csv(args, model_base):
+    """将args参数保存到CSV文件中，方便调参记录"""
+    args_dict = vars(args)  # 将args转换为字典
+    
+    # 添加时间戳
+    args_dict['timestamp'] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    args_dict['model_output_path'] = model_base
+    
+    # 创建DataFrame
+    df = pd.DataFrame([args_dict])
+    
+    # 保存到model_base目录下
+    csv_path = f"{model_base}/args_config.csv"
+    df.to_csv(csv_path, index=False)
+    print(f"参数配置已保存到: {csv_path}")
+    
+    # 同时保存到项目根目录的汇总文件
+    summary_csv = "args_history.csv"
+    if os.path.exists(summary_csv):
+        # 如果文件存在，追加数据
+        df.to_csv(summary_csv, mode='a', header=False, index=False)
+    else:
+        # 如果文件不存在，创建新文件
+        df.to_csv(summary_csv, index=False)
+    print(f"参数配置已追加到汇总文件: {summary_csv}")
+    
+    return csv_path
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -362,10 +390,8 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 def get_model(model_name):
     # 在主程序中定义模型映射
     model_dict = {
-        "LLMFlareNet": LLMFlareNetModel,
         "LLMFlareNet_1": LLMFlareNet_1Model,
         "LLMFlareNet_2": LLMFlareNet_2Model,
-        "Onefitall": OnefitallModel,
         "Onefitall_11": Onefitall_11Model,
         "Onefitall_12": Onefitall_12Model,
         "Onefitall_13": Onefitall_13Model,
@@ -382,7 +408,7 @@ if __name__ == "__main__":
             args=read_parameters()
 
             # 当前训练备注
-            commment =args.conmment
+            commment =args.model_type
 
             start_time = time.time()
 
@@ -392,6 +418,10 @@ if __name__ == "__main__":
             model_base = f"./model_output/{timelabel}"
             os.makedirs(f"{model_base}")
             os.makedirs(f"{model_base}/plot")
+            
+            # 保存args参数到CSV
+            save_args_to_csv(args, model_base)
+            
             results_filepath = f"{model_base}/important.txt"
             results_logfilepath = f"{model_base}/log.txt"
 
