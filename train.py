@@ -146,9 +146,9 @@ def train_integer(ep, train_x, train_y, optimizer, model, batch_size):
 
         if args.cuda:
             data, target = data.cuda(), target.cuda()
-            class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32).cuda()  # 正类权重
+            class_weights_cuda = torch.tensor([class_weight[0.], class_weight[1.]], dtype=torch.float32).cuda()
         else:
-            class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32)
+            class_weights_cuda = torch.tensor([class_weight[0.], class_weight[1.]], dtype=torch.float32)
 
         optimizer.zero_grad()
         output = model(data)  # [batch_size, 1]，概率值
@@ -176,9 +176,9 @@ def train_all(ep, train_x, train_y, optimizer, model,batch_size):
 
         if args.cuda:
             data, target = data.cuda(), target.cuda()
-            class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32).cuda()  # 正类权重
+            class_weights_cuda = torch.tensor([class_weight[0.], class_weight[1.]], dtype=torch.float32).cuda()
         else:
-            class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32)
+            class_weights_cuda = torch.tensor([class_weight[0.], class_weight[1.]], dtype=torch.float32)
 
         optimizer.zero_grad()
         output = model(data)  # [batch_size, 1]，概率值
@@ -212,9 +212,9 @@ def evaluate_integer(data_x, data_y, model, batch_size):
 
             if args.cuda:
                 data, target = data.cuda(), target.cuda()
-                class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32).cuda()
+                class_weights_cuda = torch.tensor([class_weight[0.], class_weight[1.]], dtype=torch.float32).cuda()
             else:
-                class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32)
+                class_weights_cuda = torch.tensor([class_weight[0.], class_weight[1.]], dtype=torch.float32)
 
             output = model(data)  # [batch_size, 1]，概率值
             target = target.view(-1, 1)
@@ -268,9 +268,9 @@ def evalual_all(data_x, data_y, model,batch_size):
 
             if args.cuda:
                 data, target = data.cuda(), target.cuda()
-                class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32).cuda()
+                class_weights_cuda = torch.tensor([class_weight[0.], class_weight[1.]], dtype=torch.float32).cuda()
             else:
-                class_weights_cuda = torch.tensor([class_weight[1.]], dtype=torch.float32)
+                class_weights_cuda = torch.tensor([class_weight[0.], class_weight[1.]], dtype=torch.float32)
 
             output = model(data)  # [batch_size, 1]，概率值
             target = target.view(-1, 1)
@@ -337,7 +337,7 @@ def read_parameters():
     parser.add_argument('--n_heads', type=int, default=8, help='num of heads')
     parser.add_argument('--dropout', type=float, default=0.5, help='dimension of fcn')
     parser.add_argument('--num_tokens', type=int, default=1000, help='映射与时间有关的')
-    parser.add_argument('--patch_len', type=int, default=1, help='patch length')#8
+    parser.add_argument('--patch_len', type=int, default=2, help='patch length')#8
     parser.add_argument('--stride', type=int, default=1, help='stride')#5
     # OnefitallModel训练参数
 
