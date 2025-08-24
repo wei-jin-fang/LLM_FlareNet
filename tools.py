@@ -267,6 +267,12 @@ def shuffle_data(x, y):
     # 返回打乱后的数据
     return x[indices], y[indices]
 def plot_losses(epoch_losses, dataset_index, loss_type,model_type,path=""):
+    # 如果 epoch_losses 是 PyTorch 张量，确保移到 CPU 并转换为 NumPy
+    if isinstance(epoch_losses, torch.Tensor):
+        epoch_losses = epoch_losses.cpu().numpy()
+    elif isinstance(epoch_losses, list) and any(isinstance(x, torch.Tensor) for x in epoch_losses):
+        epoch_losses = [x.cpu().numpy() if isinstance(x, torch.Tensor) else x for x in epoch_losses]
+
     plt.figure()
     plt.plot(range(1, len(epoch_losses) + 1), epoch_losses, label=f'{loss_type.capitalize()} Loss')
     plt.xlabel('Epoch')

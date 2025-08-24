@@ -14,10 +14,15 @@ from sklearn.utils import compute_class_weight
 
 from models.LLMFlareNet_1 import LLMFlareNet_1Model
 from models.LLMFlareNet_2 import LLMFlareNet_2Model
+from models.LLMFlareNet_5 import LLMFlareNet_5Model
+from models.LLMFlareNet_6 import LLMFlareNet_6Model
 from models.Onefitall import OnefitallModel
 from models.Onefitall_11 import Onefitall_11Model
 from models.Onefitall_12 import Onefitall_12Model
 from models.Onefitall_13 import Onefitall_13Model
+from models.Onefitall_16 import Onefitall_16Model
+from models.Onefitall_17 import Onefitall_17Model
+from models.Onefitall_18 import Onefitall_18Model
 from tools import BS_BSS_score, BSS_eval_np, get_batches_all
 
 from tools import Metric, plot_losses
@@ -153,7 +158,11 @@ def train_integer(ep, train_x, train_y, optimizer, model, batch_size):
         optimizer.zero_grad()
         output = model(data)  # [batch_size, 1]，概率值
         target = target.view(-1, 1)  # 确保 target 形状为 [batch_size, 1]
-        loss = F.binary_cross_entropy(output, target, weight=class_weights_cuda)  # 使用 BCE Loss
+        # 根据 target 生成每个样本的权重
+        weights = torch.zeros_like(target, dtype=torch.float32, device=target.device)
+        weights[target == 0] = class_weights_cuda[0]  # 类别 0 的权重
+        weights[target == 1] = class_weights_cuda[1]  # 类别 1 的权重
+        loss = F.binary_cross_entropy(output, target, weight=weights)  # 使用 BCE Loss
         loss.backward()
         optimizer.step()
         train_loss += loss.item()
@@ -183,7 +192,11 @@ def train_all(ep, train_x, train_y, optimizer, model,batch_size):
         optimizer.zero_grad()
         output = model(data)  # [batch_size, 1]，概率值
         target = target.view(-1, 1)  # 确保 target 形状为 [batch_size, 1]
-        loss = F.binary_cross_entropy(output, target, weight=class_weights_cuda)  # 使用 BCE Loss
+        # 根据 target 生成每个样本的权重
+        weights = torch.zeros_like(target, dtype=torch.float32, device=target.device)
+        weights[target == 0] = class_weights_cuda[0]  # 类别 0 的权重
+        weights[target == 1] = class_weights_cuda[1]  # 类别 1 的权重
+        loss = F.binary_cross_entropy(output, target, weight=weights)  # 使用 BCE Loss
         loss.backward()
         optimizer.step()
         train_loss += loss.item()
@@ -218,7 +231,11 @@ def evaluate_integer(data_x, data_y, model, batch_size):
 
             output = model(data)  # [batch_size, 1]，概率值
             target = target.view(-1, 1)
-            test_loss += F.binary_cross_entropy(output, target, weight=class_weights_cuda).item()
+            # 根据 target 生成每个样本的权重
+            weights = torch.zeros_like(target, dtype=torch.float32, device=target.device)
+            weights[target == 0] = class_weights_cuda[0]  # 类别 0 的权重
+            weights[target == 1] = class_weights_cuda[1]  # 类别 1 的权重
+            test_loss += F.binary_cross_entropy(output, target, weight=weights)  # 使用 BCE Loss.item()
 
             pred = (output > 0.5).float()  # 阈值 0.5 这个地方取值就是0或者1
 
@@ -274,7 +291,11 @@ def evalual_all(data_x, data_y, model,batch_size):
 
             output = model(data)  # [batch_size, 1]，概率值
             target = target.view(-1, 1)
-            test_loss += F.binary_cross_entropy(output, target, weight=class_weights_cuda).item()
+            # 根据 target 生成每个样本的权重
+            weights = torch.zeros_like(target, dtype=torch.float32, device=target.device)
+            weights[target == 0] = class_weights_cuda[0]  # 类别 0 的权重
+            weights[target == 1] = class_weights_cuda[1]  # 类别 1 的权重
+            test_loss += F.binary_cross_entropy(output, target, weight=weights)
 
             pred = (output > 0.5).float()  # 阈值 0.5 这个地方取值就是0或者1
 
@@ -321,7 +342,7 @@ def read_parameters():
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--optim', type=str, default='Adam')
     parser.add_argument('--seed', type=int, default=2021, help='random seed')
-    parser.add_argument('--model_type', type=str, default='LLMFlareNet_1',
+    parser.add_argument('--model_type', type=str, default='Onefitall_18',
                         help='Onefitall,LLMFlareNet')
     parser.add_argument('--bert_emb', type=int, default=768) #不能改BERT-base:768
     parser.add_argument('--d_llm', type=int, default=768) #不能改BERT-base:768
@@ -392,9 +413,17 @@ def get_model(model_name):
     model_dict = {
         "LLMFlareNet_1": LLMFlareNet_1Model,
         "LLMFlareNet_2": LLMFlareNet_2Model,
+        "LLMFlareNet_6": LLMFlareNet_6Model,
+        "LLMFlareNet_5": LLMFlareNet_5Model,
+
+
+
         "Onefitall_11": Onefitall_11Model,
         "Onefitall_12": Onefitall_12Model,
         "Onefitall_13": Onefitall_13Model,
+        "Onefitall_16": Onefitall_16Model,
+        "Onefitall_17": Onefitall_17Model,
+        "Onefitall_18": Onefitall_18Model,
     }
 
     # 实例化模型

@@ -49,20 +49,20 @@ class Model(nn.Module):
         self.dropout4 = nn.Dropout(0.4)
         self.liner400 = nn.Linear(args.hidden_units, 400)
 
-        self.bert_config = BertConfig.from_pretrained(r'./pre_train_model/bert')
+        self.bert_config = BertConfig.from_pretrained(r'E:\conda_code_tf\LLM\bert')
         self.bert_config.num_hidden_layers = args.num_hidden_layers
         self.bert_config.output_attentions = True
         self.bert_config.output_hidden_states = True
 
 
         self.tokenizer = BertTokenizer.from_pretrained(
-                r'./pre_train_model/bert',
+                r'E:\conda_code_tf\LLM\bert',
                 trust_remote_code=True,
                 local_files_only=True
         )
 
         self.llm_model = BertModel.from_pretrained(
-            r'./pre_train_model/bert',
+            r'E:\conda_code_tf\LLM\bert',
             trust_remote_code=True,
             local_files_only=True,
             config=self.bert_config,
