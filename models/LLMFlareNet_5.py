@@ -8,6 +8,83 @@ from transformers import BertConfig, BertModel, BertTokenizer
 import transformers
 transformers.logging.set_verbosity_error()
 import torch.nn as nn
+
+
+class ClassificationHead(nn.Module):
+    def __init__(self, args):
+        super(ClassificationHead, self).__init__()
+        self.flatten = nn.Flatten()
+        self.direct1 = None
+        self.final_dropout=nn.Dropout(args.dropout_rate)
+        self.output_dim=args.output_dim
+
+    def forward(self, x):
+        # x 的形状: [batch_size, patch_num, nlp_last_dim]，例如 [16, 40, 768]
+        # 动态获取 nlp_last_dim 和 patch_num
+        batch_size, patch_num, nlp_last_dim = x.shape
+        if self.direct1 is None:
+            input_dim = nlp_last_dim * patch_num
+            self.direct1 = nn.Linear(input_dim, self.output_dim).to(x.device)
+        x = self.flatten(x)  # 形状: [batch_size, patch_num * nlp_last_dim]
+
+        x = self.direct1(x)
+        x = self.final_dropout(x)
+        # 形状: [batch_size, output_dim]
+
+        return x
+
+
+class PatchEmbedding(nn.Module):
+    def __init__(self, d_model, patch_len, stride, dropout):
+        super(PatchEmbedding, self).__init__()
+        self.patch_len = patch_len
+        self.stride = stride
+        self.value_embedding = nn.Conv1d(in_channels=10, out_channels=d_model,
+                                        kernel_size=patch_len, stride=stride)
+        self.dropout = nn.Dropout(dropout)
+        self.to(torch.float32)  # 确保权重和偏置是 float32
+
+    def forward(self, x):
+        # x: [B, T, N], 例如 [16, 40, 10]
+        B, T, N = x.shape
+        assert T % self.patch_len == 0, f"Input length {T} must be divisible by patch_len {self.patch_len}"
+        x = x.permute(0, 2, 1)  # [B, N, T], 例如 [16, 10, 40]
+        x = self.value_embedding(x)  # [B, d_model, num_patches]
+        x = x.permute(0, 2, 1)  # [B, num_patches, d_model]
+        return self.dropout(x), x.shape[1]  # 返回嵌入和 patch 数量
+
+
+class ReprogrammingLayer(nn.Module):
+    def __init__(self, d_model, n_heads, d_llm,d_keys=None,attention_dropout=0.1):
+        super(ReprogrammingLayer, self).__init__()
+        d_keys = d_keys or (d_model // n_heads)
+        self.query_projection = nn.Linear(d_model, d_keys * n_heads)
+        self.key_projection = nn.Linear(d_llm, d_keys * n_heads)
+        self.value_projection = nn.Linear(d_llm, d_keys * n_heads)
+        self.out_projection = nn.Linear(d_keys * n_heads, d_llm)
+        self.n_heads = n_heads
+        self.dropout = nn.Dropout(attention_dropout)
+
+    def forward(self, target_embedding, source_embedding, value_embedding):
+        B, patch_number, D = target_embedding.shape  # (B, patch_number, d_model)
+        v, _ = source_embedding.shape  # (v, d_llm), v is vocab size
+        H = self.n_heads
+
+        target_embedding = self.query_projection(target_embedding).view(B, patch_number, H, -1)  # (B, patch_number, H, d_keys)
+        source_embedding = self.key_projection(source_embedding).view(v, H, -1)  # (v, H, d_keys)
+        value_embedding = self.value_projection(value_embedding).view(v, H, -1)  # (v, H, d_keys)
+
+        scale = 1. / sqrt(target_embedding.shape[-1])
+        scores = torch.einsum("bphd,vhd->bhpd", target_embedding, source_embedding)  # (B, H, patch_number, v)
+        A = self.dropout(torch.softmax(scale * scores, dim=-1))  # (B, H, patch_number, v)
+        reprogramming_embedding = torch.einsum("bhpd,vhd->bphd", A, value_embedding)  # (B, patch_number, H, d_keys)
+
+        out = reprogramming_embedding.reshape(B, patch_number, -1)  # (B, patch_number, H * d_keys)
+        out = self.out_projection(out)  # (B, patch_number, d_llm)
+        return out
+
+
+
 class LLMFlareNet_5Model(nn.Module):
     def __init__(self,args):
         super(LLMFlareNet_5Model, self).__init__()
@@ -127,104 +204,3 @@ class LLMFlareNet_5Model(nn.Module):
 
         return out_put
 
-
-class ClassificationHead(nn.Module):
-    def __init__(self, args):
-        super(ClassificationHead, self).__init__()
-        # 延迟初始化 batch_norm，nlp_last_dim 将在 forward 中动态获取
-        self.batch_norm = None
-        self.batch_norm64 = nn.BatchNorm1d(args.batch_norm64_dim)
-        self.batch_norm32 = nn.BatchNorm1d(args.batch_norm32_dim)
-        self.final_dropout = nn.Dropout(args.dropout_rate)
-        self.flatten = nn.Flatten()
-        # 延迟初始化 fc64，input_dim 将在 forward 中动态计算
-        self.fc64 = None
-        self.fc32 = nn.Linear(args.fc64_dim, args.fc32_dim)
-        self.outlinear = nn.Linear(args.fc32_dim, args.output_dim)
-        # 存储 args 中的维度参数
-        self.fc64_dim = args.fc64_dim
-
-        self.direct1 = None
-        self.output_dim=args.output_dim
-    def forward(self, x):
-        # x 的形状: [batch_size, patch_num, nlp_last_dim]，例如 [16, 40, 768]
-
-        # 动态获取 nlp_last_dim 和 patch_num
-        batch_size, patch_num, nlp_last_dim = x.shape
-
-        # 在第一次前向传播时动态初始化 batch_norm 和 fc64
-        # if self.batch_norm is None:
-        #     self.batch_norm = nn.BatchNorm1d(nlp_last_dim).to(x.device)
-        # if self.fc64 is None:
-        #     input_dim = nlp_last_dim * patch_num
-        #     self.fc64 = nn.Linear(input_dim, self.fc64_dim).to(x.device)
-        if self.direct1 is None:
-            input_dim = nlp_last_dim * patch_num
-            self.direct1 = nn.Linear(input_dim, self.output_dim).to(x.device)
-        # # 转置以适应批量归一化: [batch_size, nlp_last_dim, patch_num]
-        # x = x.transpose(1, 2)  # 形状: [batch_size, nlp_last_dim, patch_num]
-        # x = self.batch_norm(x)
-        #
-        # # 转置回原始形状并展平
-        # x = x.transpose(1, 2)  # 形状: [batch_size, patch_num, nlp_last_dim]
-        x = self.flatten(x)  # 形状: [batch_size, patch_num * nlp_last_dim]
-
-        # # 通过全连接层
-        # x = self.fc64(x)  # 形状: [batch_size, fc64_dim]
-        # x = self.batch_norm64(x)
-        # x = self.fc32(x)  # 形状: [batch_size, fc32_dim]
-        # x = self.batch_norm32(x)
-        x = self.final_dropout(x)
-        x = self.direct1(x)  # 形状: [batch_size, output_dim]
-
-        return x
-
-
-class PatchEmbedding(nn.Module):
-    def __init__(self, d_model, patch_len, stride, dropout):
-        super(PatchEmbedding, self).__init__()
-        self.patch_len = patch_len
-        self.stride = stride
-        self.value_embedding = nn.Conv1d(in_channels=10, out_channels=d_model,
-                                        kernel_size=patch_len, stride=stride)
-        self.dropout = nn.Dropout(dropout)
-        self.to(torch.float32)  # 确保权重和偏置是 float32
-
-    def forward(self, x):
-        # x: [B, T, N], 例如 [16, 40, 10]
-        B, T, N = x.shape
-        assert T % self.patch_len == 0, f"Input length {T} must be divisible by patch_len {self.patch_len}"
-        x = x.permute(0, 2, 1)  # [B, N, T], 例如 [16, 10, 40]
-        x = self.value_embedding(x)  # [B, d_model, num_patches]
-        x = x.permute(0, 2, 1)  # [B, num_patches, d_model]
-        return self.dropout(x), x.shape[1]  # 返回嵌入和 patch 数量
-
-
-class ReprogrammingLayer(nn.Module):
-    def __init__(self, d_model, n_heads, d_llm,d_keys=None,attention_dropout=0.1):
-        super(ReprogrammingLayer, self).__init__()
-        d_keys = d_keys or (d_model // n_heads)
-        self.query_projection = nn.Linear(d_model, d_keys * n_heads)
-        self.key_projection = nn.Linear(d_llm, d_keys * n_heads)
-        self.value_projection = nn.Linear(d_llm, d_keys * n_heads)
-        self.out_projection = nn.Linear(d_keys * n_heads, d_llm)
-        self.n_heads = n_heads
-        self.dropout = nn.Dropout(attention_dropout)
-
-    def forward(self, target_embedding, source_embedding, value_embedding):
-        B, patch_number, D = target_embedding.shape  # (B, patch_number, d_model)
-        v, _ = source_embedding.shape  # (v, d_llm), v is vocab size
-        H = self.n_heads
-
-        target_embedding = self.query_projection(target_embedding).view(B, patch_number, H, -1)  # (B, patch_number, H, d_keys)
-        source_embedding = self.key_projection(source_embedding).view(v, H, -1)  # (v, H, d_keys)
-        value_embedding = self.value_projection(value_embedding).view(v, H, -1)  # (v, H, d_keys)
-
-        scale = 1. / sqrt(target_embedding.shape[-1])
-        scores = torch.einsum("bphd,vhd->bhpd", target_embedding, source_embedding)  # (B, H, patch_number, v)
-        A = self.dropout(torch.softmax(scale * scores, dim=-1))  # (B, H, patch_number, v)
-        reprogramming_embedding = torch.einsum("bhpd,vhd->bphd", A, value_embedding)  # (B, patch_number, H, d_keys)
-
-        out = reprogramming_embedding.reshape(B, patch_number, -1)  # (B, patch_number, H * d_keys)
-        out = self.out_projection(out)  # (B, patch_number, d_llm)
-        return out
