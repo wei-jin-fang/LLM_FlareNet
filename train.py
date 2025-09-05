@@ -16,6 +16,8 @@ from models.LLMFlareNet_1 import LLMFlareNet_1Model
 from models.LLMFlareNet_2 import LLMFlareNet_2Model
 from models.LLMFlareNet_5 import LLMFlareNet_5Model
 from models.LLMFlareNet_6 import LLMFlareNet_6Model
+from models.LSTM import LSTMModel
+from models.NN import NNModel
 from models.Onefitall import OnefitallModel
 from models.Onefitall_11 import Onefitall_11Model
 from models.Onefitall_12 import Onefitall_12Model
@@ -23,6 +25,7 @@ from models.Onefitall_13 import Onefitall_13Model
 from models.Onefitall_16 import Onefitall_16Model
 from models.Onefitall_17 import Onefitall_17Model
 from models.Onefitall_18 import Onefitall_18Model
+from models.Transformer import TransformerModel
 from tools import BS_BSS_score, BSS_eval_np, get_batches_all
 
 from tools import Metric, plot_losses
@@ -352,11 +355,11 @@ def read_parameters():
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--optim', type=str, default='Adam')
     parser.add_argument('--seed', type=int, default=2021, help='random seed')
-    parser.add_argument('--model_type', type=str, default='Onefitall_18',
+    parser.add_argument('--model_type', type=str, default='NN',
                         help='Onefitall,LLMFlareNet')
     parser.add_argument('--bert_emb', type=int, default=768)  # 不能改BERT-base:768
     parser.add_argument('--d_llm', type=int, default=768)  # 不能改BERT-base:768
-    parser.add_argument('--d_model', type=int, default=16, help='patch of out_channels')
+    parser.add_argument('--d_model', type=int, default=768, help='patch of out_channels')
     # LLMFlareNetModel训练参数
     parser.add_argument('--bert_num_hidden_layers', type=int, default=2)
     parser.add_argument('--description_data', type=str,
@@ -373,12 +376,23 @@ def read_parameters():
     # OnefitallModel训练参数
     parser.add_argument('--onefit_llm_dropout', type=float, default=0.1, help='映射与时间有关的')
 
-    # NN输出层
-    parser.add_argument('--batch_norm64_dim', type=int, default=64, help='Dimension for second batch norm layer')
-    parser.add_argument('--batch_norm32_dim', type=int, default=32, help='Dimension for third batch norm layer')
-    parser.add_argument('--dropout_rate', type=float, default=0.5, help='Dropout rate')
+    # Transformer训练参数
+    # parser.add_argument('--Trans_dmodel', type=int, default=768, help='num of heads')
+    parser.add_argument('--Trans_heads', type=int, default=4, help='num of heads')
+    parser.add_argument('--Trans_depth', type=int, default=1, help='num of heads')
+    parser.add_argument('--Trans_fc1', type=int, default=256, help='num of heads')
+    parser.add_argument('--Trans_dropout1', type=float, default=0.5, help='num of heads')
+    parser.add_argument('--Trans_fc2', type=int, default=64, help='num of heads')
+    parser.add_argument('--Trans_dropout2', type=float, default=0.5, help='num of heads')
+    # LSTM训练参数
+    parser.add_argument('--LSTM_hidden_units', type=int, default=256, help='num of heads')
+    parser.add_argument('--LSTM_num_layers', type=int, default=2, help='num of heads')
+    # NN训练参数
     parser.add_argument('--fc64_dim', type=int, default=64, help='Dimension for first fully connected layer')
     parser.add_argument('--fc32_dim', type=int, default=32, help='Dimension for second fully connected layer')
+    parser.add_argument('--nn_dropout', type=float, default=0.5, help='Dropout rate')
+    # 分类头输出层
+    parser.add_argument('--dropout_rate', type=float, default=0.5, help='Dropout rate')
     parser.add_argument('--output_dim', type=int, default=1, help='Output dimension (number of classes)')
     # 备注参数
     parser.add_argument('--conmment', type=str, default="None")
@@ -433,6 +447,10 @@ def get_model(model_name):
         "Onefitall_16": Onefitall_16Model,
         "Onefitall_17": Onefitall_17Model,
         "Onefitall_18": Onefitall_18Model,
+
+        "Transformer": TransformerModel,
+        "LSTM": LSTMModel,
+        "NN": NNModel,
     }
 
     # 实例化模型
