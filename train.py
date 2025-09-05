@@ -36,6 +36,7 @@ from tools import setup_seed_torch
 from tools import DualOutput
 
 from models.LLMFlareNet import LLMFlareNetModel
+
 '''
 全局变量设置：
 '''
@@ -44,9 +45,9 @@ INPUT_SIZE = 10
 Class_NUM = 2
 FIRST = 1
 
-
 os.environ['CURL_CA_BUNDLE'] = ''
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:64"
+
 
 def load_data(train_csv_path, validate_csv_path, test_csv_path, Class_NUM):
     pd.set_option('display.max_columns', None)  # 意思是不限制显示的列数。这样设置后，无论 Pandas 数据帧有多少列
@@ -94,15 +95,16 @@ def load_data(train_csv_path, validate_csv_path, test_csv_path, Class_NUM):
             tempweight.append(weight)
 
         weight_list = getClass(tempweight)
-        print(f"{path}get_Class函数得到的的权重：", weight_list) #用于测试
+        print(f"{path}get_Class函数得到的的权重：", weight_list)  # 用于测试
 
     return List[0], List[1], List[2], List[3], List[4], List[5]
+
 
 def Preprocess(train_csv_path, validate_csv_path, test_csv_path):
     global FIRST
 
     train_x, train_y, validate_x, validate_y, test_x, test_y = \
-        load_data(train_csv_path, validate_csv_path,test_csv_path, Class_NUM)
+        load_data(train_csv_path, validate_csv_path, test_csv_path, Class_NUM)
 
     train_x = train_x.reshape(-1, TIME_STEPS, INPUT_SIZE)
     train_y = Rectify_binary(train_y, Class_NUM, TIME_STEPS)
@@ -138,6 +140,8 @@ def Preprocess(train_csv_path, validate_csv_path, test_csv_path):
     print(class_weight)
 
     return train_x, train_y, validate_x, validate_y, test_x, test_y, class_weight
+
+
 def train_integer(ep, train_x, train_y, optimizer, model, batch_size):
     global steps
     train_loss = 0
@@ -147,7 +151,8 @@ def train_integer(ep, train_x, train_y, optimizer, model, batch_size):
         if not isinstance(data, torch.Tensor):
             data = torch.tensor(data, dtype=torch.float32)
         # 修改 target 处理：无论是否为 Tensor，都强制转换为 float32
-        target = torch.tensor(target, dtype=torch.float32) if not isinstance(target, torch.Tensor) else target.to(dtype=torch.float32)
+        target = torch.tensor(target, dtype=torch.float32) if not isinstance(target, torch.Tensor) else target.to(
+            dtype=torch.float32)
 
         if args.cuda:
             data, target = data.cuda(), target.cuda()
@@ -172,7 +177,8 @@ def train_integer(ep, train_x, train_y, optimizer, model, batch_size):
     print(message)
     return train_loss / batch_count
 
-def train_all(ep, train_x, train_y, optimizer, model,batch_size):
+
+def train_all(ep, train_x, train_y, optimizer, model, batch_size):
     global steps
     train_loss = 0
     model.train()
@@ -181,7 +187,8 @@ def train_all(ep, train_x, train_y, optimizer, model,batch_size):
         if not isinstance(data, torch.Tensor):
             data = torch.tensor(data, dtype=torch.float32)
         # 修改 target 处理：无论是否为 Tensor，都强制转换为 float32
-        target = torch.tensor(target, dtype=torch.float32) if not isinstance(target, torch.Tensor) else target.to(dtype=torch.float32)
+        target = torch.tensor(target, dtype=torch.float32) if not isinstance(target, torch.Tensor) else target.to(
+            dtype=torch.float32)
 
         if args.cuda:
             data, target = data.cuda(), target.cuda()
@@ -205,6 +212,7 @@ def train_all(ep, train_x, train_y, optimizer, model,batch_size):
     message = ('Train Epoch: {} \t average Loss: {:.6f}'.format(ep, train_loss / batch_count))
     print(message)
     return train_loss / batch_count
+
 
 def evaluate_integer(data_x, data_y, model, batch_size):
     model.eval()
@@ -221,7 +229,8 @@ def evaluate_integer(data_x, data_y, model, batch_size):
             if not isinstance(data, torch.Tensor):
                 data = torch.tensor(data, dtype=torch.float32)
             # 修改 target 处理：无论是否为 Tensor，都强制转换为 float32
-            target = torch.tensor(target, dtype=torch.float32) if not isinstance(target, torch.Tensor) else target.to(dtype=torch.float32)
+            target = torch.tensor(target, dtype=torch.float32) if not isinstance(target, torch.Tensor) else target.to(
+                dtype=torch.float32)
 
             if args.cuda:
                 data, target = data.cuda(), target.cuda()
@@ -239,12 +248,12 @@ def evaluate_integer(data_x, data_y, model, batch_size):
 
             pred = (output > 0.5).float()  # 阈值 0.5 这个地方取值就是0或者1
 
-            all_predictions.extend(pred.cpu().numpy().flatten())#对应之前的：这一批次预测laebl加进去数组
+            all_predictions.extend(pred.cpu().numpy().flatten())  # 对应之前的：这一批次预测laebl加进去数组
             correct += pred.eq(target.data.view_as(pred)).cpu().sum()
-            all_targets.extend(target.cpu().numpy().flatten())#对应之前的：这一批次实际label加进去数组
+            all_targets.extend(target.cpu().numpy().flatten())  # 对应之前的：这一批次实际label加进去数组
 
             # 添加内容方便计算 BSS BS
-            all_predictions_y_true.extend(target.cpu().numpy().flatten())#对应之前的：拿到实际的label
+            all_predictions_y_true.extend(target.cpu().numpy().flatten())  # 对应之前的：拿到实际的label
             pos_prob = output  # 正类概率 [batch_size, 1]
             neg_prob = 1.0 - pos_prob  # 负类概率 [batch_size, 1]
             probabilities = torch.cat((neg_prob, pos_prob), dim=1)  # [batch_size, 2]，[负类概率, 正类概率]
@@ -266,7 +275,7 @@ def evaluate_integer(data_x, data_y, model, batch_size):
                all_predictions_y_true, all_predictions_y_prob
 
 
-def evalual_all(data_x, data_y, model,batch_size):
+def evalual_all(data_x, data_y, model, batch_size):
     model.eval()
     test_loss = 0
     correct = 0
@@ -281,7 +290,8 @@ def evalual_all(data_x, data_y, model,batch_size):
             if not isinstance(data, torch.Tensor):
                 data = torch.tensor(data, dtype=torch.float32)
             # 修改 target 处理：无论是否为 Tensor，都强制转换为 float32
-            target = torch.tensor(target, dtype=torch.float32) if not isinstance(target, torch.Tensor) else target.to(dtype=torch.float32)
+            target = torch.tensor(target, dtype=torch.float32) if not isinstance(target, torch.Tensor) else target.to(
+                dtype=torch.float32)
 
             if args.cuda:
                 data, target = data.cuda(), target.cuda()
@@ -344,8 +354,8 @@ def read_parameters():
     parser.add_argument('--seed', type=int, default=2021, help='random seed')
     parser.add_argument('--model_type', type=str, default='Onefitall_18',
                         help='Onefitall,LLMFlareNet')
-    parser.add_argument('--bert_emb', type=int, default=768) #不能改BERT-base:768
-    parser.add_argument('--d_llm', type=int, default=768) #不能改BERT-base:768
+    parser.add_argument('--bert_emb', type=int, default=768)  # 不能改BERT-base:768
+    parser.add_argument('--d_llm', type=int, default=768)  # 不能改BERT-base:768
     parser.add_argument('--d_model', type=int, default=16, help='patch of out_channels')
     # LLMFlareNetModel训练参数
     parser.add_argument('--bert_num_hidden_layers', type=int, default=2)
@@ -358,11 +368,12 @@ def read_parameters():
     parser.add_argument('--n_heads', type=int, default=8, help='num of heads')
     parser.add_argument('--dropout', type=float, default=0.5, help='dimension of fcn')
     parser.add_argument('--num_tokens', type=int, default=1000, help='映射与时间有关的')
-    parser.add_argument('--patch_len', type=int, default=2, help='patch length')#8
-    parser.add_argument('--stride', type=int, default=1, help='stride')#5
+    parser.add_argument('--patch_len', type=int, default=2, help='patch length')  # 8
+    parser.add_argument('--stride', type=int, default=1, help='stride')  # 5
     # OnefitallModel训练参数
+    parser.add_argument('--onefit_llm_dropout', type=float, default=0.1, help='映射与时间有关的')
 
-    #NN输出层
+    # NN输出层
     parser.add_argument('--batch_norm64_dim', type=int, default=64, help='Dimension for second batch norm layer')
     parser.add_argument('--batch_norm32_dim', type=int, default=32, help='Dimension for third batch norm layer')
     parser.add_argument('--dropout_rate', type=float, default=0.5, help='Dropout rate')
@@ -375,22 +386,23 @@ def read_parameters():
     args = parser.parse_args()
     return args
 
+
 def save_args_to_csv(args, model_base):
     """将args参数保存到CSV文件中，方便调参记录"""
     args_dict = vars(args)  # 将args转换为字典
-    
+
     # 添加时间戳
     args_dict['timestamp'] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     args_dict['model_output_path'] = model_base
-    
+
     # 创建DataFrame
     df = pd.DataFrame([args_dict])
-    
+
     # 保存到model_base目录下
     csv_path = f"{model_base}/args_config.csv"
     df.to_csv(csv_path, index=False)
     print(f"参数配置已保存到: {csv_path}")
-    
+
     # 同时保存到项目根目录的汇总文件
     summary_csv = "args_history.csv"
     if os.path.exists(summary_csv):
@@ -400,12 +412,11 @@ def save_args_to_csv(args, model_base):
         # 如果文件不存在，创建新文件
         df.to_csv(summary_csv, index=False)
     print(f"参数配置已追加到汇总文件: {summary_csv}")
-    
+
     return csv_path
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
 
 
 def get_model(model_name):
@@ -415,8 +426,6 @@ def get_model(model_name):
         "LLMFlareNet_2": LLMFlareNet_2Model,
         "LLMFlareNet_6": LLMFlareNet_6Model,
         "LLMFlareNet_5": LLMFlareNet_5Model,
-
-
 
         "Onefitall_11": Onefitall_11Model,
         "Onefitall_12": Onefitall_12Model,
@@ -432,238 +441,241 @@ def get_model(model_name):
         raise ValueError(f"Unknown model type: {args.model_type}")
     return model_class
 
+
 if __name__ == "__main__":
 
-            args=read_parameters()
+    args = read_parameters()
 
-            # 当前训练备注
-            commment =args.model_type
+    # 当前训练备注
+    commment = args.conmment
 
-            start_time = time.time()
+    start_time = time.time()
 
-            timelabel = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime(time.time()))
+    timelabel = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime(time.time()))
 
-            # 定义训练输出目录
-            model_base = f"./model_output/{timelabel}"
-            os.makedirs(f"{model_base}")
-            os.makedirs(f"{model_base}/plot")
-            
-            # 保存args参数到CSV
-            save_args_to_csv(args, model_base)
-            
-            results_filepath = f"{model_base}/important.txt"
-            results_logfilepath = f"{model_base}/log.txt"
+    # 定义训练输出目录
+    model_base = f"./model_output/{timelabel}"
+    os.makedirs(f"{model_base}")
+    os.makedirs(f"{model_base}/plot")
 
-            #保证输出到txt和控制台
-            sys.stdout = DualOutput(results_logfilepath)
+    # 保存args参数到CSV
+    save_args_to_csv(args, model_base)
 
-            # 定义十个数据集合存储内容
-            all_matrix = np.array([[0, 0], [0, 0]])
-            data_Recall, data_Precision, data_Accuracy, data_TSS, data_BSS, data_HSS, data_FAR = [], [], [], [], [], [], []
+    results_filepath = f"{model_base}/important.txt"
+    results_logfilepath = f"{model_base}/log.txt"
 
-            # 打开文件准备写入
-            with open(results_filepath, 'w') as results_file:
+    # 保证输出到txt和控制台
+    sys.stdout = DualOutput(results_logfilepath)
 
-                # 在循环外部初始化存储损失的列表，每个列表包含所有数据集的损失数据，便于保存每一次损失
-                all_epoch_losses = [[] for _ in range(args.num_dataset + 1)]
-                all_val_losses = [[] for _ in range(args.num_dataset + 1)]
+    # 定义十个数据集合存储内容
+    all_matrix = np.array([[0, 0], [0, 0]])
+    data_Recall, data_Precision, data_Accuracy, data_TSS, data_BSS, data_HSS, data_FAR = [], [], [], [], [], [], []
 
-                for count in range(args.num_dataset + 1):  # 循环处理0-9个数据集
-                    setup_seed_torch(args.seed)
+    # 打开文件准备写入
+    with open(results_filepath, 'w') as results_file:
 
-                    train_csv_path = rf"./data/{count}Train.csv"
-                    validate_csv_path = rf"./data/{count}Val.csv"
-                    test_csv_path = rf"./data/{count}Test.csv"
+        # 在循环外部初始化存储损失的列表，每个列表包含所有数据集的损失数据，便于保存每一次损失
+        all_epoch_losses = [[] for _ in range(args.num_dataset + 1)]
+        all_val_losses = [[] for _ in range(args.num_dataset + 1)]
 
-                    train_x, train_y, validate_x, validate_y, test_x, test_y, class_weight = \
-                        Preprocess(train_csv_path, validate_csv_path, test_csv_path)
+        for count in range(args.num_dataset + 1):  # 循环处理0-9个数据集
+            setup_seed_torch(args.seed)
 
-                    model_filename = f"{model_base}/model_{count}.pt"  # 使用不同的文件名保存模型
+            train_csv_path = rf"./data/{count}Train.csv"
+            validate_csv_path = rf"./data/{count}Val.csv"
+            test_csv_path = rf"./data/{count}Test.csv"
 
-                    # 保证每一个数据集的参数独立互不干扰，获取到lr便于后
-                    # 面学习率步数衰减,提取其他参数方便其他使用
-                    lr = args.lr
-                    batch_size=args.batch_size
+            train_x, train_y, validate_x, validate_y, test_x, test_y, class_weight = \
+                Preprocess(train_csv_path, validate_csv_path, test_csv_path)
 
-                    model=get_model(args.model_type)
-                    model_train = model(args).float()
-                    # model_train = model(args).to(torch.bfloat16)
-                    model_train.to(device)
+            model_filename = f"{model_base}/model_{count}.pt"  # 使用不同的文件名保存模型
 
+            # 保证每一个数据集的参数独立互不干扰，获取到lr便于后
+            # 面学习率步数衰减,提取其他参数方便其他使用
+            lr = args.lr
+            batch_size = args.batch_size
 
-                    optimizer = getattr(optim, args.optim)(model_train.parameters(), lr=lr)
+            model = get_model(args.model_type)
+            model_train = model(args).float()
+            # model_train = model(args).to(torch.bfloat16)
+            model_train.to(device)
 
-                    best_tss = -1
-                    # 在训练开始之前，计算第0轮的训练集和验证集损失
-                    print("==================== 第0轮评估训练集和验证集数据 ====================")
-                    initial_train_metrics, _, _ = evalual_all(train_x, train_y, model_train,batch_size)  # 使用训练集评估当前模型
-                    initial_val_metrics, _, _ = evalual_all(validate_x, validate_y, model_train,batch_size)  # 使用验证集评估当前模型
+            optimizer = getattr(optim, args.optim)(model_train.parameters(), lr=lr)
 
-                    print(f"初始训练集损失: {initial_train_metrics['loss']}, 准确率: {initial_train_metrics['accuracy']}")
-                    print(f"初始验证集损失: {initial_val_metrics['loss']}, 准确率: {initial_val_metrics['accuracy']}")
-                    # 记录初始损失
-                    all_epoch_losses[count].append(initial_train_metrics['loss'])
-                    all_val_losses[count].append(initial_val_metrics['loss'])
+            best_tss = -1
+            # 在训练开始之前，计算第0轮的训练集和验证集损失
+            print("==================== 第0轮评估训练集和验证集数据 ====================")
+            initial_train_metrics, _, _ = evalual_all(train_x, train_y, model_train, batch_size)  # 使用训练集评估当前模型
+            initial_val_metrics, _, _ = evalual_all(validate_x, validate_y, model_train, batch_size)  # 使用验证集评估当前模型
 
-                    # 初始化损失列表并将第0轮损失加入列表
-                    epoch_losses = [initial_train_metrics['loss']]  # 第0轮训练集损失
-                    val_losses = [initial_val_metrics['loss']]  # 第0轮验证集损失
+            print(f"初始训练集损失: {initial_train_metrics['loss']}, 准确率: {initial_train_metrics['accuracy']}")
+            print(f"初始验证集损失: {initial_val_metrics['loss']}, 准确率: {initial_val_metrics['accuracy']}")
+            # 记录初始损失
 
-                    for epoch in range(1, args.epochs + 1):
+            all_epoch_losses[count].append(initial_train_metrics['loss'].item())
+            all_val_losses[count].append(initial_val_metrics['loss'].item())
 
-                        train_shuffle_x, train_shuffle_y = shuffle_data(train_x, train_y)
-                        # 训练一个 epoch
-                        train_loss = train_integer(epoch, train_shuffle_x, train_shuffle_y, optimizer, model_train, batch_size)
-                        epoch_losses.append(train_loss)
-                        all_epoch_losses[count].append(train_loss)# 记录这轮次到当前数据集里面
+            # 初始化损失列表并将第0轮损失加入列表
+            epoch_losses = [initial_train_metrics['loss'].item()]  # 第0轮训练集损失
+            val_losses = [initial_val_metrics['loss'].item()]  # 第0轮验证集损失
 
-                        print(f"====================数据集{count}第{epoch}验证集轮评估数据=============================================")
-                        val_metrics, _, _ = evalual_all(validate_x, validate_y, model_train,batch_size)  # 验证当前模型
-                        val_losses.append(val_metrics['loss'])
-                        all_val_losses[count].append(val_metrics['loss'])# 记录这轮次到当前数据集里面
-                        print(f"====本轮验证集==========")
-                        print(f"目前最佳TSS：{best_tss}")
-                        print(f"本轮验证集TSS：{val_metrics['tss']}")
+            for epoch in range(1, args.epochs + 1):
 
-                        if val_metrics['tss'] > best_tss:
-                            best_tss = val_metrics['tss']
-                            save_torchModel(model_train, model_filename)  # 保存当前最佳模型
+                train_shuffle_x, train_shuffle_y = shuffle_data(train_x, train_y)
+                # 训练一个 epoch
+                train_loss = train_integer(epoch, train_shuffle_x, train_shuffle_y, optimizer, model_train, batch_size)
+                epoch_losses.append(train_loss)
+                all_epoch_losses[count].append(train_loss)  # 记录这轮次到当前数据集里面
 
-                        #  学习率衰减策略
-                        if epoch % 10 == 0:
-                            lr /= 10
-                            for param_group in optimizer.param_groups:
-                                param_group['lr'] = lr
-                    #释放模型准备下一个数据集实例化
-                    del model_train
+                print(f"====================数据集{count}第{epoch}验证集轮评估数据=============================================")
+                val_metrics, _, _ = evalual_all(validate_x, validate_y, model_train, batch_size)  # 验证当前模型
+                val_losses.append(val_metrics['loss'].item())
+                all_val_losses[count].append(val_metrics['loss'].item())  # 记录这轮次到当前数据集里面
+                print(f"====本轮验证集==========")
+                print(f"目前最佳TSS：{best_tss}")
+                print(f"本轮验证集TSS：{val_metrics['tss']}")
 
+                if val_metrics['tss'] > best_tss:
+                    best_tss = val_metrics['tss']
+                    save_torchModel(model_train, model_filename)  # 保存当前最佳模型
 
-                    print(f"====================数据集{count}测试集轮评估数据=============================================")
-                    # 加载最佳模型
-                    model_test = torch.load(model_filename)
-                    # 测试集评估
-                    test_metrics, all_predictions_y_true, all_predictions_y_prob =\
-                        evalual_all(test_x, test_y,model_test,batch_size)
-                    del model_test
-                    # 清理 GPU 内存
-                    # torch.cuda.empty_cache()
+                #  学习率衰减策略
+                if epoch % 10 == 0:
+                    lr /= 10
+                    for param_group in optimizer.param_groups:
+                        param_group['lr'] = lr
+            # 释放模型准备下一个数据集实例化
+            del model_train
 
-                    # 计算测试集矩阵
-                    testMetrics = test_metrics["metric"]
-                    print(testMetrics.Matrix())
-                    all_matrix += testMetrics.Matrix()
+            print(f"====================数据集{count}测试集轮评估数据=============================================")
+            # 加载最佳模型
+            model_test = torch.load(model_filename)
+            # 测试集评估
+            test_metrics, all_predictions_y_true, all_predictions_y_prob = \
+                evalual_all(test_x, test_y, model_test, batch_size)
+            del model_test
+            # 清理 GPU 内存
+            # torch.cuda.empty_cache()
 
-                    data_Recall.append(testMetrics.Recall())
-                    print("Recall", testMetrics.Recall())
+            # 计算测试集矩阵
+            testMetrics = test_metrics["metric"]
+            print(testMetrics.Matrix())
+            all_matrix += testMetrics.Matrix()
 
-                    data_Precision.append(testMetrics.Precision())
-                    print("Precision", testMetrics.Precision())
+            data_Recall.append(testMetrics.Recall())
+            print("Recall", testMetrics.Recall())
 
-                    data_Accuracy.append(testMetrics.Accuracy())
-                    print("Accuracy", testMetrics.Accuracy())
+            data_Precision.append(testMetrics.Precision())
+            print("Precision", testMetrics.Precision())
 
-                    data_TSS.append(testMetrics.TSS())
-                    print("TSS", testMetrics.TSS())
+            data_Accuracy.append(testMetrics.Accuracy())
+            print("Accuracy", testMetrics.Accuracy())
 
-                    data_HSS.append(testMetrics.HSS())
-                    print("HSS", testMetrics.HSS())
+            data_TSS.append(testMetrics.TSS())
+            print("TSS", testMetrics.TSS())
 
-                    data_FAR.append(testMetrics.FAR())
-                    print("FAR", testMetrics.FAR())
+            data_HSS.append(testMetrics.HSS())
+            print("HSS", testMetrics.HSS())
 
-                    # 开始求BSS
-                    y_true = all_predictions_y_true
-                    y_prob = np.array([row[1] for row in all_predictions_y_prob])
+            data_FAR.append(testMetrics.FAR())
+            print("FAR", testMetrics.FAR())
 
-                    BS, BSS = BS_BSS_score(y_true, y_prob)
-                    data_BSS.append([BS, BSS])
-                    print("BS, BSS", [BS, BSS])
+            # 开始求BSS
+            y_true = all_predictions_y_true
+            y_prob = np.array([row[1] for row in all_predictions_y_prob])
 
-                    print(f"数据集 {count} 测试集TSS:", test_metrics['tss'])
-                    print(f"数据集 {count} 验证集最优TSS:", best_tss)
+            BS, BSS = BS_BSS_score(y_true, y_prob)
+            data_BSS.append([BS, BSS])
+            print("BS, BSS", [BS, BSS])
 
-                    # 写入结果到文件
-                    results_file.write(f"数据集 {count} 测试集TSS: {test_metrics['tss']}\n")
-                    results_file.write(f"数据集 {count} 验证集最优TSS: {best_tss}\n")
-                    results_file.write("=================================================================\n")
+            print(f"数据集 {count} 测试集TSS:", test_metrics['tss'])
+            print(f"数据集 {count} 验证集最优TSS:", best_tss)
 
-                    # 绘制并保存损失曲线
-                    plot_losses(epoch_losses, count, 'train', fr"{args.model_type}", path=f"{model_base}/plot")
-                    plot_losses(val_losses, count, 'validation', rf"{args.model_type}", path=f"{model_base}/plot")
+            # 写入结果到文件
+            results_file.write(f"数据集 {count} 测试集TSS: {test_metrics['tss']}\n")
+            results_file.write(f"数据集 {count} 验证集最优TSS: {best_tss}\n")
+            results_file.write("=================================================================\n")
 
-                # 在循环结束后将所有损失数据写入CSV文件
-                df_train_losses = pd.DataFrame(all_epoch_losses).T  # 转置以使每列代表一个数据集的损失
-                df_val_losses = pd.DataFrame(all_val_losses).T
+            # 绘制并保存损失曲线
+            plot_losses(epoch_losses, count, 'train', fr"{args.model_type}", path=f"{model_base}/plot")
+            plot_losses(val_losses, count, 'validation', rf"{args.model_type}", path=f"{model_base}/plot")
 
-                # 保存到CSV文件
-                df_train_losses.to_csv(fr"{model_base}/{args.model_type}_train_loss.csv", index=False)
-                df_val_losses.to_csv(fr"{model_base}/{args.model_type}_validation_loss.csv", index=False)
+        # 在循环结束后将所有损失数据写入CSV文件
+        df_train_losses = pd.DataFrame(all_epoch_losses).T  # 转置以使每列代表一个数据集的损失
+        df_val_losses = pd.DataFrame(all_val_losses).T
 
-                print("#接下来计算所有测试集指标均值和方法")
-                print(all_matrix)
-                print(data_BSS)
-                # 转换数据为numpy数组以便计算
-                data_Recall = np.array(data_Recall)
-                data_Precision = np.array(data_Precision)
-                data_Accuracy = np.array(data_Accuracy)
-                data_TSS = np.array(data_TSS)
-                data_HSS = np.array(data_HSS)
-                data_FAR = np.array(data_FAR)
-                data_BSS = np.array(data_BSS)
-                # 计算均值和标准差
-                results = {
-                    "Metric": ["Recall", "Precision", "Accuracy", "TSS", "HSS", "FAR", "BSS"],
-                    "Mean": [data_Recall.mean(axis=0), data_Precision.mean(axis=0), data_Accuracy.mean(axis=0),
-                             data_TSS.mean(axis=0), data_HSS.mean(axis=0), data_FAR.mean(axis=0), data_BSS.mean(axis=0)],
-                    "Std": [data_Recall.std(axis=0), data_Precision.std(axis=0), data_Accuracy.std(axis=0),
-                            data_TSS.std(axis=0), data_HSS.std(axis=0), data_FAR.std(axis=0), data_BSS.std(axis=0)]
-                }
+        # 保存到CSV文件
+        df_train_losses.to_csv(fr"{model_base}/{args.model_type}_train_loss.csv", index=False)
+        df_val_losses.to_csv(fr"{model_base}/{args.model_type}_validation_loss.csv", index=False)
 
-                # 将结果写入Excel
-                df = pd.DataFrame(results)
-                excel_filename = f'{model_base}/results.xlsx'
-                df.to_excel(excel_filename, index=False)
-                print(f"结果已写入 {excel_filename}")
+        print("#接下来计算所有测试集指标均值和方法")
+        print(all_matrix)
+        print(data_BSS)
+        # 转换数据为numpy数组以便计算
+        data_Recall = np.array(data_Recall)
+        data_Precision = np.array(data_Precision)
+        data_Accuracy = np.array(data_Accuracy)
+        data_TSS = np.array(data_TSS)
+        data_HSS = np.array(data_HSS)
+        data_FAR = np.array(data_FAR)
+        data_BSS = np.array(data_BSS)
+        # 计算均值和标准差
+        results = {
+            "Metric": ["Recall", "Precision", "Accuracy", "TSS", "HSS", "FAR", "BSS"],
+            "Mean": [data_Recall.mean(axis=0), data_Precision.mean(axis=0), data_Accuracy.mean(axis=0),
+                     data_TSS.mean(axis=0), data_HSS.mean(axis=0), data_FAR.mean(axis=0), data_BSS.mean(axis=0)],
+            "Std": [data_Recall.std(axis=0), data_Precision.std(axis=0), data_Accuracy.std(axis=0),
+                    data_TSS.std(axis=0), data_HSS.std(axis=0), data_FAR.std(axis=0), data_BSS.std(axis=0)]
+        }
+        print("++++++++++++++++")
+        print(data_TSS.mean(axis=0))
+        print("++++++++++++++++")
+        # 将结果写入Excel
+        df = pd.DataFrame(results)
+        excel_filename = f'{model_base}/results.xlsx'
+        df.to_excel(excel_filename, index=False)
+        print(f"结果已写入 {excel_filename}")
 
-                # 记录当前TSS
-                # 设置汇总result.xlsx
-                filename = 'result.xlsx'
-                new_row = [f'{model_base}-{commment}', data_TSS.mean(axis=0)[1]]
+        # 记录当前TSS
+        # 设置汇总result.xlsx
+        filename = 'result.xlsx'
+        new_row = [f'{model_base}-{commment}', data_TSS.mean(axis=0)[1]]
 
-                # 判断文件是否存在
-                if os.path.exists(filename):
-                    # 文件存在，加载文件
-                    wb = openpyxl.load_workbook(filename)
-                    ws = wb.active
-                else:
-                    # 文件不存在，创建一个新工作簿
-                    wb = openpyxl.Workbook()
-                    ws = wb.active
+        # 判断文件是否存在
+        if os.path.exists(filename):
+            # 文件存在，加载文件
+            wb = openpyxl.load_workbook(filename)
+            ws = wb.active
+        else:
+            # 文件不存在，创建一个新工作簿
+            wb = openpyxl.Workbook()
+            ws = wb.active
 
-                # 获取当前行数
-                current_row = ws.max_row + 1
+        # 获取当前行数
+        current_row = ws.max_row + 1
 
-                # 将数据写入新行
-                for col_num, value in enumerate(new_row, start=1):
-                    ws.cell(row=current_row, column=col_num, value=value)
+        # 将数据写入新行
+        for col_num, value in enumerate(new_row, start=1):
+            ws.cell(row=current_row, column=col_num, value=value)
 
-                # 保存文件
-                wb.save(filename)
+        # 保存文件
+        wb.save(filename)
 
-            # 删除模型
-            for filename in os.listdir(model_base):
-                # 检查文件是否以 .pt 结尾
-                if filename.endswith('.pt'):
-                    # 构造文件的完整路径
-                    file_path = os.path.join(model_base, filename)
-                    try:
-                        # 删除文件
-                        os.remove(file_path)
-                        pass
-                    except Exception as e:
-                        print(f"删除文件 {file_path} 时出错: {e}")
+    # # 删除模型
+    # for filename in os.listdir(model_base):
+    #     # 检查文件是否以 .pt 结尾
+    #     if filename.endswith('.pt'):
+    #         # 构造文件的完整路径
+    #         file_path = os.path.join(model_base, filename)
+    #         try:
+    #             # 删除文件
+    #             os.remove(file_path)
+    #             pass
+    #         except Exception as e:
+    #             print(f"删除文件 {file_path} 时出错: {e}")
 
-            end_time = time.time()
-            elapsed_time_minutes = (end_time - start_time) / 60
-            print(f"程序运行时间: {elapsed_time_minutes:.2f} 分钟")
+    end_time = time.time()
+    elapsed_time_minutes = (end_time - start_time) / 60
+    print(f"程序运行时间: {elapsed_time_minutes:.2f} 分钟")
+
 

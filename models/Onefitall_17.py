@@ -73,13 +73,15 @@ class Onefitall_17Model(nn.Module):
     def __init__(self, args):
         super(Onefitall_17Model, self).__init__()
 
-        self.bert_config = BertConfig.from_pretrained(r'E:\conda_code_tf\LLM\bert')
+        self.bert_config = BertConfig.from_pretrained(r'/home/ubuntu/student/wjf/LLMVIT_material/bert')
         self.bert_config.num_hidden_layers = args.bert_num_hidden_layers
+        self.bert_config.attention_probs_dropout_prob = args.onefit_llm_dropout
+        self.bert_config.hidden_dropout_prob = args.onefit_llm_dropout
         self.bert_config.output_attentions = True
         self.bert_config.output_hidden_states = True
 
         self.llm_model = BertModel.from_pretrained(
-            r'E:\conda_code_tf\LLM\bert',
+            r'/home/ubuntu/student/wjf/LLMVIT_material/bert',
             trust_remote_code=True,
             local_files_only=True,
             config=self.bert_config,
